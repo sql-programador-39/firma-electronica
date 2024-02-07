@@ -1,0 +1,11 @@
+:root {
+  --color-primary: #f1356d;
+  --color-primary-dark: #da3270;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}

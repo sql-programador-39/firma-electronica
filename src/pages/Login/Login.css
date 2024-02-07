@@ -1,0 +1,14 @@
+.login{
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  grid-template-columns: 1fr 1fr;
+}
+
+.form-login {
+  width: 75%;
+}
+
+.info-login {
+  width: 75%;
+}
