@@ -9,8 +9,10 @@ const Login = () => {
   return (
     <>
       <div className="login">
-        <div className="info-login">
-          <InfoLogin />
+        <div className="bg-info">
+          <div className="info-login">
+            <InfoLogin />
+          </div>
         </div>
 
         <Form className="form-login">

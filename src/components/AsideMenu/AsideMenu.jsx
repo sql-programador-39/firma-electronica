@@ -7,6 +7,7 @@ import {
   PieChartOutlined,
 } from '@ant-design/icons';
 import { Button, Menu } from 'antd';
+import { Link } from 'react-router-dom';
 
 function getItem(label, key, icon, children, type) {
   return {
@@ -33,17 +34,14 @@ const AsideMenu = () => {
       icon: <div onClick={toggleCollapsed}>{collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}</div>,
       type: 'button'
     },
-    getItem('Panel de control', '2', <PieChartOutlined />),
-    getItem('Afiliaciones', '3', <DesktopOutlined />),
-    getItem('Actualización de datos', '4', <ContainerOutlined />),
-    getItem('Solicitud de créditos', '5', <ContainerOutlined />),
+    getItem(<Link to="/control-panel">Panel de control</Link>, '2', <PieChartOutlined />),
   ];
 
   return (
     <div
       style={{
         width: 256, // Modifica el ancho del menú según si está colapsado o no
-        height: '100vh', // Establece la altura al 100% del viewport
+        height: '90vh',
       }}
     >
       <Menu

@@ -6,6 +6,10 @@ import ControlPanel from './pages/ControlPanel/ControlPanel'
 import Login from './pages/Login/Login'
 import ProtectedRoute from './pages/ControlPanel/ProtectedRoute'
 import AuthProvider from './auth/authProvider'
+import Afiliaciones from './pages/Afiliaciones/Afiliaciones.jsx'
+import Actualization from './pages/Actualization/Actualization.jsx'
+import Credits from './pages/Credits/Credits.jsx'
+import Layout from './Layout/Layout'
 
 const router = createBrowserRouter([
 
@@ -24,9 +28,27 @@ const router = createBrowserRouter([
       ],
     } */
     {
-      path: '/control-panel',
-      element: <ControlPanel />,
-    },
+      path: '/',
+      element: <Layout />,
+      children: [
+        {
+          path: '/control-panel',
+          element: <ControlPanel />,
+        },
+        {
+          path: '/afiliaciones',
+          element: <Afiliaciones />,
+        },
+        {
+          path: 'actualizacion-datos',
+          element: <Actualization />,
+        },
+        {
+          path: 'solicitudes-credito',
+          element: <Credits />,
+        }
+      ],
+    } 
   ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -1,7 +1,9 @@
-.container-control {
-    display: flex;
-}
+
 
 .charts-section{
   display: flex;
+}
+
+.control-panel-info{
+  width: 100%;
 }

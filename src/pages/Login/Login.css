@@ -11,4 +11,13 @@
 
 .info-login {
   width: 75%;
+  margin: 0 auto;
+}
+
+.bg-info{
+  background-color: var(--color-primary);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

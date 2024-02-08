@@ -8,7 +8,7 @@ import './Nav.css';
 
 const items = [
   {
-    label: <Link to="/control-panel">Cerrar sesión</Link>,
+    label: <Link to="/">Cerrar sesión</Link>,
     key: '0',
   },
 ];
