@@ -1,36 +1,60 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faFilter, faCalendarDays } from "@fortawesome/free-solid-svg-icons"
+
 import PieChart from "../../components/PieChart/PieChart"
 import BarChart from "../../components/BarsChart/BarChart"
 import LineChart from "../../components/LineChart/LineChart"
 import CardControl from "../../components/CardControl/CardControl"
 
 import './ControlPanel.css'
+import '../../components/CardControl/CardControl.css'
 
 const ControlPanel = () => {
   return (
     <>
       <div className="control-panel-info">
-        <h1>Panel de control</h1>
+
+        <div className="header-control-panel">
+          <div>
+
+            <h1>Panel de control</h1>
+          </div>
+
+          <div>
+
+            <FontAwesomeIcon icon={faFilter} />
+            <select className="input-control">
+              <option value="1">Compañia</option>
+              <option value="2">Últimos 30 días</option>
+              <option value="3">Últimos 90 días</option>
+            </select>
+            
+            <FontAwesomeIcon icon={faCalendarDays} />
+            <input type="date" className="input-control" />
+
+            <input type="date" className="input-control" />
+            
+
+            <button className="">
+              Exportar
+            </button>
+          </div>
+        </div>
 
         <section className="charts-section">
           <div>
             <h3>Distribución documentos firmados</h3>
-            <div>
-              <PieChart />
-            </div>
-          </div>
-
-          <div>
-            <h3>Solicitudes de firma enviadas</h3>
-            <div>
-              <BarChart />
-            </div>
+            <PieChart />
           </div>
 
           <div>
             <h3>Estado de solicitudes</h3>
-            <div>
-              <LineChart />
-            </div>
+            <LineChart /> 
+          </div>
+
+          <div>
+            <h3>Solicitudes de firma enviadas</h3>
+            <BarChart />
           </div>
         </section>
 

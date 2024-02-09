@@ -1,9 +1,26 @@
-
-
 .charts-section{
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  gap: 10px;
+  background: #ededed;
+  border-radius: 10px;
+  padding: 20px;
 }
 
 .control-panel-info{
   width: 100%;
+}
+
+.header-control-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.header-control-panel div:last-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }

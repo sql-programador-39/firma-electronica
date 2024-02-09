@@ -1,41 +1,55 @@
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Pie } from 'react-chartjs-2';
-
-ChartJS.register(ArcElement, Tooltip, Legend);
-
-export const data = {
-  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-  datasets: [
-    {
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)',
-      ],
-      borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)',
-      ],
-      borderWidth: 1,
-    },
-  ],
-};
+import { useEffect, useRef } from 'react';
+import Chart from 'chart.js/auto';
 
 const PieChart = () => {
-  return (
-    <div>
-       <Pie data={data} />
-    </div>
-  )
-}
+  const chartRef = useRef(null);
+  const myPieChart = useRef(null);  // Referencia para almacenar el gráfico
 
-export default PieChart
+  useEffect(() => {
+    // Datos de ejemplo
+    const data = {
+      labels: ['Afiliaciones', 'Actualización de datos', 'Solicitud créditos'],
+      datasets: [{
+        data: [30, 20, 25],
+        // green, orange, blue
+        backgroundColor: ['rgba(76, 175, 80, 0.5)', 'rgba(230, 96, 21, 0.5)', 'rgba(33, 150, 243, 0.5)'],
+        borderColor: ['rgba(76, 175, 80, 1)', 'rgba(230, 96, 21, 1)', 'rgba(33, 150, 243, 1)'],
+        borderWidth: 1,
+      }]
+    };
+
+    // Configuración del gráfico
+    const options = {
+      responsive: true,
+      maintainAspectRatio: false
+    };
+
+    // Destruir el gráfico anterior si existe
+    if (myPieChart.current) {
+      myPieChart.current.destroy();
+    }
+
+    // Crear instancia de gráfico de tipo "pie"
+    const ctx = chartRef.current.getContext('2d');
+    myPieChart.current = new Chart(ctx, {
+      type: 'pie',
+      data: data,
+      options: options
+    });
+
+    // Limpiar al desmontar el componente
+    return () => {
+      if (myPieChart.current) {
+        myPieChart.current.destroy();
+      }
+    };
+  }, []); // Se ejecuta solo al montar/desmontar el componente
+
+  return (
+    <div style={{background: "#fff", padding: "10px", borderRadius: "10px"}}>
+      <canvas ref={chartRef} width="400" height="400"></canvas>
+    </div>
+  );
+};
+
+export default PieChart;
