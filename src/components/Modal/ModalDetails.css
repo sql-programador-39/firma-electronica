@@ -1,4 +1,85 @@
 .modal-info {
+  height: 30%;
+}
+
+.modal-info .p-modal{
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.first-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+}
+
+.first-grid  div {
+  display: flex;
+  gap: 10px;
+}
+
+.second-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+}
+
+.second-grid div {
+  display: flex;
+  gap: 5px;
+}
+
+.third-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+}
+
+.third-grid div {
+  display: flex;
+  gap: 5px;
+}
+
+.modal-info2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  height: 65%;
+}
+
+.modal-info2 h3 {
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.modal-info-button {
+  display: flex;
+  gap: 20px;
+  
+}
+
+.modal-info-button button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--color-primary);
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.3s;
+  box-shadow: 2px 3px 5px #888888;
+  text-align: center;
+}
+
+.body-modal-info {
+  background: #ededed;
+  height: 72%;
+  max-height: 300px;
+  padding: 20px;
+  border-radius: 5px;
+  overflow-y: auto;
+}
+
+.ant-modal-body {
+  height: 50vh;
 }

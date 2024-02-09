@@ -42,7 +42,7 @@ const FormLogin = () => {
         <div>Recuerdame</div>
       </div>
 
-      <div>
+      <div className='submit-button'>
         <input type="submit" 
           value="Iniciar sesión" 
           className="button-login"

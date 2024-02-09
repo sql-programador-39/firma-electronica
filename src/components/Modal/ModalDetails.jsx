@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Modal } from 'antd';
 
+import CardAccion from '../CardAccion/CardAccion';
+import CardFirmante from '../CardFirmante/CardFirmante';
 
 import '../../components/CardControl/CardControl.css';
 import './ModalDetails.css';
@@ -20,70 +22,70 @@ const ModalDetails = () => {
       <button className='button-card' onClick={showModal}>
         Detalle
       </button>
-      <Modal open={isModalOpen} onOk={handleOk} onCancel={() => setIsModalOpen(false)}>
+      <Modal title="Detalle" width="42%" open={isModalOpen} onOk={handleOk} onCancel={() => setIsModalOpen(false)}>
         <section className='modal-info'>
 
+        <div className='first-grid'>
           <div>
-            <p>Identificación:</p>
-            <p></p>
+            <p className='p-modal'>Identificación:</p>
+            <p>1128456987</p>
           </div>
 
           <div>
-            <p>Fecha Solicitud:</p>
-            <p></p>
+            <p className='p-modal'>Nombre:</p>
+            <p>Camilo Alejandro Ardila Molina</p>
+          </div>
+        </div>
+
+        <div className='second-grid'>
+          <div>
+            <p className='p-modal'>Fecha Solicitud:</p>
+            <p>2021/12/10</p>
           </div>
 
           <div>
-            <p>Canal:</p>
-            <p></p>
+            <p className='p-modal'>Estado:</p>
+            <p>Completada</p>
           </div>
 
           <div>
-            <p>Nombre:</p>
-            <p></p>
+            <p className='p-modal'>Fecha Estado:</p>
+            <p>2022/02/25</p>
+          </div>
+        </div>
+
+        <div className='third-grid'>
+          <div>
+            <p className='p-modal'>Canal:</p>
+            <p>El que sea</p>
           </div>
 
-          <div>
-            <p>Estado:</p>
-            <p></p>
-          </div>
-
-          <div>
-            <p>Fecha Estado:</p>
-            <p></p>
-          </div>
-
-          <div>
+          <div className='modal-info-button'>
+            <p className='p-modal'>Archivo:</p>
             <button>Descargar</button>
           </div>
+        </div>
+
         </section>
 
-        <section>
+        <section className='modal-info2'>
           <div>
-            <p>Firmantes</p>
-
-            <div>
-              <div>
-                <p>Identificación:</p>
-                <p></p>
-              </div>
-              <div>
-                <p>Nombre:</p>
-                <p></p>
-              </div>
-              <div>
-                <p>Email:</p>
-                <p></p>
-              </div>
-              <div>
-                <p>Telefono:</p>
-                <p></p>
-              </div>
+            <h3>Firmantes</h3>
+            <div className='body-modal-info'>
+              <CardFirmante />
+              <CardFirmante />
             </div>
           </div>
 
           <div>
-            Seguimiento
+            <h3>Seguimiento</h3>
+
+            <div className='body-modal-info'>
+              <CardAccion />
+              <CardAccion />
+              <CardAccion />
+              <CardAccion />
+            </div>
           </div>
         </section>
       </Modal>

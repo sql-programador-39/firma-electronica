@@ -1,0 +1,7 @@
+.card-accion {
+  background-color: var(--color-primary);
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+}

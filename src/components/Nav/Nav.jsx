@@ -30,7 +30,7 @@ const Nav = () => {
           >
             <a onClick={(e) => e.preventDefault()}>
               <Space>
-                Click me
+                OPA S.A.S
                 <div className='drop-icon'>
                   <img src={user} alt="user" />
                 </div>

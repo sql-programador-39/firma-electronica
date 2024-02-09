@@ -1,0 +1,17 @@
+.card-firmante {
+  background-color: var(--color-primary);
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.card-firmante div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #fff;
+}
+
+.card-firmante div p:nth-child(2) {
+  font-weight: 700;
+}
