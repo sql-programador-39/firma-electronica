@@ -42,6 +42,7 @@ const AsideMenu = () => {
       style={{
         width: 256, // Modifica el ancho del menú según si está colapsado o no
         height: '90vh',
+        
       }}
     >
       <Menu
@@ -51,6 +52,7 @@ const AsideMenu = () => {
         items={items}
         style={{
           height: '100%',
+          position: 'fixed',
         }}
       />
     </div>

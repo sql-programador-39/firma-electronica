@@ -8,15 +8,15 @@
   padding: 20px;
 }
 
-.control-panel-info{
-  width: 100%;
+.charts-section h2{
+  margin-bottom: 10px;
 }
 
 .header-control-panel {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .header-control-panel div:last-child {
@@ -24,3 +24,15 @@
   align-items: center;
   gap: 10px;
 }
+
+.input-control{
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.control-panel-info h2{
+  margin-bottom: 10px;
+}
+

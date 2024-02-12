@@ -1,8 +1,17 @@
+header{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
 main {
   display: flex;
+  margin-top: 72px;
 }
 
 .main-content {
-  padding: 25px;
   width: 100%;
+  padding: 25px;
 }

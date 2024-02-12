@@ -14,9 +14,9 @@ const Layout = () => {
 
 
       <main>
-        <aside>
+        {/* <aside>
           <AsideMenu />
-        </aside>
+        </aside> */}
         <div className="main-content">
           <Outlet />
         </div>
