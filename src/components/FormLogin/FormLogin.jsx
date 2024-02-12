@@ -1,13 +1,18 @@
 import { Switch } from 'antd';
 
+import { useNavigate } from 'react-router-dom';
+
 import './FormLogin.css';
 
 const FormLogin = () => {
 
+  const navigate = useNavigate();
 
   const onChange = (checked) => {
     console.log(`switch to ${checked}`);
   };
+
+
 
   return (
     <>
@@ -46,6 +51,7 @@ const FormLogin = () => {
         <input type="submit" 
           value="Iniciar sesión" 
           className="button-login"
+          onClick={() => navigate('/control-panel')}
         />
       </div>
     </>

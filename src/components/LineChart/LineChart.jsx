@@ -61,7 +61,7 @@ const LineChart = () => {
 
   return (
     <div style={{background: "#fff", padding: "10px", borderRadius: "10px"}}>
-      <canvas ref={chartRef} width="400" height="400"></canvas>
+      <canvas ref={chartRef} width="33.33%" height="100%"></canvas>
     </div>
   );
 };

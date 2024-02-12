@@ -1,6 +1,9 @@
 import { Table } from 'antd';
 
+import ModalDetails from '../../components/Modal/ModalDetails';
+
 import '../../components/CardControl/CardControl.css';
+import '../Afiliaciones/Afiliaciones.css';
 
 const dataSource = [
   {
@@ -9,7 +12,7 @@ const dataSource = [
     nombre: 'Mike',
     estado: 'Completada',
     fecha: '12/12/2021',
-    detalle: <div className='button-card'>Detalle</div>
+    detalle: <ModalDetails />
   },
   {
     key: '2',
@@ -17,7 +20,7 @@ const dataSource = [
     nombre: 'Mike',
     estado: 'Completada',
     fecha: '12/12/2021',
-    detalle: <div className='button-card'>Detalle</div>
+    detalle: <ModalDetails />
   },
   {
     key: '3',
@@ -25,7 +28,7 @@ const dataSource = [
     nombre: 'Mike',
     estado: 'Completada',
     fecha: '12/12/2021',
-    detalle: <div className='button-card'>Detalle</div>
+    detalle: <ModalDetails />
   },
   {
     key: '4',
@@ -33,7 +36,7 @@ const dataSource = [
     nombre: 'Mike',
     estado: 'Completada',
     fecha: '12/12/2021',
-    detalle: <div className='button-card'>Detalle</div>
+    detalle: <ModalDetails />
   },
   {
     key: '5',
@@ -41,7 +44,7 @@ const dataSource = [
     nombre: 'Mike',
     estado: 'Completada',
     fecha: '12/12/2021',
-    detalle: <div className='button-card'>Detalle</div>
+    detalle: <ModalDetails />
   },
   {
     key: '6',
@@ -49,7 +52,7 @@ const dataSource = [
     nombre: 'Mike',
     estado: 'Completada',
     fecha: '12/12/2021',
-    detalle: <div className='button-card'>Detalle</div>
+    detalle: <ModalDetails />
   },
   {
     key: '7',
@@ -57,7 +60,7 @@ const dataSource = [
     nombre: 'Mike',
     estado: 'Completada',
     fecha: '12/12/2021',
-    detalle: <div className='button-card'>Detalle</div>
+    detalle: <ModalDetails />
   },
   {
     key: '8',
@@ -65,7 +68,7 @@ const dataSource = [
     nombre: 'Mike',
     estado: 'Completada',
     fecha: '12/12/2021',
-    detalle: <div className='button-card'>Detalle</div>
+    detalle: <ModalDetails />
   },
   {
     key: '9',
@@ -73,7 +76,7 @@ const dataSource = [
     nombre: 'Mike',
     estado: 'Completada',
     fecha: '12/12/2021',
-    detalle: <div className='button-card'>Detalle</div>
+    detalle: <ModalDetails />
   },
   {
     key: '10',
@@ -81,7 +84,7 @@ const dataSource = [
     nombre: 'Mike',
     estado: 'Completada',
     fecha: '12/12/2021',
-    detalle: <div className='button-card'>Detalle</div>
+    detalle: <ModalDetails />
   },
   {
     key: '11',
@@ -89,7 +92,7 @@ const dataSource = [
     nombre: 'Mike',
     estado: 'Completada',
     fecha: '12/12/2021',
-    detalle: <div className='button-card'>Detalle</div>
+    detalle: <ModalDetails />
   },
   {
     key: '12',
@@ -97,7 +100,7 @@ const dataSource = [
     nombre: 'Mike',
     estado: 'Completada',
     fecha: '12/12/2021',
-    detalle: <div className='button-card'>Detalle</div>
+    detalle: <ModalDetails />
   }
 ];
 
@@ -131,13 +134,13 @@ const columns = [
 
 
 const paginationConfig = {
-  pageSize: 8,
+  pageSize: 9,
 };
 
 const Actualization = () => {
   return (
     <div>
-      <h1>Actualización de datos</h1>
+      <h1 style={{marginBottom: "20px"}}>Actualización de datos</h1>
 
       <Table dataSource={dataSource} columns={columns} pagination={paginationConfig}/>
     </div>

@@ -1,0 +1,4 @@
+.ant-menu-item-selected {
+  background-color: rgba(245, 199, 173, 0.5) !important; /* Cambia esto al color deseado */
+  color: rgba(230, 96, 21, 1) !important; /* Cambia esto al color de texto deseado */
+}

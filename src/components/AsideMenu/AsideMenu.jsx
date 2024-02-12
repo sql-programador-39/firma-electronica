@@ -1,13 +1,12 @@
-import { useState } from 'react';
 import {
-  ContainerOutlined,
-  DesktopOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   PieChartOutlined,
 } from '@ant-design/icons';
-import { Button, Menu } from 'antd';
+import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
+
+import './AsideMenu.css';
 
 function getItem(label, key, icon, children, type) {
   return {
@@ -20,9 +19,8 @@ function getItem(label, key, icon, children, type) {
 }
 
 
-const AsideMenu = () => {
+const AsideMenu = ({collapsed, setCollapsed}) => {
 
-  const [collapsed, setCollapsed] = useState(false);
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
   };
@@ -40,19 +38,18 @@ const AsideMenu = () => {
   return (
     <div
       style={{
-        width: 256, // Modifica el ancho del menú según si está colapsado o no
         height: '90vh',
-        
+        position: 'fixed',
       }}
-    >
+      >
       <Menu
+
         defaultSelectedKeys={['2']}
         mode="inline"
         inlineCollapsed={collapsed}
         items={items}
         style={{
           height: '100%',
-          position: 'fixed',
         }}
       />
     </div>

@@ -7,6 +7,10 @@
   background: #ededed;
 }
 
+.grid-card > div:first-child div {
+  height: 100%;
+}
+
 .info-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -121,11 +125,12 @@
   color: white;
   cursor: pointer;
   font-weight: 700;
-  transition: all 0.3s;
-  box-shadow:  2px 3px 5px #888888;
   text-align: center;
+  font-size: 16px;
+  transition: all 0.4s;
 }
 
 .button-card:hover {
   background-color: var(--color-primary-dark);
+  scale: 1.014;
 }

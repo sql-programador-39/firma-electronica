@@ -22,49 +22,58 @@ const ModalDetails = () => {
       <button className='button-card' onClick={showModal}>
         Detalle
       </button>
-      <Modal title="Detalle" width="42%" open={isModalOpen} onOk={handleOk} onCancel={() => setIsModalOpen(false)}>
+      <Modal 
+        title="Detalle" 
+        width="42%" 
+        open={isModalOpen}
+        onCancel={handleOk} 
+        footer={[
+          <button key="submit" className='button-card' onClick={handleOk}>
+            OK
+          </button>,
+          // Puedes omitir el botón de "Cancelar" aquí
+        ]}
+      >
         <section className='modal-info'>
 
-        <div className='first-grid'>
           <div>
-            <p className='p-modal'>Identificación:</p>
-            <p>1128456987</p>
+            <div>
+              <p className='p-modal'>Identificación:</p>
+              <p>1128456987</p>
+            </div>
+
+            <div>
+              <p className='p-modal'>Nombre:</p>
+              <p>Camilo Alejandro Ardila Molina</p>
+            </div>
+
+
+            <div>
+              <p className='p-modal'>Fecha Solicitud:</p>
+              <p>2021/12/10</p>
+            </div>
+
+            <div>
+              <p className='p-modal'>Fecha Estado:</p>
+              <p>2022/02/25</p>
+            </div>
           </div>
 
           <div>
-            <p className='p-modal'>Nombre:</p>
-            <p>Camilo Alejandro Ardila Molina</p>
-          </div>
-        </div>
+            <div>
+              <p className='p-modal'>Estado:</p>
+              <p>Completada</p>
+            </div>
+            <div>
+              <p className='p-modal'>Canal:</p>
+              <p>El que sea</p>
+            </div>
 
-        <div className='second-grid'>
-          <div>
-            <p className='p-modal'>Fecha Solicitud:</p>
-            <p>2021/12/10</p>
+            <div className='modal-info-button'>
+              <p className='p-modal'>Archivo:</p>
+              <button>Descargar</button>
+            </div>
           </div>
-
-          <div>
-            <p className='p-modal'>Estado:</p>
-            <p>Completada</p>
-          </div>
-
-          <div>
-            <p className='p-modal'>Fecha Estado:</p>
-            <p>2022/02/25</p>
-          </div>
-        </div>
-
-        <div className='third-grid'>
-          <div>
-            <p className='p-modal'>Canal:</p>
-            <p>El que sea</p>
-          </div>
-
-          <div className='modal-info-button'>
-            <p className='p-modal'>Archivo:</p>
-            <button>Descargar</button>
-          </div>
-        </div>
 
         </section>
 

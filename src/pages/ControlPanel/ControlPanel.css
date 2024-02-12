@@ -12,6 +12,37 @@
   margin-bottom: 10px;
 }
 
+.charts-section div div{
+  max-width: 100%;
+  height: 90%;
+}
+
+.charts-section div div canvas{
+  max-width: 100%;
+  height: 100%;
+}
+
+@media screen and (min-width: 1300px) {
+  .charts-section{
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .charts-section div div{
+    height: 80%;
+  }
+  .charts-section h2{
+    height: 20%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .charts-section div div{
+    height: 70%;
+  }
+}
+
 .header-control-panel {
   display: flex;
   justify-content: space-between;

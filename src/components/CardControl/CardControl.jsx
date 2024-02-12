@@ -21,7 +21,7 @@ const CardControl = ({ title, completadas, solicitadas, vencidas, rechazadas, ra
     </div>
 
     <div className="grid-card">
-      <div>
+      <div style={{height: "100%"}}>
         <PieChart />
       </div>
 
