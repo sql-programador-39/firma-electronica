@@ -1,10 +1,11 @@
 .grid-card {
   display: grid;
-  grid-template-columns: 39.2% 60%;
+  grid-template-columns: 33% auto;
   gap: 10px;
   padding: 20px;
   border-radius: 10px;
   background: #ededed;
+  height: 400px;
 }
 
 .grid-card > div:first-child div {
@@ -15,36 +16,36 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
-  padding: 10px;
   font-weight: 700;
   border-radius: 10px;
   background: #fff;
+  padding: 10px;
 }
 
 .grid-item-third-column {
-  grid-column: 3; /* Especifica la tercera columna */
-  grid-row: span 2; /* Ocupa dos filas */
+  grid-column: 3;
+  grid-row: span 2; 
 }
 
 .grid-card-in div{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
+  place-items: center;
   height: 50%;  
 }
 
 .grid-card-in div p {
-  font-size: 1.3rem;
-
+  font-size: 1.5rem;
 }
 
 .grid-card-in div:last-child p{
-  font-size: 2rem;
+  font-size: 2.8rem;
 }
 
 .grid-card-in div > svg{
   width: 50px;
   height: 50px;
+  padding: 10px;
   margin: auto;
   opacity: 0.5;
 }
@@ -82,39 +83,48 @@
 }
 
 .card-yellow {
-  background-color: var(--color-primary);
+  background-color: rgb(233, 169, 8);
   color: #fff;
   padding: 10px;
   border-radius: 10px;
 }
 
 .card-gray {
-  background-color: #607d8b;
+  background-color: rgb(142, 141, 141);
   color: white;
   padding: 10px;
   border-radius: 10px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: center;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
-.card-gray div{
+.card-gray div:first-child{
   display: flex;
   flex-direction: column;
   text-align: center;
 }
 
-.card-gray div p{
-  font-size: 2rem;
+.card-gray div:last-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-gray div p:first-child{
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.card-gray div p:last-child{
+  font-size: 2.7rem;
 }
 
 .card-gray div > svg {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   margin: 10px auto;
   opacity: 0.5;
-
 }
 
 .button-card {

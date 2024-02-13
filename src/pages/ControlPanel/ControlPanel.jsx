@@ -35,7 +35,7 @@ const ControlPanel = () => {
         </div>
       </div>
 
-      {<section className="charts-section">
+      <section className="charts-section">
         <div>
           <h2>Distribución documentos firmados</h2>
           <PieChart />
@@ -50,7 +50,7 @@ const ControlPanel = () => {
           <h2>Solicitudes de firma enviadas</h2>
           <BarChart />
         </div>
-      </section>}
+      </section>
 
       <section>
         <div style={{ margin: '25px 0 30px 0' }}>
@@ -64,7 +64,7 @@ const ControlPanel = () => {
             link="/afiliaciones"
           />
         </div>
-        <div style={{ margin: '30px 0' }}>
+       {/*  <div style={{ margin: '30px 0' }}>
           <CardControl 
             title="Actualización de datos"
             completadas="869"
@@ -85,7 +85,7 @@ const ControlPanel = () => {
             radicadas="3698"
             link="/solicitudes-credito"
           />
-        </div>
+        </div> */}
       </section>
     </>
   )

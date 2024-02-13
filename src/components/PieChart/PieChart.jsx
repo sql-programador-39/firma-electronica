@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
 
 const PieChart = () => {
+  
   const chartRef = useRef(null);
   const myPieChart = useRef(null);  // Referencia para almacenar el gráfico
 
@@ -11,9 +12,9 @@ const PieChart = () => {
       labels: ['Afiliaciones', 'Actualización de datos', 'Solicitud créditos'],
       datasets: [{
         data: [30, 20, 25],
-        // green, orange, blue
-        backgroundColor: ['rgba(76, 175, 80, 0.5)', 'rgba(230, 96, 21, 0.5)', 'rgba(33, 150, 243, 0.5)'],
-        borderColor: ['rgba(76, 175, 80, 1)', 'rgba(230, 96, 21, 1)', 'rgba(33, 150, 243, 1)'],
+        // green, yellow, blue
+        backgroundColor: ['rgba(76, 175, 80, 0.5)', 'rgba(233, 169, 8, 0.5)', 'rgba(33, 150, 243, 0.5)'],
+        borderColor: ['rgba(76, 175, 80, 1)', 'rgba(233, 169, 8, 1)', 'rgba(33, 150, 243, 1)'],
         borderWidth: 1,
       }]
     };

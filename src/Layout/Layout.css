@@ -20,7 +20,7 @@ main {
 }
 
 .main-content > * {
-  max-width: 100%; /* Ajusta esto según tus necesidades */
+  max-width: 100%;
 }
 
 .main-content2 {
@@ -31,7 +31,7 @@ main {
 }
 
 .main-content2 > * {
-  max-width: 100%; /* Ajusta esto según tus necesidades */
+  max-width: 100%;
 }
 
 @media screen and (max-width: 500px) {

@@ -18,7 +18,6 @@ function getItem(label, key, icon, children, type) {
   };
 }
 
-
 const AsideMenu = ({collapsed, setCollapsed}) => {
 
   const toggleCollapsed = () => {
@@ -37,13 +36,9 @@ const AsideMenu = ({collapsed, setCollapsed}) => {
 
   return (
     <div
-      style={{
-        height: '90vh',
-        position: 'fixed',
-      }}
-      >
+      style={{ height: '90vh', position: 'fixed' }}
+    >
       <Menu
-
         defaultSelectedKeys={['2']}
         mode="inline"
         inlineCollapsed={collapsed}

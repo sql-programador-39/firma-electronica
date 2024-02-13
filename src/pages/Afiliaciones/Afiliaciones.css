@@ -7,3 +7,11 @@
 .ant-pagination-item-active a {
   color: #e66015 !important;
 }
+
+.ant-table-content {
+  background-color: #FAFAFA;
+}
+
+.ant-table-cell-row-hover {
+  background-color: #f8dac9 !important;
+}

@@ -17,7 +17,7 @@ const LineChart = () => {
       }, {
         label: 'Actualización de datos',
         data: [15, 35, 20, 25, 40, 30],
-        borderColor: 'rgba(230, 96, 21, 1)',
+        borderColor: 'rgba(233, 169, 8, 1)',
         fill: false
       }, {
         label: 'Solicitud créditos',

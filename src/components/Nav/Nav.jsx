@@ -16,29 +16,27 @@ const items = [
 const Nav = () => {
   return (
     <nav className='navbar'>
-        <div className='nav-title'>
-          <img src={LogoOpa} alt="Logo-opa" />
-          <p>Firma Electrónica</p>
-        </div>
+      <div className='nav-title'>
+        <img src={LogoOpa} alt="Logo-opa" />
+        <p>Firma Electrónica</p>
+      </div>
 
-        <div className='drop'>
-          <Dropdown
-            menu={{
-              items,
-            }}
-            trigger={['click']}
-          >
-            <a onClick={(e) => e.preventDefault()}>
-              <Space>
-                OPA S.A.S
-                <div className='drop-icon'>
-                  <img src={user} alt="user" />
-                </div>
-              </Space>
-            </a>
-          </Dropdown>
-        </div>
-      </nav>
+      <div className='drop'>
+        <Dropdown
+          menu={{ items }}
+          trigger={['click']}
+        >
+          <a onClick={(e) => e.preventDefault()}>
+            <Space>
+              OPA S.A.S
+              <div className='drop-icon'>
+                <img src={user} alt="user" />
+              </div>
+            </Space>
+          </a>
+        </Dropdown>
+      </div>
+    </nav>
   )
 }
 

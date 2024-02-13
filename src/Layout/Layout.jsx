@@ -22,8 +22,8 @@ const Layout = () => {
             setCollapsed={setCollapsed}
           />
         </aside>}
+        
         <div className={collapsed ? 'main-content2' : 'main-content'}>
-
           <Outlet />
         </div>
       </main> 

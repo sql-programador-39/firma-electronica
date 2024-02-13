@@ -1,19 +1,19 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-const CardIn = ({title, number, icon, icon2}) => {
+const CardInGray = ({ title, number, icon, icon2}) => {
   return (
     <>
-      <div>
+     <div>
         <p>{title}</p>
-        <FontAwesomeIcon icon={icon2} />
+        <p>{number}</p>
       </div>
 
       <div>
         <FontAwesomeIcon icon={icon} />
-        <p>{number}</p>
-      </div>
+        <FontAwesomeIcon icon={icon2} />
+      </div> 
     </>
   )
 }
 
-export default CardIn
+export default CardInGray

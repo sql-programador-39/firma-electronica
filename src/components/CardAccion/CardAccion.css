@@ -1,7 +1,16 @@
 .card-accion {
   background-color: #fff;
-  margin-bottom: 10px;
   padding: 10px;
   border-radius: 5px;
   color: #000;
+}
+
+.card-accion > div:last-child{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-accion div:last-child p {
+  font-weight: 700;
 }

@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
 
 const BarChart = () => {
+
   const chartRef = useRef(null);
   const myBarChart = useRef(null);  // Referencia para almacenar el gráfico
 
@@ -34,15 +35,15 @@ const BarChart = () => {
         {
           label: 'Radicadas',
           data: [40, 30, 20, 35, 45],
-          backgroundColor: 'rgba(255, 206, 86, 0.5)', // Amarillo
-          borderColor: 'rgba(255, 206, 86, 1)',
+          backgroundColor: 'rgba(233, 169, 8, 0.5)', // Amarillo
+          borderColor: 'rgba(233, 169, 8, 1)',
           borderWidth: 1
         },
         {
           label: 'Vencidas',
           data: [35, 20, 25, 20, 30],
-          backgroundColor: 'rgba(201, 203, 207, 0.5)',
-          borderColor: 'rgba(201, 203, 207, 1)',
+          backgroundColor: 'rgba(142, 141, 141, 0.5)',
+          borderColor: 'rgba(142, 141, 141, 1)',
           borderWidth: 1
         }
       ]
@@ -76,8 +77,8 @@ const BarChart = () => {
   }, []); // Se ejecuta solo al montar/desmontar el componente
 
   return (
-    <div style={{background: "#fff", padding: "10px", borderRadius: "10px"}}>
-      <canvas ref={chartRef} width="33.33%" height="100%"></canvas>
+    <div style={{ background: "#fff", padding: "10px", borderRadius: "10px" }}>
+      <canvas ref={ chartRef } width="33.33%" height="100%"></canvas>
     </div>
   );
 };
