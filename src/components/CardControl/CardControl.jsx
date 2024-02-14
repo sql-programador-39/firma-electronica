@@ -10,7 +10,7 @@ import { faCircleCheck,
 import './CardControl.css'
 import CardInGray from "./CardInGray"
 
-const CardControl = ({ title, completadas, solicitadas, vencidas, rechazadas, radicadas, link }) => {
+const CardControl = ({ title, completadas, solicitadas, vencidas, rechazadas, radicadas, link, total }) => {
 
   return (
     <>
@@ -23,11 +23,17 @@ const CardControl = ({ title, completadas, solicitadas, vencidas, rechazadas, ra
 
       <div className="grid-card">
         
-        <div style={{ height: "100%" }}>
-          <Doughnut />
+        <div className="total-doughnut" style={{ height: "100%" }}>
+          <Doughnut 
+            completadas={completadas}
+            solicitadas={solicitadas}
+            vencidas={vencidas}
+            rechazadas={rechazadas}
+            radicadas={radicadas}
+          />
           <div>
             <p>Total</p>
-            <p>3698</p>
+            <p>{total}</p>
           </div>
         </div>
 

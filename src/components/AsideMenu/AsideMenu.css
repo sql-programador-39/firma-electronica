@@ -2,3 +2,34 @@
   background-color: rgba(245, 199, 173, 0.5) !important; /* Cambia esto al color deseado */
   color: rgba(230, 96, 21, 1) !important; /* Cambia esto al color de texto deseado */
 }
+
+.div-menu {
+  padding: 4px;
+  border-right: 1px solid rgba(0, 0, 0, .09);
+  cursor: pointer;
+}
+
+.button-menu{
+  background-color: transparent;
+  color: rgba(230, 96, 21, 1);
+  border: none;
+  width: 100%;
+  padding: 7px 0;
+  font-size: 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.aside-menu {
+  width: 200px;
+}
+
+.aside-menu-collapse {
+  width: 80px;
+}
+
+@media screen and (min-width: 1440px) {
+  .aside-menu {
+    width: 250px;
+  }
+}

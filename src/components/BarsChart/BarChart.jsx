@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
 
-const BarChart = () => {
+const BarChart = ({ afiliaciones, actualizacion, creditos}) => {
 
   const chartRef = useRef(null);
   const myBarChart = useRef(null);  // Referencia para almacenar el gráfico
@@ -13,35 +13,35 @@ const BarChart = () => {
       datasets: [
         {
           label: 'Completadas',
-          data: [25, 40, 15, 30, 20],
-          backgroundColor: 'rgba(75, 192, 192, 0.5)', // Verde
-          borderColor: 'rgba(75, 192, 192, 1)',
+          data: [afiliaciones[0], actualizacion[0], creditos[0]],
+          backgroundColor: 'rgba(76, 175, 80, 0.5)', // Verde
+          borderColor: 'rgba(76, 175, 80, 1)',
           borderWidth: 1
         },
         {
           label: 'Rechazadas',
-          data: [30, 25, 40, 15, 50],
+          data: [afiliaciones[3], actualizacion[3], creditos[3]],
           backgroundColor: 'rgba(255, 99, 132, 0.5)', // Rojo
           borderColor: 'rgba(255, 99, 132, 1)',
           borderWidth: 1
         },
         {
           label: 'Solicitadas',
-          data: [20, 35, 30, 25, 40],
+          data: [afiliaciones[1], actualizacion[1], creditos[1]],
           backgroundColor: 'rgba(54, 162, 235, 0.5)', // Azul
           borderColor: 'rgba(54, 162, 235, 1)',
           borderWidth: 1
         },
         {
           label: 'Radicadas',
-          data: [40, 30, 20, 35, 45],
+          data: [afiliaciones[4], actualizacion[4], creditos[4]],
           backgroundColor: 'rgba(233, 169, 8, 0.5)', // Amarillo
           borderColor: 'rgba(233, 169, 8, 1)',
           borderWidth: 1
         },
         {
           label: 'Vencidas',
-          data: [35, 20, 25, 20, 30],
+          data: [afiliaciones[2], actualizacion[2], creditos[2]],
           backgroundColor: 'rgba(142, 141, 141, 0.5)',
           borderColor: 'rgba(142, 141, 141, 1)',
           borderWidth: 1
@@ -53,6 +53,11 @@ const BarChart = () => {
     const options = {
       responsive: true,
       maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: window.innerWidth >= 1300,
+        },
+      }
     };
 
     // Destruir el gráfico anterior si existe

@@ -1,29 +1,54 @@
 import { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
 
-const MyDoughnutChart = () => {
+const MyDoughnutChart = ({ completadas, solicitadas, vencidas, rechazadas, radicadas }) => {
   const chartRef = useRef(null);
+  const myDonChart = useRef(null); 
 
   useEffect(() => {
-    const totalData = [30, 40, 20];
-    const ctx = chartRef.current.getContext('2d');
+    const totalData = [completadas, radicadas, solicitadas, rechazadas, vencidas]
 
-    const doughnutChart = new Chart(ctx, {
+
+    const data = {
+      labels: ['Completadas', 'Radicadas', 'Solicitadas', 'Rechazadas', 'Vencidas'],
+      datasets: [
+        {
+          data: totalData,
+          backgroundColor: ['rgba(76, 175, 80, 0.5)', 'rgba(233, 169, 8, 0.5)', 'rgba(33, 150, 243, 0.5)', 'rgba(255, 99, 132, 0.5)', 'rgba(142, 141, 141, 0.5)'],
+          borderColor: ['rgba(76, 175, 80, 1)', 'rgba(233, 169, 8, 1)', 'rgba(33, 150, 243, 1)', 'rgba(255, 99, 132, 1)', 'rgba(142, 141, 141, 1)'],
+          borderWidth: 1,
+        },
+      ],
+    }
+
+    const options = {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: window.innerWidth >= 1300,
+        },
+      }
+    };
+
+    // Destruir el gráfico anterior si existe
+    if (myDonChart.current) {
+      myDonChart.current.destroy();
+    }
+
+    // Crear instancia de gráfico de tipo "pie"
+    const ctx = chartRef.current.getContext('2d');
+    myDonChart.current = new Chart(ctx, {
       type: 'doughnut',
-      data: {
-        labels: ['Category A', 'Category B', 'Category C'],
-        datasets: [
-          {
-            data: totalData,
-            backgroundColor: ['red', 'green', 'blue'],
-          },
-        ],
-      },
+      data: data,
+      options: options
     });
 
+    // Limpiar al desmontar el componente
     return () => {
-      // Cleanup the chart on component unmount if needed
-      doughnutChart.destroy();
+      if (myDonChart.current) {
+        myDonChart.current.destroy();
+      }
     };
   }, []);
 

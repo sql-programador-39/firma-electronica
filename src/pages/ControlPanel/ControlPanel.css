@@ -22,6 +22,25 @@
   height: 100%;
 }
 
+@media  screen and (max-width: 850px){
+   .charts-section{
+    grid-template-columns: 1fr;
+   }
+
+    .charts-section div{
+      height: 300px;
+    }
+
+    .charts-section canvas {
+      height: 100%;
+    }
+
+    .charts-section h2{
+      font-size: 1.3rem;
+    }
+}
+
+
 
 @media screen and (min-width: 1300px) {
   .charts-section{
@@ -35,6 +54,7 @@
   }
   .charts-section h2{
     height: 20%;
+    font-size: 1.3rem;
   }
 }
 

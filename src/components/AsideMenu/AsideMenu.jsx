@@ -25,19 +25,26 @@ const AsideMenu = ({collapsed, setCollapsed}) => {
   };
 
   const items = [
-    {
-      label: <div onClick={toggleCollapsed}>Menu</div>,
+    /* {
+      label: <div style={{width : "100%", height: "100%"}} onClick={toggleCollapsed}>Menu</div>,
       key: '1',
       icon: <div onClick={toggleCollapsed}>{collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}</div>,
-      type: 'button'
-    },
-    getItem(<Link to="/control-panel">Panel de control</Link>, '2', <PieChartOutlined />),
+    }, */
+/*     getItem(<Link to="/control-panel" onClick={toggleCollapsed}>Menu</Link>, '1', <div onClick={toggleCollapsed}>{collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}</div>),
+ */    getItem(<Link to="/control-panel">Panel de control</Link>, '2', <PieChartOutlined />),
   ];
 
   return (
     <div
       style={{ height: '90vh', position: 'fixed' }}
+      className={collapsed ? 'aside-menu-collapsed' : 'aside-menu'}
     >
+      <div className='div-menu' onClick={toggleCollapsed}>
+        <button className='button-menu'>
+          {collapsed ? <MenuUnfoldOutlined  /> : <MenuFoldOutlined onClick={toggleCollapsed} />}
+        </button>
+      </div>
+
       <Menu
         defaultSelectedKeys={['2']}
         mode="inline"
@@ -45,6 +52,7 @@ const AsideMenu = ({collapsed, setCollapsed}) => {
         items={items}
         style={{
           height: '100%',
+          fontSize: "1.1rem"
         }}
       />
     </div>
