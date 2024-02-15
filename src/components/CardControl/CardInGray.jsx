@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 const CardInGray = ({ title, number, icon, icon2}) => {
   return (
     <>
-     <div>
+     <div className="card-in-gray">
         <p>{title}</p>
         <p>{number}</p>
       </div>

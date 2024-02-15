@@ -128,7 +128,30 @@
   scale: 1.014;
 }
 
+.grid-card-in .card-in-gray {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
+.grid-card-in .card-in-gray p {
+  font-size: 2.5rem;
+}
+
+@media screen and (max-width: 1024px){
+  .grid-card-in .card-in-gray p {
+    font-size: 1.5rem;
+  }
+}
+
+.grid-card-in .card-in-gray svg {
+  width: 60px;
+  height: 60px;
+  padding: 10px;
+  margin: auto;
+  opacity: 0.5;
+}
 
 @media screen and (max-width: 1024px){
   .grid-card-in div p {
@@ -200,6 +223,7 @@
   .grid-card{
     display: grid;
     grid-template-columns: 33% auto;
+    gap: 10px;
     height: auto;
   }
 
@@ -223,4 +247,5 @@
     grid-column: 3;
     grid-row: span 2; 
   }
+
 }

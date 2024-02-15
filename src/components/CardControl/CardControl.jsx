@@ -56,21 +56,22 @@ const CardControl = ({ title, completadas, solicitadas, vencidas, rechazadas, ra
               />
           </div>
 
-          <div className="card-gray grid-card-in grid-item-third-column" /*  */>
-            {/* <CardInGray 
-              title="Vencidas"
-              number={vencidas}
-              icon={faTriangleExclamation}
-              icon2={faChartLine}
-            /> */}
-
-            <CardIn
-              title="Vencidas"
-              number={vencidas}
-              icon={faTriangleExclamation}
-              icon2={faChartLine}
-            />
-
+          <div className="card-gray grid-card-in grid-item-third-column">
+            { window.innerWidth > 820 ? (
+              <CardInGray 
+                title="Vencidas"
+                number={vencidas}
+                icon={faTriangleExclamation}
+                icon2={faChartLine}
+              /> 
+            ):(
+              <CardIn
+                title="Vencidas"
+                number={vencidas}
+                icon={faTriangleExclamation}
+                icon2={faChartLine}
+              />
+            )}
           </div>
           <div className="card-red grid-card-in">
             <CardIn 
