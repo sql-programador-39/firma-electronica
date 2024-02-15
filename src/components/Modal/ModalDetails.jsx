@@ -83,9 +83,9 @@ const ModalDetails = () => {
         </section>
 
         <section className='modal-info2'>
-          <div>
+          <div >
             <h3>Firmantes</h3>
-            <div className='body-modal-info'>
+            <div className='body-modal-info-1'>
               <CardFirmante />
               <CardFirmante />
             </div>
@@ -94,7 +94,7 @@ const ModalDetails = () => {
           <div>
             <h3>Seguimiento</h3>
 
-            <div className='body-modal-info'>
+            <div className='body-modal-info-2'>
               <CardAccion />
               <CardAccion />
               <CardAccion />
