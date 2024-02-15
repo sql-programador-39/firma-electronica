@@ -72,46 +72,52 @@ const ControlPanel = () => {
 
   return (
     <>
-      {/* <div className="header-control-panel">
-
-        
+      <div className="header-control-panel">
+           
         <h1>Panel de control</h1>
 
         <div>
-          <FontAwesomeIcon icon={faFilter} />
-          <select 
-            className="input-control" 
-            onChange={handleChange}
-            value={company}
-            name="company"
-            >
-            <option value="1">Compañias</option>
-            <option value="2">Banco 1</option>
-            <option value="3">Banco 2</option>
-          </select>
-          
-          <FontAwesomeIcon icon={faCalendarDays} />
-          <input 
-            type="date" 
-            className="input-control" 
-            onChange={handleChange}
-            value={dateI}
-            name="dateI"
-          />
-          <span>-</span>
-          <input 
-            type="date" 
-            className="input-control" 
-            onChange={handleChange}
-            value={dateF}
-            name="dateF"  
-          />
-          
-          <button className="button-card">
-            Exportar
-          </button>
+          <div>
+            <FontAwesomeIcon icon={faCalendarDays} />
+            <input 
+              type="date" 
+              className="input-control" 
+              onChange={handleChange}
+              value={dateI}
+              name="dateI"
+            />
+            <span>-</span>
+            <input 
+              type="date" 
+              className="input-control" 
+              onChange={handleChange}
+              value={dateF}
+              name="dateF"  
+            />
+          </div>
+
+            <div>
+              <div>
+                <FontAwesomeIcon icon={faFilter} />
+                <select 
+                  className="input-control" 
+                  onChange={handleChange}
+                  value={company}
+                  name="company"
+                  >
+                  <option value="1">Compañias</option>
+                  <option value="2">Banco 1</option>
+                  <option value="3">Banco 2</option>
+                </select>
+              </div>
+
+
+              <button className="button-card">
+                Exportar
+              </button>
+            </div>
+        </div>
       </div>
-      </div> */}
 
       <section className="charts-section">
         <div>
@@ -142,7 +148,7 @@ const ControlPanel = () => {
         </div>
       </section>
 
-      {/* <section>
+      <section>
         <div style={{ margin: '25px 0 30px 0' }}>
           <CardControl 
             title="Afiliaciones"
@@ -155,6 +161,7 @@ const ControlPanel = () => {
             link="/afiliaciones"
           />
         </div>
+        
         <div style={{ margin: '25px 0 30px 0' }}>
 
           <CardControl 
@@ -180,7 +187,7 @@ const ControlPanel = () => {
             link="/solicitudes-credito"
           />
         </div>
-      </section> */}
+      </section>
     </>
   )
 }

@@ -23,7 +23,7 @@ const CardControl = ({ title, completadas, solicitadas, vencidas, rechazadas, ra
 
       <div className="grid-card">
         
-        <div className="total-doughnut" style={{ height: "100%" }}>
+        <div className="total-doughnut" >
           <Doughnut 
             completadas={completadas}
             solicitadas={solicitadas}
@@ -56,13 +56,21 @@ const CardControl = ({ title, completadas, solicitadas, vencidas, rechazadas, ra
               />
           </div>
 
-          <div className="card-gray grid-item-third-column">
-            <CardInGray 
+          <div className="card-gray grid-card-in grid-item-third-column" /*  */>
+            {/* <CardInGray 
+              title="Vencidas"
+              number={vencidas}
+              icon={faTriangleExclamation}
+              icon2={faChartLine}
+            /> */}
+
+            <CardIn
               title="Vencidas"
               number={vencidas}
               icon={faTriangleExclamation}
               icon2={faChartLine}
             />
+
           </div>
           <div className="card-red grid-card-in">
             <CardIn 

@@ -1,11 +1,7 @@
 .grid-card {
-  display: grid;
-  grid-template-columns: 33% auto;
-  gap: 10px;
   padding: 20px;
   border-radius: 10px;
   background: #ededed;
-  height: 300px;
 }
 
 .grid-card > div:first-child div {
@@ -14,7 +10,7 @@
 
 .info-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 10px;
   font-weight: 700;
   border-radius: 10px;
@@ -22,10 +18,6 @@
   padding: 10px;
 }
 
-.grid-item-third-column {
-  grid-column: 3;
-  grid-row: span 2; 
-}
 
 .grid-card-in div{
   display: grid;
@@ -59,17 +51,6 @@
 
 .total-doughnut {
   position: relative;
-}
-
-.total-doughnut div:first-child {
-  position: absolute;
-  z-index: 100;
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .total-doughnut div:last-child {
@@ -107,9 +88,6 @@
   border-radius: 10px;
 }
 
-.card-red p:first-child{
-  margin-right: 11px;
-}
 
 .card-blue {
   background-color: #2196F3;
@@ -130,37 +108,6 @@
   color: white;
   padding: 10px;
   border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
-.card-gray div:first-child{
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-.card-gray div:last-child {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.card-gray div p:first-child{
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-.card-gray div p:last-child{
-  font-size: 1.4rem;
-}
-
-.card-gray div > svg {
-  width: 40px;
-  height: 40px;
-  margin: 10px auto;
-  opacity: 0.5;
 }
 
 .button-card {
@@ -199,11 +146,6 @@
     margin: auto;
     opacity: 0.5;
   }
-
-  .card-gray div > svg {
-    width: 30px;
-    height: 30px;
-  }
 }
 
 
@@ -237,18 +179,48 @@
   .total-doughnut div:last-child p:last-child {
     font-size: 1.8rem;
   }
-  
-  .card-gray div p:first-child{
-    font-size: 3rem;
+}
+
+
+ @media screen and (max-width: 500px) {
+  .total-doughnut {
+    height: 300px;
     margin-bottom: 10px;
   }
-  
-  .card-gray div p:last-child{
-    font-size: 2.7rem;
+ }
+
+ @media (min-width: 500px) and (max-width: 850px){
+  .info-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+ }
+
+ @media screen and (min-width: 850px) {
+  .grid-card{
+    display: grid;
+    grid-template-columns: 33% auto;
+    height: auto;
+  }
+
+  .info-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
   }
   
-  .card-gray div > svg {
-    width: 60px;
-    height: 60px;
+  .total-doughnut div:first-child {
+    position: absolute;
+    z-index: 100;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .grid-item-third-column {
+    grid-column: 3;
+    grid-row: span 2; 
   }
 }

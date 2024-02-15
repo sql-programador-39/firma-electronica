@@ -64,17 +64,30 @@
   }
 }
 
-.header-control-panel {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
+.header-control-panel h1{
+  margin: 15px 0;
+  text-align: center;
 }
 
-.header-control-panel div:last-child {
+.header-control-panel {
+  margin-bottom: 20px;
+}
+
+.header-control-panel div div {
   display: flex;
-  align-items: center;
   gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.header-control-panel div div:last-child {
+  display: grid;
+  grid-template-columns: 55% auto;
+  gap: 10px;
+}
+
+.header-control-panel div div:last-child div{
+  margin-bottom: 0;
 }
 
 .input-control{
@@ -86,5 +99,60 @@
 
 .control-panel-info h2{
   margin-bottom: 10px;
+}
+
+@media screen and (max-width: 500px){
+  .header-control-panel div div svg{
+    display: none;
+  }
+  
+  .header-control-panel div div:last-child {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 850px) {
+  .header-control-panel div {
+    display: inline;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .header-control-panel div div {
+    gap: 5px;
+  }
+  
+  .header-control-panel div div:last-child {
+    gap: 5px;
+  }
+
+  .header-control-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .header-control-panel div{
+    display: grid;
+    grid-template-columns: 50% auto;
+    gap: 5px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .header-control-panel {
+    flex-direction: row;
+  }
+
+  .header-control-panel div div {
+    gap: 10px;
+  }
+  
+  .header-control-panel div div:last-child {
+    gap: 10px;
+  }
+  
 }
 
