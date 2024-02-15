@@ -20,11 +20,17 @@ const ModalDetails = () => {
   return (
     <>
       <button className='button-card' onClick={showModal}>
-        Detalle
+        {
+          window.innerWidth > 820 ? (
+            'Detalle'
+          ) : (
+            '+'
+          )
+        }
       </button>
       <Modal 
         title="Detalle de la Solicitud"
-        width="42%" 
+        width={window.innerWidth > 820 ? "42%" : "90%"}
         open={isModalOpen}
         onCancel={handleOk} 
         footer={[
