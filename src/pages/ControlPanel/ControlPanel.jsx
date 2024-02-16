@@ -7,6 +7,7 @@ import PieChart from "../../components/PieChart/PieChart"
 import BarChart from "../../components/BarsChart/BarChart"
 import BarChartSends from "../../components/BarChartSends/BarChartSends"
 import CardControl from "../../components/CardControl/CardControl"
+import ErrorAlert from "../../components/ErrorAlert/ErrorAlert"
 
 import './ControlPanel.css'
 import '../../components/CardControl/CardControl.css'
@@ -47,22 +48,77 @@ const ControlPanel = () => {
   const [actualizaciones, setActualizaciones] = useState(getActualizacion())
   const [solicitudes, setSolicitudes] = useState(getCreditos()) */
 
+  const [littleAlert, setLittleAlert] = useState({})
+
 
   const handleChange = (e) => {
 
     const { name, value } = e.target
 
+    
     switch (name) {
       case 'company':
         setCompany(value)
         break;
 
       case 'dateI':
-        setDateI(value)
+
+        if(!validateInitialFinal(value, dateF)) {
+          setLittleAlert({
+            msg: 'La fecha inicial no puede ser mayor a la fecha final, por favor selecciona una fecha válida.',
+          })
+          
+          setTimeout(() => {
+            setLittleAlert({})
+          }, 5000)
+
+          return
+        }
+
+        if(validateInitialDate(value, dateF)) {
+          setDateI(value)
+          setLittleAlert({})
+        } else {
+          setLittleAlert({
+            msg: 'El rango de fecha no puede ser mayor a 30 días, por favor selecciona un rango válido.',
+          })
+          
+          setTimeout(() => {
+            setLittleAlert({})
+          }, 5000)
+
+          return
+        }
         break;
 
       case 'dateF':
-        setDateF(value)
+        if(!validateInitialFinal(dateI, value)) {
+          setLittleAlert({
+            msg: 'La fecha final no puede ser menor a la fecha inicial, por favor selecciona una fecha válida.',
+          })
+          
+          setTimeout(() => {
+            setLittleAlert({})
+          }, 5000)
+
+          return
+        }
+
+        if(validateFinalDate(value)) {
+          setDateF(value)
+          setLittleAlert({})
+        } else {
+          setLittleAlert({
+            msg: 'La fecha final no puede ser mayor a la fecha del día de hoy, por favor selecciona una fecha válida.',
+          })
+          
+          setTimeout(() => {
+            setLittleAlert({})
+          }, 5000)
+
+          return
+        }
+        
         break;
 
       default:
@@ -70,11 +126,56 @@ const ControlPanel = () => {
     }
   }
 
+  const validateInitialFinal = (initialDate, finalDate) => {
+    const enteredDate = new Date(initialDate);
+    const finalDateInput = new Date(finalDate);
+
+    if(enteredDate > finalDateInput) {
+      return false
+    } 
+    return true
+  }
+
+  const validateInitialDate = (initialDate, finalDate) => {
+      
+      const enteredDate = new Date(initialDate);
+  
+      const finalDateInput = new Date(finalDate);
+
+      const timeDifference = finalDateInput.getTime() - enteredDate.getTime();
+      const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
+  
+      if(daysDifference  > 30) {
+        return false
+      } else {
+        return true
+      }
+      
+  }
+
+  const validateFinalDate = (finalDate) => {
+
+    const enteredDate = new Date(finalDate);
+
+    const currentDate = new Date();
+
+    if(enteredDate > currentDate) {
+      return false
+    } 
+      
+    return true
+  }
+
   return (
     <>
+        {littleAlert.msg &&    
+          <ErrorAlert msg={littleAlert.msg} />
+        }
+
       <div className="header-control-panel">
            
         <h1>Panel de control</h1>
+
 
         <div>
           <div>
@@ -96,26 +197,26 @@ const ControlPanel = () => {
             />
           </div>
 
+          <div>
             <div>
-              <div>
-                <FontAwesomeIcon icon={faFilter} />
-                <select 
-                  className="input-control" 
-                  onChange={handleChange}
-                  value={company}
-                  name="company"
-                  >
-                  <option value="1">Compañias</option>
-                  <option value="2">Banco 1</option>
-                  <option value="3">Banco 2</option>
-                </select>
-              </div>
-
-
-              <button className="button-card">
-                Exportar
-              </button>
+              <FontAwesomeIcon icon={faFilter} />
+              <select 
+                className="input-control" 
+                onChange={handleChange}
+                value={company}
+                name="company"
+                >
+                <option value="1">Compañias</option>
+                <option value="2">Banco 1</option>
+                <option value="3">Banco 2</option>
+              </select>
             </div>
+
+
+            <button className="button-card">
+              Exportar
+            </button>
+          </div>
         </div>
       </div>
 

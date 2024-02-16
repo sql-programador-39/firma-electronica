@@ -1,26 +1,57 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect } from 'react';
 
-const AuthContext = createContext({
-  isAuthenticaded: false,
-});
+import clientAxios from '../config/clientAxios';
 
-export const useAuth = () => {
-  return useContext(AuthContext);
-};
+const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   
   const [isAuthenticaded, setIsAuthenticaded] = useState(true)
 
+  const [auth, setAuth] = useState({})
+
+  useEffect(() => {
+
+    const authUser = async () => {
+      const token = localStorage.getItem('token')
+      
+      if(!token) return
+
+      const config = {
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${token}`
+        }
+      }
+      
+      try {
+        const { data } = await clientAxios('/auth', config)
+        setAuth(data)
+        setIsAuthenticaded(true)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    authUser()
+
+  }, [])
+  
+
   return (
     <AuthContext.Provider 
-    value={
-      {isAuthenticaded}
-    }
+      value={{
+        isAuthenticaded,
+        setIsAuthenticaded
+      }}
     >
       {children}
     </AuthContext.Provider>
   )
 }
 
-export default AuthProvider
+export {
+  AuthProvider
+}
+
+export default AuthContext

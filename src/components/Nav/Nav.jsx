@@ -1,19 +1,33 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
 import { Dropdown, Space } from 'antd';
 import user from '../../assets/user.png';
+import useAuth from '../../hooks/useAuth';
 
 import LogoOpa from '../../assets/Logo-opa.png';
 
 import './Nav.css';
 
-const items = [
-  {
-    label: <Link to="/">Cerrar sesión</Link>,
-    key: '0',
-  },
-];
 
 const Nav = () => {
+  
+  const navigate = useNavigate();
+
+  const { setIsAuthenticaded } = useAuth();
+  
+  const handleClick = () => {
+    localStorage.removeItem('token');
+
+    setIsAuthenticaded(false);
+    navigate('/');
+  }
+
+  const items = [
+    {
+      label: <div onClick={handleClick}>Cerrar sesión</div>,
+      key: '0',
+    },
+  ];
+
   return (
     <nav className='navbar'>
       <div className='nav-title'>
@@ -26,7 +40,7 @@ const Nav = () => {
           menu={{ items }}
           trigger={['click']}
         >
-          <a onClick={(e) => e.preventDefault()}>
+          <a >
             <Space>
               OPA S.A.S
               <div className='drop-icon'>

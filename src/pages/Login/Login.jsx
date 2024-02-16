@@ -1,5 +1,3 @@
-import { Form } from "react-router-dom" 
-
 import InfoLogin from "../../components/InfoLogin/InfoLogin"
 import FormLogin from "../../components/FormLogin/FormLogin"
 
@@ -15,9 +13,7 @@ const Login = () => {
           </div>
         </div>
 
-        <Form className="form-login">
-          <FormLogin />
-        </Form>
+        <FormLogin />
       </div>    
     </>
   )
