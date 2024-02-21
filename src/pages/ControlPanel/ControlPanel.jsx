@@ -55,7 +55,6 @@ const ControlPanel = () => {
 
     const { name, value } = e.target
 
-    
     switch (name) {
       case 'company':
         setCompany(value)
@@ -168,9 +167,9 @@ const ControlPanel = () => {
 
   return (
     <>
-        {littleAlert.msg &&    
-          <ErrorAlert msg={littleAlert.msg} />
-        }
+
+
+      { littleAlert.msg && <ErrorAlert msg={littleAlert.msg} /> }
 
       <div className="header-control-panel">
            

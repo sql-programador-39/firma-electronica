@@ -13,7 +13,6 @@ main {
 }
 
 .main-content {
-  flex-grow: 1;
   padding: 25px 25px 25px 225px;
   width: 100% ;
   transition: all 0.4s ease;
@@ -24,7 +23,6 @@ main {
 }
 
 .main-content2 {
-  flex-grow: 1;
   padding: 25px 25px 25px 105px;
   width: 100%;
   transition: all 0.4s ease;
@@ -38,7 +36,7 @@ main {
   max-width: 100%;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 540px) {
   .main-content {
     padding: 25px;
     flex-direction: column;
@@ -57,7 +55,7 @@ main {
     padding: 25px 25px 25px 275px;
   }
   .main-content2 {
-    padding: 25px 25px 25px 80px;
+    padding: 25px 25px 25px 105px;
   }
   
 }

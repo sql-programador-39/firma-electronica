@@ -25,6 +25,7 @@ const AsideMenu = ({collapsed, setCollapsed}) => {
   };
 
   const items = [
+    
     /* {
       label: <div style={{width : "100%", height: "100%"}} onClick={toggleCollapsed}>Menu</div>,
       key: '1',
@@ -39,9 +40,9 @@ const AsideMenu = ({collapsed, setCollapsed}) => {
       style={{ height: '90vh', position: 'fixed' }}
       className={collapsed ? 'aside-menu-collapsed' : 'aside-menu'}
     >
-      <div className='div-menu' onClick={toggleCollapsed}>
+      <div className={ collapsed ? 'div-menu-collapse' : 'div-menu' } onClick={toggleCollapsed}>
         <button className='button-menu'>
-          {collapsed ? <MenuUnfoldOutlined  /> : <MenuFoldOutlined onClick={toggleCollapsed} />}
+          {collapsed ? <MenuUnfoldOutlined  /> : <MenuFoldOutlined />}
         </button>
       </div>
 

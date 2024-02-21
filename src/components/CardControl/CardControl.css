@@ -55,7 +55,7 @@
 
 .total-doughnut div:last-child {
   position: absolute;
-  top: 90%;
+  top: 88%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 102;
@@ -205,21 +205,28 @@
 }
 
 
- @media screen and (max-width: 500px) {
+ @media screen and (max-width: 540px) {
   .total-doughnut {
     height: 300px;
     margin-bottom: 10px;
   }
+  .total-doughnut div:last-child {
+    top: 90%;
+  }
  }
 
- @media (min-width: 500px) and (max-width: 850px){
+ @media (min-width: 540px) and (max-width: 920px){
   .info-grid{
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
+  .total-doughnut {
+    height: 250px;
+    margin-bottom: 10px;
+  }
  }
 
- @media screen and (min-width: 850px) {
+ @media screen and (min-width: 920px) {
   .grid-card{
     display: grid;
     grid-template-columns: 33% auto;
