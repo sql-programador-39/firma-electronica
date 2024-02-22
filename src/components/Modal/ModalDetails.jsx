@@ -7,7 +7,9 @@ import CardFirmante from '../CardFirmante/CardFirmante';
 import '../../components/CardControl/CardControl.css';
 import './ModalDetails.css';
 
-const ModalDetails = () => {
+const ModalDetails = ({data}) => {
+
+  const { nombre, identificacion, fechaSolicitud, estado, fechaEstado, firmantes, acciones, canal } = data[0];
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
@@ -45,33 +47,33 @@ const ModalDetails = () => {
             <div>
               <div>
                 <p className='p-modal'>Nombre:</p>
-                <p>Camilo Alejandro Ardila Molina</p>
+                <p>{ nombre }</p>
               </div>
 
               <div>
                 <p className='p-modal'>Identificación:</p>
-                <p>1128456987</p>
+                <p>{ identificacion }</p>
               </div>
 
               <div>
                 <p className='p-modal'>Fecha Solicitud:</p>
-                <p>2021/12/10</p>
+                <p>{ fechaSolicitud }</p>
               </div>
 
               <div>
                 <p className='p-modal'>Fecha Estado:</p>
-                <p>2022/02/25</p>
+                <p>{ fechaEstado }</p>
               </div>
             </div>
 
             <div>
               <div>
                 <p className='p-modal'>Estado:</p>
-                <p>Completada</p>
+                <p>{ estado }</p>
               </div>
               <div>
                 <p className='p-modal'>Canal:</p>
-                <p>El que sea</p>
+                <p>{ canal }</p>
               </div>
 
               <div className='modal-info-button'>
@@ -86,8 +88,9 @@ const ModalDetails = () => {
           <div >
             <h3>Firmantes</h3>
             <div className='body-modal-info-1'>
-              <CardFirmante />
-              <CardFirmante />
+              {firmantes.map((firmante, index) => (
+                <CardFirmante key={index} data={firmante} />
+              ))}
             </div>
           </div>
 
@@ -95,10 +98,9 @@ const ModalDetails = () => {
             <h3>Seguimiento</h3>
 
             <div className='body-modal-info-2'>
-              <CardAccion />
-              <CardAccion />
-              <CardAccion />
-              <CardAccion />
+              {acciones.map((accion, index) => (
+                <CardAccion key={index} data={accion} />
+              ))}
             </div>
           </div>
         </section>

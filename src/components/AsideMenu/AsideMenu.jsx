@@ -25,14 +25,7 @@ const AsideMenu = ({collapsed, setCollapsed}) => {
   };
 
   const items = [
-    
-    /* {
-      label: <div style={{width : "100%", height: "100%"}} onClick={toggleCollapsed}>Menu</div>,
-      key: '1',
-      icon: <div onClick={toggleCollapsed}>{collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}</div>,
-    }, */
-/*     getItem(<Link to="/control-panel" onClick={toggleCollapsed}>Menu</Link>, '1', <div onClick={toggleCollapsed}>{collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}</div>),
- */    getItem(<Link to="/control-panel">Panel de control</Link>, '2', <PieChartOutlined />),
+    getItem(<Link to="/control-panel">Panel de control</Link>, '2', <PieChartOutlined />),
   ];
 
   return (

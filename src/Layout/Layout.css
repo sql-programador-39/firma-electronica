@@ -28,12 +28,12 @@ main {
   transition: all 0.4s ease;
 }
 
-.ant-menu {
-  transition: all 0.4s ease !important;
-}
-
 .main-content2 > * {
   max-width: 100%;
+}
+
+.ant-menu {
+  transition: all 0.4s ease !important;
 }
 
 @media screen and (max-width: 540px) {

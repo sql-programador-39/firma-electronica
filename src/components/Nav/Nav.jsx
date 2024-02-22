@@ -40,7 +40,7 @@ const Nav = () => {
           menu={{ items }}
           trigger={['click']}
         >
-          <a >
+          <a>
             <Space>
               OPA S.A.S
               <div className='drop-icon'>

@@ -1,3 +1,10 @@
+.card-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
 .grid-card {
   padding: 20px;
   border-radius: 10px;
@@ -17,7 +24,6 @@
   background: #fff;
   padding: 10px;
 }
-
 
 .grid-card-in div{
   display: grid;
@@ -40,13 +46,6 @@
   padding: 10px;
   margin: auto;
   opacity: 0.5;
-}
-
-.card-header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
 }
 
 .total-doughnut {
@@ -87,7 +86,6 @@
   padding: 10px;
   border-radius: 10px;
 }
-
 
 .card-blue {
   background-color: #2196F3;
@@ -139,12 +137,6 @@
   font-size: 2.5rem;
 }
 
-@media screen and (max-width: 1024px){
-  .grid-card-in .card-in-gray p {
-    font-size: 1.5rem;
-  }
-}
-
 .grid-card-in .card-in-gray svg {
   width: 60px;
   height: 60px;
@@ -153,80 +145,7 @@
   opacity: 0.5;
 }
 
-@media screen and (max-width: 1024px){
-  .grid-card-in div p {
-    font-size: 1rem;
-  }
-  
-  .grid-card-in div:last-child p{
-    font-size: 1.5rem;
-  }
-  
-  .grid-card-in div > svg{
-    width: 20px;
-    height: 20px;
-    padding: 10px;
-    margin: auto;
-    opacity: 0.5;
-  }
-}
-
-
-@media screen and (min-width: 1440px){
-  
-  .grid-card {
-    height: 450px;
-  }
-
-  .grid-card-in div p {
-    font-size: 1.5rem;
-  }
-
-  .grid-card-in div:last-child p{
-    font-size: 2.8rem;
-  }
-
-  .grid-card-in div > svg{
-    width: 50px;
-    height: 50px;
-  }
-
-  .total-doughnut div:last-child {
-    top: 97%;
-  }
-
-  .total-doughnut div:last-child p:first-child {
-    font-size: 2rem;
-  }
-
-  .total-doughnut div:last-child p:last-child {
-    font-size: 1.8rem;
-  }
-}
-
-
- @media screen and (max-width: 540px) {
-  .total-doughnut {
-    height: 300px;
-    margin-bottom: 10px;
-  }
-  .total-doughnut div:last-child {
-    top: 90%;
-  }
- }
-
- @media (min-width: 540px) and (max-width: 920px){
-  .info-grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  .total-doughnut {
-    height: 250px;
-    margin-bottom: 10px;
-  }
- }
-
- @media screen and (min-width: 920px) {
+@media screen and (min-width: 920px) {
   .grid-card{
     display: grid;
     grid-template-columns: 33% auto;
@@ -255,4 +174,79 @@
     grid-row: span 2; 
   }
 
+}
+
+@media (min-width: 540px) and (max-width: 920px){
+  .info-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .total-doughnut {
+    height: 250px;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .total-doughnut {
+    height: 300px;
+    margin-bottom: 10px;
+  }
+  .total-doughnut div:last-child {
+    top: 90%;
+  }
+}
+
+@media screen and (max-width: 1024px){
+  .grid-card-in div p {
+    font-size: 1rem;
+  }
+  
+  .grid-card-in div:last-child p{
+    font-size: 1.5rem;
+  }
+
+  .grid-card-in .card-in-gray p {
+    font-size: 1.5rem;
+  }
+  
+  .grid-card-in div > svg{
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    margin: auto;
+    opacity: 0.5;
+  }
+}
+
+@media screen and (min-width: 1440px){
+  
+  .grid-card {
+    height: 450px;
+  }
+
+  .grid-card-in div p {
+    font-size: 1.5rem;
+  }
+
+  .grid-card-in div:last-child p{
+    font-size: 2.8rem;
+  }
+
+  .grid-card-in div > svg{
+    width: 50px;
+    height: 50px;
+  }
+
+  .total-doughnut div:last-child {
+    top: 96.5%;
+  }
+
+  .total-doughnut div:last-child p:first-child {
+    font-size: 2rem;
+  }
+
+  .total-doughnut div:last-child p:last-child {
+    font-size: 1.8rem;
+  }
 }

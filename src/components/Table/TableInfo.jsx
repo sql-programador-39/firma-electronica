@@ -13,7 +13,62 @@ const dataSource = [
     nombre: 'Mike',
     estado: 'Completada',
     fecha: '12/12/2021',
-    detalle: <ModalDetails />
+    detalle: <ModalDetails 
+      data={[{
+        nombre: 'Mike',
+        identificacion: '1128456987',
+        fechaSolicitud: '2021/12/10',
+        estado: 'Completada',
+        fechaEstado: '2021/12/12',
+        canal: 'Web',
+        firmantes: [
+          {
+            nombre: 'Camilo Alejandro Ardila Molina',
+            identificacion: '1128456987',
+            email: 'correo@correo.com',
+            telefono: '1234567890'
+          },
+          {
+            nombre: 'Mike 2',
+            identificacion: '1128456987',
+            email: 'correo@correo.com',
+            telefono: '1234567890'
+          }
+        ],
+        acciones: [
+          {
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            estado: 'Completada'
+          },
+          {
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            estado: 'Completada'
+          },
+          {
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            estado: 'Completada'
+          },
+          {
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            estado: 'Completada'
+          },
+          {
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            estado: 'Completada'
+          },
+          {
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            estado: 'Completada'
+          }
+        ]
+      }] }
+    />
   },
   {
     key: '2',
@@ -21,7 +76,70 @@ const dataSource = [
     nombre: 'Anto',
     estado: 'Completada',
     fecha: '12/12/2021',
-    detalle: <ModalDetails />
+    detalle: <ModalDetails 
+      data={[
+        {
+          nombre: 'Anto',
+          identificacion: '1128456987',
+          fechaSolicitud: '2021/12/10',
+          estado: 'Completada',
+          fechaEstado: '2021/12/12',
+          canal: 'Web',
+          firmantes: [
+            {
+              nombre: 'Camilo Alejandro Ardila Molina',
+              identificacion: '1128456987',
+              email: 'correo@correo.com',
+              telefono: '1234567890'
+            },
+            {
+              nombre: 'Mike 2',
+              identificacion: '1128456987',
+              email: 'correo@correo.com',
+              telefono: '1234567890'
+            }
+          ],
+          acciones: [
+            {
+              nombre: 'Aprobar',
+              descripcion: 'Aprobar solicitud',
+              fecha: '2021/12/12',
+              usuario: 'Camilo Alejandro Ardila Molina'
+            },
+            {
+              nombre: 'Rechazar',
+              descripcion: 'Rechazar solicitud',
+              fecha: '2021/12/12',
+              usuario: 'Camilo Alejandro Ardila Molina'
+            },
+            {
+              nombre: 'Aprobar',
+              descripcion: 'Aprobar solicitud',
+              fecha: '2021/12/12',
+              usuario: 'Camilo Alejandro Ardila Molina'
+            },
+            {
+              nombre: 'Rechazar',
+              descripcion: 'Rechazar solicitud',
+              fecha: '2021/12/12',
+              usuario: 'Camilo Alejandro Ardila Molina'
+            },
+            {
+              nombre: 'Aprobar',
+              descripcion: 'Aprobar solicitud',
+              fecha: '2021/12/12',
+              usuario: 'Camilo Alejandro Ardila Molina'
+            },
+            {
+              nombre: 'Rechazar',
+              descripcion: 'Rechazar solicitud',
+              fecha: '2021/12/12',
+              usuario: 'Camilo Alejandro Ardila Molina'
+            }
+          ]
+        } 
+      ]}
+    />
   },
   {
     key: '3',
@@ -29,79 +147,637 @@ const dataSource = [
     nombre: 'Sebastian',
     estado: 'Completada',
     fecha: '12/12/2021',
-    detalle: <ModalDetails />
+    detalle: <ModalDetails 
+      data={[
+        {
+          nombre: 'Sebastian',
+          identificacion: '1128456987',
+          fechaSolicitud: '2021/12/10',
+          estado: 'Completada',
+          fechaEstado: '2021/12/12',
+          canal: 'Web',
+          firmantes: [
+            {
+              nombre: 'Camilo Alejandro Ardila Molina',
+              identificacion: '1128456987',
+              email: 'correo@correo.com',
+              telefono: '1234567890'
+            },
+            {
+              nombre: 'Mike 2',
+              identificacion: '1128456987',
+              email: 'correo@correo.com',
+              telefono: '1234567890'
+            }
+          ],
+          acciones: [
+            {
+              nombre: 'Aprobar',
+              descripcion: 'Aprobar solicitud',
+              fecha: '2021/12/12',
+              usuario: 'Camilo Alejandro Ardila Molina'
+            },
+            {
+              nombre: 'Rechazar',
+              descripcion: 'Rechazar solicitud',
+              fecha: '2021/12/12',
+              usuario: 'Camilo Alejandro Ardila Molina'
+            },
+            {
+              nombre: 'Aprobar',
+              descripcion: 'Aprobar solicitud',
+              fecha: '2021/12/12',
+              usuario: 'Camilo Alejandro Ardila Molina'
+            },
+            {
+              nombre: 'Rechazar',
+              descripcion: 'Rechazar solicitud',
+              fecha: '2021/12/12',
+              usuario: 'Camilo Alejandro Ardila Molina'
+            },
+            {
+              nombre: 'Aprobar',
+              descripcion: 'Aprobar solicitud',
+              fecha: '2021/12/12',
+              usuario: 'Camilo Alejandro Ardila Molina'
+            },
+            {
+              nombre: 'Rechazar',
+              descripcion: 'Rechazar solicitud',
+              fecha: '2021/12/12',
+              usuario: 'Camilo Alejandro Ardila Molina'
+            }
+          ]
+        }
+      ]}
+    />
   },
   {
     key: '4',
     solicitud: Math.floor(Math.random() * 100000) + 1,
     nombre: 'Miguel',
     estado: 'Completada',
-    fecha: '12/12/2021',
-    detalle: <ModalDetails />
+    fecha: '12/12/2022',
+    detalle: <ModalDetails 
+      data= {[{
+        nombre: 'Miguel',
+        identificacion: '1128456987',
+        fechaSolicitud: '2021/12/10',
+        estado: 'Completada',
+        fechaEstado: '2021/12/12',
+        canal: 'Web',
+        firmantes: [
+          {
+            nombre: 'Camilo Alejandro Ardila Molina',
+            identificacion: '1128456987',
+            email: 'correo@correo.com',
+            telefono: '1234567890'
+          },
+          {
+            nombre: 'Mike 2',
+            identificacion: '1128456987',
+            email: 'correo@correo.com',
+            telefono: '1234567890'
+          }
+        ],
+        acciones: [
+          {
+            nombre: 'Aprobar',
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Rechazar',
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Aprobar',
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Rechazar',
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Aprobar',
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Rechazar',
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          }
+        ]
+      }]}
+        
+    />
   },
   {
     key: '5',
     solicitud: Math.floor(Math.random() * 100000) + 1,
-    nombre: 'Felipe',
+    nombre: 'Miguel',
     estado: 'Completada',
     fecha: '12/12/2021',
-    detalle: <ModalDetails />
+    detalle: <ModalDetails 
+      data= {[{
+        
+        nombre: 'Miguel',
+        identificacion: '1128456987',
+        fechaSolicitud: '2021/12/10',
+        estado: 'Completada',
+        fechaEstado: '2021/12/12',
+        canal: 'Web',
+        firmantes: [
+          {
+            nombre: 'Camilo Alejandro Ardila Molina',
+            identificacion: '1128456987',
+            email: 'correo@correo.com',
+            telefono: '1234567890'
+          },
+          {
+            nombre: 'Mike 2',
+            identificacion: '1128456987',
+            email: 'correo@correo.com',
+            telefono: '1234567890'
+          }
+        ],
+        acciones: [
+          {
+            nombre: 'Aprobar',
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Rechazar',
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Aprobar',
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Rechazar',
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Aprobar',
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Rechazar',
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          }
+        ]
+      }]}
+        
+    />
   },
   {
     key: '6',
     solicitud: Math.floor(Math.random() * 100000) + 1,
-    nombre: 'Camilo',
-    estado: 'Completada',
+    nombre: 'Miguel',
+    estado: 'Rechazada',
     fecha: '12/12/2021',
-    detalle: <ModalDetails />
+    detalle: <ModalDetails 
+      data= {[{
+        
+        nombre: 'Miguel',
+        identificacion: '1128456987',
+        fechaSolicitud: '2021/12/10',
+        estado: 'Completada',
+        fechaEstado: '2021/12/12',
+        canal: 'Web',
+        firmantes: [
+          {
+            nombre: 'Camilo Alejandro Ardila Molina',
+            identificacion: '1128456987',
+            cargo: 'Desarrollador',
+            dependencia: 'Desarrollo'
+          },
+          {
+            nombre: 'Miguel 2',
+            identificacion: '1128456987',
+            cargo: 'Desarrollador',
+            dependencia: 'Desarrollo'
+          }
+        ],
+        acciones: [
+          {
+            nombre: 'Aprobar',
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Rechazar',
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Aprobar',
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Rechazar',
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Aprobar',
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Rechazar',
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          }
+        ]
+      }]}
+        
+    />
   },
   {
     key: '7',
     solicitud: Math.floor(Math.random() * 100000) + 1,
-    nombre: 'Andrea',
+    nombre: 'Miguel',
     estado: 'Completada',
     fecha: '12/12/2021',
-    detalle: <ModalDetails />
+    detalle: <ModalDetails 
+      data= {[{
+        
+        nombre: 'Miguel',
+        identificacion: '1128456987',
+        fechaSolicitud: '2021/12/10',
+        estado: 'Completada',
+        fechaEstado: '2021/12/12',
+        canal: 'Web',
+        firmantes: [
+          {
+            nombre: 'Camilo Alejandro Ardila Molina',
+            identificacion: '1128456987',
+            cargo: 'Desarrollador',
+            dependencia: 'Desarrollo'
+          },
+          {
+            nombre: 'Miguel 2',
+            identificacion: '1128456987',
+            cargo: 'Desarrollador',
+            dependencia: 'Desarrollo'
+          }
+        ],
+        acciones: [
+          {
+            nombre: 'Aprobar',
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Rechazar',
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Aprobar',
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Rechazar',
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Aprobar',
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Rechazar',
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          }
+        ]
+      }]}
+        
+    />
   },
   {
     key: '8',
     solicitud: Math.floor(Math.random() * 100000) + 1,
-    nombre: 'Manuela',
+    nombre: 'Miguel',
     estado: 'Completada',
     fecha: '12/12/2021',
-    detalle: <ModalDetails />
+    detalle: <ModalDetails 
+      data= {[{
+        
+        nombre: 'Miguel',
+        identificacion: '1128456987',
+        fechaSolicitud: '2021/12/10',
+        estado: 'Completada',
+        fechaEstado: '2021/12/12',
+        canal: 'Web',
+        firmantes: [
+          {
+            nombre: 'Camilo Alejandro Ardila Molina',
+            identificacion: '1128456987',
+            cargo: 'Desarrollador',
+            dependencia: 'Desarrollo'
+          },
+          {
+            nombre: 'Miguel 2',
+            identificacion: '1128456987',
+            cargo: 'Desarrollador',
+            dependencia: 'Desarrollo'
+          }
+        ],
+        acciones: [
+          {
+            nombre: 'Aprobar',
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Rechazar',
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Aprobar',
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Rechazar',
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Aprobar',
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Rechazar',
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          }
+        ]
+      }]}
+        
+    />
   },
   {
     key: '9',
     solicitud: Math.floor(Math.random() * 100000) + 1,
-    nombre: 'Esteban',
+    nombre: 'Miguel',
     estado: 'Completada',
     fecha: '12/12/2021',
-    detalle: <ModalDetails />
+    detalle: <ModalDetails 
+      data= {[{
+        
+        nombre: 'Miguel',
+        identificacion: '1128456987',
+        fechaSolicitud: '2021/12/10',
+        estado: 'Completada',
+        fechaEstado: '2021/12/12',
+        canal: 'Web',
+        firmantes: [
+          {
+            nombre: 'Camilo Alejandro Ardila Molina',
+            identificacion: '1128456987',
+            cargo: 'Desarrollador',
+            dependencia: 'Desarrollo'
+          },
+          {
+            nombre: 'Miguel 2',
+            identificacion: '1128456987',
+            cargo: 'Desarrollador',
+            dependencia: 'Desarrollo'
+          }
+        ],
+        acciones: [
+          {
+            nombre: 'Aprobar',
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Rechazar',
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Aprobar',
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Rechazar',
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Aprobar',
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Rechazar',
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          }
+        ]
+      }]}
+        
+    />
   },
   {
     key: '10',
     solicitud: Math.floor(Math.random() * 100000) + 1,
-    nombre: 'Mariana',
+    nombre: 'Miguel',
     estado: 'Completada',
     fecha: '12/12/2021',
-    detalle: <ModalDetails />
+    detalle: <ModalDetails 
+      data= {[{
+        
+        nombre: 'Miguel',
+        identificacion: '1128456987',
+        fechaSolicitud: '2021/12/10',
+        estado: 'Completada',
+        fechaEstado: '2021/12/12',
+        canal: 'Web',
+        firmantes: [
+          {
+            nombre: 'Camilo Alejandro Ardila Molina',
+            identificacion: '1128456987',
+            cargo: 'Desarrollador',
+            dependencia: 'Desarrollo'
+          },
+          {
+            nombre: 'Miguel 2',
+            identificacion: '1128456987',
+            cargo: 'Desarrollador',
+            dependencia: 'Desarrollo'
+          }
+        ],
+        acciones: [
+          {
+            nombre: 'Aprobar',
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Rechazar',
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Aprobar',
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Rechazar',
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Aprobar',
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Rechazar',
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          }
+        ]
+      }]}
+        
+    />
   },
   {
     key: '11',
     solicitud: Math.floor(Math.random() * 100000) + 1,
-    nombre: 'Elizabeth',
+    nombre: 'Miguel',
     estado: 'Vencida',
-    fecha: '12/12/2021',
-    detalle: <ModalDetails />
-  },
-  {
-    key: '12',
-    solicitud: Math.floor(Math.random() * 100000) + 1,
-    nombre: 'Estefania',
-    estado: 'Completada',
-    fecha: '12/12/2021',
-    detalle: <ModalDetails />
+    fecha: '12/10/2021',
+    detalle: <ModalDetails 
+      data= {[{
+        
+        nombre: 'Miguel',
+        identificacion: '1128456987',
+        fechaSolicitud: '2021/12/10',
+        estado: 'Completada',
+        fechaEstado: '2021/12/12',
+        canal: 'Web',
+        firmantes: [
+          {
+            nombre: 'Camilo Alejandro Ardila Molina',
+            identificacion: '1128456987',
+            cargo: 'Desarrollador',
+            dependencia: 'Desarrollo'
+          },
+          {
+            nombre: 'Miguel 2',
+            identificacion: '1128456987',
+            cargo: 'Desarrollador',
+            dependencia: 'Desarrollo'
+          }
+        ],
+        acciones: [
+          {
+            nombre: 'Aprobar',
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Rechazar',
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Aprobar',
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Rechazar',
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Aprobar',
+            descripcion: 'Aprobar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          },
+          {
+            nombre: 'Rechazar',
+            descripcion: 'Rechazar solicitud',
+            fecha: '2021/12/12',
+            usuario: 'Camilo Alejandro Ardila Molina'
+          }
+        ]
+      }]}
+        
+    />
   }
 ];
 
@@ -280,7 +956,7 @@ const TableInfo = () => {
   return (
     <>
       <Table locale={{ emptyText: (<Empty image={Empty.PRESENTED_IMAGE_DEFAULT} description={false}>
-          <p>No se encontraron mensajes</p>
+          <p>No se encontraron registros</p>
         </Empty>) }} dataSource={dataSource} columns={columns} pagination={paginationConfig} />  
     </>
   )

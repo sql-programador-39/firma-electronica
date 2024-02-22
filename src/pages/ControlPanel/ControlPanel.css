@@ -22,48 +22,6 @@
   height: 100%;
 }
 
-@media  screen and (max-width: 850px){
-   .charts-section{
-    grid-template-columns: 1fr;
-   }
-
-    .charts-section div{
-      height: 300px;
-    }
-
-    .charts-section canvas {
-      height: 100%;
-    }
-
-    .charts-section h2{
-      font-size: 1.3rem;
-    }
-}
-
-
-
-@media screen and (min-width: 1300px) {
-  .charts-section{
-    height: 500px;
-  }
-}
-
-@media screen and (max-width: 1300px) {
-  .charts-section div div{
-    height: 80%;
-  }
-  .charts-section h2{
-    height: 20%;
-    font-size: 1.3rem;
-  }
-}
-
-@media screen and (max-width: 900px) {
-  .charts-section div div{
-    height: 70%;
-  }
-}
-
 .header-control-panel h1{
   margin: 15px 0;
   text-align: center;
@@ -101,21 +59,59 @@
   margin-bottom: 10px;
 }
 
-@media screen and (max-width: 500px){
-  .header-control-panel div div svg{
-    display: none;
+.div-spinner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 75vh;
+
+}
+
+.lds-facebook{
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: #000;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0;
+}
+
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
   }
-  
-  .header-control-panel div div:last-child {
-    grid-template-columns: 1fr;
+  50%, 100% {
+    top: 24px;
+    height: 32px;
   }
 }
 
-@media (min-width: 500px) and (max-width: 850px) {
-  .header-control-panel div {
-    display: inline;
-  }
-}
+/* Media Queries */
 
 @media screen and (min-width: 500px) {
   .header-control-panel div div {
@@ -137,7 +133,7 @@
   .header-control-panel div{
     display: grid;
     grid-template-columns: 50% auto;
-    gap: 5px;
+    gap: 10px;
   }
 }
 
@@ -156,3 +152,58 @@
   
 }
 
+@media screen and (min-width: 1300px) {
+  .charts-section{
+    height: 500px;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 850px) {
+  .header-control-panel div {
+    display: inline;
+  }
+}
+ 
+@media screen and (max-width: 500px){
+.header-control-panel div div svg{
+  display: none;
+}
+
+.header-control-panel div div:last-child {
+  grid-template-columns: 1fr;
+}
+}
+
+@media  screen and (max-width: 850px){
+  .charts-section{
+   grid-template-columns: 1fr;
+  }
+
+   .charts-section div{
+     height: 300px;
+   }
+
+   .charts-section canvas {
+     height: 100%;
+   }
+
+   .charts-section h2{
+     font-size: 1.3rem;
+   }
+}
+
+@media screen and (max-width: 900px) {
+  .charts-section div div{
+    height: 70%;
+  }
+ }
+
+@media screen and (max-width: 1300px) {
+ .charts-section div div{
+   height: 80%;
+ }
+ .charts-section h2{
+   height: 20%;
+   font-size: 1.3rem;
+ }
+}

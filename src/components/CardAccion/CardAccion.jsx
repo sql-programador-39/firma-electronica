@@ -1,21 +1,24 @@
 import './CardAccion.css'
 
-const CardAccion = () => {
+const CardAccion = ({data}) => {
+
+  const {descripcion, estado, fecha} = data;
+
   return (
     <>
       <div className="card-accion">
         <div>
           <h4>Acción</h4>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, iste?</p>
+          <p>{ descripcion }</p>
         </div>
 
         <div>
           <div>
-            <p>Completada</p>
+            <p>{ estado }</p>
           </div>
 
           <div>
-            <p>02/06/2022</p>
+            <p>{ fecha }</p>
           </div>
         </div>
 

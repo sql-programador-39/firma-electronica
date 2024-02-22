@@ -3,29 +3,32 @@ import { faAddressCard, faUser, faEnvelope, faPhone } from '@fortawesome/free-so
 
 import './CardFirmante.css'
 
-const CardFirmante = () => {
+const CardFirmante = ({data}) => {
+  
+  const {nombre, identificacion, email, telefono} = data;
+  
   return (
     <>
       <div className="card-firmante">
         <div>
           <FontAwesomeIcon icon={faUser} />
           <p>Nombre:</p>
-          <p>Camilo Alejandro Ardila Molina</p>
+          <p>{ nombre }</p>
         </div>
         <div>
           <FontAwesomeIcon icon={faAddressCard} />
           <p>Identificación:</p>
-          <p>1152369852</p>
+          <p>{ identificacion }</p>
         </div>
         <div>
           <FontAwesomeIcon icon={faEnvelope} />
           <p>Email:</p>
-          <p>correo@correo.com</p>
+          <p>{ email }</p>
         </div>
         <div>
         <FontAwesomeIcon icon={faPhone} />
           <p>Telefono:</p>
-          <p>56889645</p>
+          <p>{ telefono }</p>
         </div>
       </div> 
     </>

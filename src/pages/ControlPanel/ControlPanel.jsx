@@ -69,7 +69,7 @@ const ControlPanel = () => {
           
           setTimeout(() => {
             setLittleAlert({})
-          }, 5000)
+          }, 3000)
 
           return
         }
@@ -84,7 +84,7 @@ const ControlPanel = () => {
           
           setTimeout(() => {
             setLittleAlert({})
-          }, 5000)
+          }, 3000)
 
           return
         }
@@ -98,7 +98,7 @@ const ControlPanel = () => {
           
           setTimeout(() => {
             setLittleAlert({})
-          }, 5000)
+          }, 3000)
 
           return
         }
@@ -165,129 +165,198 @@ const ControlPanel = () => {
     return true
   }
 
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+
+    setTimeout(() => {
+      setLoading(false)
+    }, 3000)
+  }, [])
+
+
   return (
     <>
 
 
       { littleAlert.msg && <ErrorAlert msg={littleAlert.msg} /> }
 
-      <div className="header-control-panel">
-           
-        <h1>Panel de control</h1>
-
-
-        <div>
-          <div>
-            <FontAwesomeIcon icon={faCalendarDays} />
-            <input 
-              type="date" 
-              className="input-control" 
-              onChange={handleChange}
-              value={dateI}
-              name="dateI"
-            />
-            <span>-</span>
-            <input 
-              type="date" 
-              className="input-control" 
-              onChange={handleChange}
-              value={dateF}
-              name="dateF"  
-            />
+      { loading ? (
+        <>
+          <div className="header-control-panel">
+              
+              <h1>Panel de control</h1>
+  
+  
+              <div>
+                <div>
+                  <FontAwesomeIcon icon={faCalendarDays} />
+                  <input 
+                    type="date" 
+                    className="input-control" 
+                    onChange={handleChange}
+                    value={dateI}
+                    name="dateI"
+                  />
+                  <span>-</span>
+                  <input 
+                    type="date" 
+                    className="input-control" 
+                    onChange={handleChange}
+                    value={dateF}
+                    name="dateF"  
+                  />
+                </div>
+  
+                <div>
+                  <div>
+                    <FontAwesomeIcon icon={faFilter} />
+                    <select 
+                      className="input-control" 
+                      onChange={handleChange}
+                      value={company}
+                      name="company"
+                      >
+                      <option value="1">Compañias</option>
+                      <option value="2">Banco 1</option>
+                      <option value="3">Banco 2</option>
+                    </select>
+                  </div>
+  
+  
+                  <button className="button-card">
+                    Exportar
+                  </button>
+                </div>
+              </div>
           </div>
 
-          <div>
+          <div className="div-spinner">
+            <div className="lds-facebook"><div></div><div></div><div></div></div>
+            <h2>Cargando Información...</h2>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="header-control-panel">
+              
+            <h1>Panel de control</h1>
+
+
             <div>
-              <FontAwesomeIcon icon={faFilter} />
-              <select 
-                className="input-control" 
-                onChange={handleChange}
-                value={company}
-                name="company"
-                >
-                <option value="1">Compañias</option>
-                <option value="2">Banco 1</option>
-                <option value="3">Banco 2</option>
-              </select>
+              <div>
+                <FontAwesomeIcon icon={faCalendarDays} />
+                <input 
+                  type="date" 
+                  className="input-control" 
+                  onChange={handleChange}
+                  value={dateI}
+                  name="dateI"
+                />
+                <span>-</span>
+                <input 
+                  type="date" 
+                  className="input-control" 
+                  onChange={handleChange}
+                  value={dateF}
+                  name="dateF"  
+                />
+              </div>
+
+              <div>
+                <div>
+                  <FontAwesomeIcon icon={faFilter} />
+                  <select 
+                    className="input-control" 
+                    onChange={handleChange}
+                    value={company}
+                    name="company"
+                    >
+                    <option value="1">Compañias</option>
+                    <option value="2">Banco 1</option>
+                    <option value="3">Banco 2</option>
+                  </select>
+                </div>
+
+
+                <button className="button-card">
+                  Exportar
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <section className="charts-section">
+            <div>
+              <h2>Distribución documentos firmados</h2>
+              <PieChart 
+                afiliaciones={afiliaciones.completed}
+                actualizacion={actualizaciones.completed}
+                creditos={solicitudes.completed}
+              />
             </div>
 
+            <div>
+              <h2>Solicitudes de firma enviadas</h2>
+              <BarChartSends 
+                afiliaciones={afiliaciones.filed}
+                actualizacion={actualizaciones?.filed}
+                creditos={solicitudes?.filed}
+              /> 
+            </div>
 
-            <button className="button-card">
-              Exportar
-            </button>
-          </div>
-        </div>
-      </div>
+            <div>
+              <h2>Estado de solicitudes</h2>
+              <BarChart 
+                afiliaciones={[afiliaciones.completed, afiliaciones.requested, afiliaciones.expired, afiliaciones.rejected, afiliaciones.filed]}
+                actualizacion={[actualizaciones.completed, actualizaciones.requested, actualizaciones.expired, actualizaciones.rejected, actualizaciones.filed]}
+                creditos={[solicitudes.completed, solicitudes.requested, solicitudes.expired, solicitudes.rejected, solicitudes.filed]}
+              />
+            </div>
+          </section>
 
-      <section className="charts-section">
-        <div>
-          <h2>Distribución documentos firmados</h2>
-          <PieChart 
-            afiliaciones={afiliaciones.completed}
-            actualizacion={actualizaciones.completed}
-            creditos={solicitudes.completed}
-          />
-        </div>
+          <section>
+            <div style={{ margin: '25px 0 30px 0' }}>
+              <CardControl 
+                title="Afiliaciones"
+                completadas={afiliaciones.completed}
+                solicitadas={afiliaciones.requested}
+                vencidas={afiliaciones.expired}
+                rechazadas={afiliaciones.rejected}
+                radicadas={afiliaciones.filed}
+                total={afiliaciones.total}
+                link="/afiliaciones"
+              />
+            </div>
+            
+            <div style={{ margin: '25px 0 30px 0' }}>
 
-        <div>
-          <h2>Solicitudes de firma enviadas</h2>
-          <BarChartSends 
-            afiliaciones={afiliaciones.filed}
-            actualizacion={actualizaciones?.filed}
-            creditos={solicitudes?.filed}
-          /> 
-        </div>
-
-        <div>
-          <h2>Estado de solicitudes</h2>
-          <BarChart 
-            afiliaciones={[afiliaciones.completed, afiliaciones.requested, afiliaciones.expired, afiliaciones.rejected, afiliaciones.filed]}
-            actualizacion={[actualizaciones.completed, actualizaciones.requested, actualizaciones.expired, actualizaciones.rejected, actualizaciones.filed]}
-            creditos={[solicitudes.completed, solicitudes.requested, solicitudes.expired, solicitudes.rejected, solicitudes.filed]}
-          />
-        </div>
-      </section>
-
-      <section>
-        <div style={{ margin: '25px 0 30px 0' }}>
-          <CardControl 
-            title="Afiliaciones"
-            completadas={afiliaciones.completed}
-            solicitadas={afiliaciones.requested}
-            vencidas={afiliaciones.expired}
-            rechazadas={afiliaciones.rejected}
-            radicadas={afiliaciones.filed}
-            total={afiliaciones.total}
-            link="/afiliaciones"
-          />
-        </div>
-        
-        <div style={{ margin: '25px 0 30px 0' }}>
-
-          <CardControl 
-            title="Actualización de datos"
-            completadas={actualizaciones.completed}
-            solicitadas={actualizaciones.requested}
-            vencidas={actualizaciones.expired}
-            rechazadas={actualizaciones.rejected}
-            radicadas={actualizaciones.filed}
-            total={actualizaciones.total}
-            link="/actualizacion-datos"
-          />
-        </div>
-        <div style={{ margin: '25px 0 30px 0' }}>
-          <CardControl 
-            title="Solicitud de crédito"
-            completadas={solicitudes.completed}
-            solicitadas={solicitudes.requested}
-            vencidas={solicitudes.expired}
-            rechazadas={solicitudes.rejected}
-            radicadas={solicitudes.filed}
-            total={solicitudes.total}
-            link="/solicitudes-credito"
-          />
-        </div>
-      </section>
+              <CardControl 
+                title="Actualización de datos"
+                completadas={actualizaciones.completed}
+                solicitadas={actualizaciones.requested}
+                vencidas={actualizaciones.expired}
+                rechazadas={actualizaciones.rejected}
+                radicadas={actualizaciones.filed}
+                total={actualizaciones.total}
+                link="/actualizacion-datos"
+              />
+            </div>
+            <div style={{ margin: '25px 0 30px 0' }}>
+              <CardControl 
+                title="Solicitud de crédito"
+                completadas={solicitudes.completed}
+                solicitadas={solicitudes.requested}
+                vencidas={solicitudes.expired}
+                rechazadas={solicitudes.rejected}
+                radicadas={solicitudes.filed}
+                total={solicitudes.total}
+                link="/solicitudes-credito"
+              />
+            </div>
+          </section>
+        </>
+      ) }
     </>
   )
 }
