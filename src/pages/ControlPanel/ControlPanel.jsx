@@ -11,8 +11,12 @@ import ErrorAlert from "../../components/ErrorAlert/ErrorAlert"
 
 import './ControlPanel.css'
 import '../../components/CardControl/CardControl.css'
+import '../../components/Skeletons/Skeleton.css'
 
 import { getActualizacion, getAfiliaciones, getCreditos } from "../../api/api"
+import PieChart2 from "../../components/Skeletons/Skeleton"
+import CardSkelenton from "../../components/Skeletons/Skeletons2"
+import SkeletonDough from "../../components/Skeletons/SkeletonDough"
 
 const ControlPanel = () => {
 
@@ -181,65 +185,8 @@ const ControlPanel = () => {
 
       { littleAlert.msg && <ErrorAlert msg={littleAlert.msg} /> }
 
-      { loading ? (
-        <>
-          <div className="header-control-panel">
-              
-              <h1>Panel de control</h1>
-  
-  
-              <div>
-                <div>
-                  <FontAwesomeIcon icon={faCalendarDays} />
-                  <input 
-                    type="date" 
-                    className="input-control" 
-                    onChange={handleChange}
-                    value={dateI}
-                    name="dateI"
-                  />
-                  <span>-</span>
-                  <input 
-                    type="date" 
-                    className="input-control" 
-                    onChange={handleChange}
-                    value={dateF}
-                    name="dateF"  
-                  />
-                </div>
-  
-                <div>
-                  <div>
-                    <FontAwesomeIcon icon={faFilter} />
-                    <select 
-                      className="input-control" 
-                      onChange={handleChange}
-                      value={company}
-                      name="company"
-                      >
-                      <option value="1">Compañias</option>
-                      <option value="2">Banco 1</option>
-                      <option value="3">Banco 2</option>
-                    </select>
-                  </div>
-  
-  
-                  <button className="button-card">
-                    Exportar
-                  </button>
-                </div>
-              </div>
-          </div>
-
-          <div className="div-spinner">
-            <div className="lds-facebook"><div></div><div></div><div></div></div>
-            <h2>Cargando Información...</h2>
-          </div>
-        </>
-      ) : (
-        <>
-          <div className="header-control-panel">
-              
+        <div className="header-control-panel">
+            
             <h1>Panel de control</h1>
 
 
@@ -284,8 +231,48 @@ const ControlPanel = () => {
                 </button>
               </div>
             </div>
-          </div>
+        </div>
+      { loading ? (
+        <>  
+          {/* <section className="charts-section skeleton">
+            <section className="section-chart">
+              <PieChart2 />
+            </section>
 
+            <section className="section-chart">
+              <PieChart2 />
+            </section>
+
+            <section className="section-chart">
+              <PieChart2 />
+            </section>
+          </section>
+
+          <section>
+            <div style={{ margin: '25px 0 30px 0' }}>
+              <div className="card-skeleton">
+                <div className="body-card-skeleton">
+                  <SkeletonDough />
+                </div>
+                <div className="body-card-skeleton">
+                  <CardSkelenton />
+                </div>
+              </div>
+            </div>
+            
+            <div style={{ margin: '25px 0 30px 0' }}>
+              <div></div>
+            </div>
+
+            <div style={{ margin: '25px 0 30px 0' }}>
+              <div></div>  
+            </div>
+          </section> */}
+
+          <p>Cargando...</p>
+        </>
+      ) : (
+        <>
           <section className="charts-section">
             <div>
               <h2>Distribución documentos firmados</h2>

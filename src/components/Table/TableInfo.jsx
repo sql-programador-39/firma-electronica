@@ -5,6 +5,7 @@ import Highlighter from 'react-highlight-words';
 
 import ModalDetails from '../Modal/ModalDetails';
 import '../../components/CardControl/CardControl.css';
+import './TableInfo.css';
 
 const dataSource = [
   {
@@ -67,7 +68,8 @@ const dataSource = [
             estado: 'Completada'
           }
         ]
-      }] }
+      }] 
+    }
     />
   },
   {
@@ -101,40 +103,34 @@ const dataSource = [
           ],
           acciones: [
             {
-              nombre: 'Aprobar',
               descripcion: 'Aprobar solicitud',
               fecha: '2021/12/12',
-              usuario: 'Camilo Alejandro Ardila Molina'
+              estado: 'Completada'
             },
             {
-              nombre: 'Rechazar',
               descripcion: 'Rechazar solicitud',
               fecha: '2021/12/12',
-              usuario: 'Camilo Alejandro Ardila Molina'
+              estado: 'Completada'
             },
             {
-              nombre: 'Aprobar',
               descripcion: 'Aprobar solicitud',
               fecha: '2021/12/12',
-              usuario: 'Camilo Alejandro Ardila Molina'
+              estado: 'Completada'
             },
             {
-              nombre: 'Rechazar',
               descripcion: 'Rechazar solicitud',
               fecha: '2021/12/12',
-              usuario: 'Camilo Alejandro Ardila Molina'
+              estado: 'Completada'
             },
             {
-              nombre: 'Aprobar',
               descripcion: 'Aprobar solicitud',
               fecha: '2021/12/12',
-              usuario: 'Camilo Alejandro Ardila Molina'
+              estado: 'Completada'
             },
             {
-              nombre: 'Rechazar',
               descripcion: 'Rechazar solicitud',
               fecha: '2021/12/12',
-              usuario: 'Camilo Alejandro Ardila Molina'
+              estado: 'Completada'
             }
           ]
         } 
@@ -172,40 +168,34 @@ const dataSource = [
           ],
           acciones: [
             {
-              nombre: 'Aprobar',
               descripcion: 'Aprobar solicitud',
               fecha: '2021/12/12',
-              usuario: 'Camilo Alejandro Ardila Molina'
+              estado: 'Completada'
             },
             {
-              nombre: 'Rechazar',
               descripcion: 'Rechazar solicitud',
               fecha: '2021/12/12',
-              usuario: 'Camilo Alejandro Ardila Molina'
+              estado: 'Completada'
             },
             {
-              nombre: 'Aprobar',
               descripcion: 'Aprobar solicitud',
               fecha: '2021/12/12',
-              usuario: 'Camilo Alejandro Ardila Molina'
+              estado: 'Completada'
             },
             {
-              nombre: 'Rechazar',
               descripcion: 'Rechazar solicitud',
               fecha: '2021/12/12',
-              usuario: 'Camilo Alejandro Ardila Molina'
+              estado: 'Completada'
             },
             {
-              nombre: 'Aprobar',
               descripcion: 'Aprobar solicitud',
               fecha: '2021/12/12',
-              usuario: 'Camilo Alejandro Ardila Molina'
+              estado: 'Completada'
             },
             {
-              nombre: 'Rechazar',
               descripcion: 'Rechazar solicitud',
               fecha: '2021/12/12',
-              usuario: 'Camilo Alejandro Ardila Molina'
+              estado: 'Completada'
             }
           ]
         }
@@ -242,44 +232,38 @@ const dataSource = [
         ],
         acciones: [
           {
-            nombre: 'Aprobar',
             descripcion: 'Aprobar solicitud',
             fecha: '2021/12/12',
-            usuario: 'Camilo Alejandro Ardila Molina'
+            estado: 'Completada'
           },
           {
-            nombre: 'Rechazar',
             descripcion: 'Rechazar solicitud',
             fecha: '2021/12/12',
-            usuario: 'Camilo Alejandro Ardila Molina'
+            estado: 'Completada'
           },
           {
-            nombre: 'Aprobar',
             descripcion: 'Aprobar solicitud',
             fecha: '2021/12/12',
-            usuario: 'Camilo Alejandro Ardila Molina'
+            estado: 'Completada'
           },
           {
-            nombre: 'Rechazar',
             descripcion: 'Rechazar solicitud',
             fecha: '2021/12/12',
-            usuario: 'Camilo Alejandro Ardila Molina'
+            estado: 'Completada'
           },
           {
-            nombre: 'Aprobar',
             descripcion: 'Aprobar solicitud',
             fecha: '2021/12/12',
-            usuario: 'Camilo Alejandro Ardila Molina'
+            estado: 'Completada'
           },
           {
-            nombre: 'Rechazar',
             descripcion: 'Rechazar solicitud',
             fecha: '2021/12/12',
-            usuario: 'Camilo Alejandro Ardila Molina'
+            estado: 'Completada'
           }
         ]
-      }]}
-        
+      }]
+    }    
     />
   },
   {
@@ -313,40 +297,34 @@ const dataSource = [
         ],
         acciones: [
           {
-            nombre: 'Aprobar',
             descripcion: 'Aprobar solicitud',
             fecha: '2021/12/12',
-            usuario: 'Camilo Alejandro Ardila Molina'
+            estado: 'Completada'
           },
           {
-            nombre: 'Rechazar',
             descripcion: 'Rechazar solicitud',
             fecha: '2021/12/12',
-            usuario: 'Camilo Alejandro Ardila Molina'
+            estado: 'Completada'
           },
           {
-            nombre: 'Aprobar',
             descripcion: 'Aprobar solicitud',
             fecha: '2021/12/12',
-            usuario: 'Camilo Alejandro Ardila Molina'
+            estado: 'Completada'
           },
           {
-            nombre: 'Rechazar',
             descripcion: 'Rechazar solicitud',
             fecha: '2021/12/12',
-            usuario: 'Camilo Alejandro Ardila Molina'
+            estado: 'Completada'
           },
           {
-            nombre: 'Aprobar',
             descripcion: 'Aprobar solicitud',
             fecha: '2021/12/12',
-            usuario: 'Camilo Alejandro Ardila Molina'
+            estado: 'Completada'
           },
           {
-            nombre: 'Rechazar',
             descripcion: 'Rechazar solicitud',
             fecha: '2021/12/12',
-            usuario: 'Camilo Alejandro Ardila Molina'
+            estado: 'Completada'
           }
         ]
       }]}

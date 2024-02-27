@@ -1,0 +1,59 @@
+.ant-table-wrapper .ant-table-column-sorter-up.active, 
+.ant-table-wrapper .ant-table-column-sorter-down.active {
+  color: var(--color-primary);
+}
+
+.ant-table-wrapper .ant-table-filter-trigger.active span{
+  color: var(--color-primary) !important;
+}
+
+.ant-table-filter-dropdown .ant-btn-primary {
+  background: var(--color-primary);
+}
+
+:where(.css-dev-only-do-not-override-1rqnfsa).ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover{
+  background: rgba(255, 94, 0, 0.8);
+}
+
+.ant-table-filter-dropdown .ant-btn-link {
+  color: rgba(255, 94, 0, 1);
+}
+
+:where(.css-dev-only-do-not-override-1rqnfsa).ant-btn-link:not(:disabled):not(.ant-btn-disabled):hover {
+  color: rgba(255, 94, 0, .6);
+}
+
+:where(.css-dev-only-do-not-override-1rqnfsa).ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {  color: rgba(255, 94, 0, .6);
+  border-color: rgba(255, 94, 0, .6);
+  color: rgba(255, 94, 0, .6);
+}
+
+.ant-table-filter-dropdown .ant-input-outlined:focus {
+  border-color: var(--color-primary);
+}
+
+.ant-table-filter-dropdown .ant-checkbox-checked .ant-checkbox-inner {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.ant-table-filter-dropdown .ant-checkbox-checked:hover .ant-checkbox-inner:hover {
+  background: var(--color-primary);
+}
+
+.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item-selected {
+  background: rgba(253, 180, 137, 0.6);
+  margin: 3px 0;
+}
+
+.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item-selected:hover {
+  background: rgba(253, 180, 137, 0.9);
+}
+
+:where(.css-dev-only-do-not-override-1rqnfsa).ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-checked:not(.ant-checkbox-disabled) .ant-checkbox-inner {
+  background-color: rgba(255, 94, 0, 0.5);
+}
+
+:where(.css-dev-only-do-not-override-1rqnfsa).ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-inner, :where(.css-dev-only-do-not-override-1rqnfsa).ant-checkbox:not(.ant-checkbox-disabled):hover .ant-checkbox-inner {
+  border-color: rgba(255, 94, 0, 1);
+}

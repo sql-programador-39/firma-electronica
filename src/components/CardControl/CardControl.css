@@ -57,7 +57,7 @@
   top: 88%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 102;
+  z-index: 100;
   text-align: center;
   color: rgba(0, 0, 0, 0.7);
   height: 0;
@@ -122,8 +122,8 @@
 }
 
 .button-card:hover {
-  background-color: var(--color-primary-dark);
-  scale: 1.014;
+  background-color: rgba(255, 94, 0, 0.8);
+  scale: 1.03;
 }
 
 .grid-card-in .card-in-gray {
@@ -197,17 +197,17 @@
   }
 }
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1200px){
   .grid-card-in div p {
-    font-size: 1rem;
+    font-size: .8rem;
   }
   
   .grid-card-in div:last-child p{
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   .grid-card-in .card-in-gray p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   
   .grid-card-in div > svg{

@@ -156,6 +156,12 @@
   .charts-section{
     height: 500px;
   }
+  .charts-section div div{
+    height: 82%;
+  }
+  .charts-section h2{
+    height: 15%;
+  }
 }
 
 @media (min-width: 500px) and (max-width: 850px) {
@@ -181,6 +187,7 @@
 
    .charts-section div{
      height: 300px;
+     margin-bottom: 20px;
    }
 
    .charts-section canvas {
