@@ -17,6 +17,8 @@ import { getActualizacion, getAfiliaciones, getCreditos } from "../../api/api"
 import PieChart2 from "../../components/Skeletons/Skeleton"
 import CardSkelenton from "../../components/Skeletons/Skeletons2"
 import SkeletonDough from "../../components/Skeletons/SkeletonDough"
+import CardSkelenton920 from "../../components/Skeletons/CardSkeleton920"
+import CardSkelenton540 from "../../components/Skeletons/CardSkeleton540"
 
 const ControlPanel = () => {
 
@@ -102,7 +104,7 @@ const ControlPanel = () => {
           
           setTimeout(() => {
             setLittleAlert({})
-          }, 3000)
+          }, 5000)
 
           return
         }
@@ -234,7 +236,7 @@ const ControlPanel = () => {
         </div>
       { loading ? (
         <>  
-          {/* <section className="charts-section skeleton">
+          <section className="charts-section">
             <section className="section-chart">
               <PieChart2 />
             </section>
@@ -250,26 +252,59 @@ const ControlPanel = () => {
 
           <section>
             <div style={{ margin: '25px 0 30px 0' }}>
+              <h2 style={{ marginBottom: '15px'}}>Afiliaciones</h2>
               <div className="card-skeleton">
                 <div className="body-card-skeleton">
                   <SkeletonDough />
                 </div>
                 <div className="body-card-skeleton">
-                  <CardSkelenton />
+
+                  {window.innerWidth < 920 ? (
+
+                    <CardSkelenton540 />
+                    ) : (
+                    <CardSkelenton />
+                  )}
                 </div>
               </div>
             </div>
             
             <div style={{ margin: '25px 0 30px 0' }}>
-              <div></div>
+            <h2 style={{ marginBottom: '15px'}}>Actualización de datos</h2>
+              <div className="card-skeleton">
+                <div className="body-card-skeleton">
+                  <SkeletonDough />
+                </div>
+                <div className="body-card-skeleton">
+
+                  {window.innerWidth < 920 ? (
+
+                    <CardSkelenton540 />
+                    ) : (
+                    <CardSkelenton />
+                  )}
+                </div>
+              </div>
             </div>
 
             <div style={{ margin: '25px 0 30px 0' }}>
-              <div></div>  
-            </div>
-          </section> */}
+            <h2 style={{ marginBottom: '15px'}}>Solicitud de crédito</h2>
+              <div className="card-skeleton">
+                <div className="body-card-skeleton">
+                  <SkeletonDough />
+                </div>
+                <div className="body-card-skeleton">
 
-          <p>Cargando...</p>
+                  {window.innerWidth < 920 ? (
+
+                    <CardSkelenton540 />
+                    ) : (
+                    <CardSkelenton />
+                  )}
+                </div>
+              </div>
+            </div>
+          </section>
         </>
       ) : (
         <>

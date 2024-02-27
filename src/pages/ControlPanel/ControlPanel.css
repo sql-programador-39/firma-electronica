@@ -40,7 +40,7 @@
 
 .header-control-panel div div:last-child {
   display: grid;
-  grid-template-columns: 55% auto;
+  grid-template-columns: 50% auto;
   gap: 10px;
 }
 
@@ -118,9 +118,6 @@
     gap: 5px;
   }
   
-  .header-control-panel div div:last-child {
-    gap: 5px;
-  }
 
   .header-control-panel {
     display: flex;
@@ -171,13 +168,18 @@
 }
  
 @media screen and (max-width: 500px){
-.header-control-panel div div svg{
-  display: none;
-}
 
-.header-control-panel div div:last-child {
-  grid-template-columns: 1fr;
-}
+  .header-control-panel div div:last-child {
+    gap: 10px !important;
+  }
+
+  .header-control-panel div div svg{
+    display: none;
+  }
+
+  .header-control-panel div div:last-child {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media  screen and (max-width: 850px){
@@ -185,18 +187,22 @@
    grid-template-columns: 1fr;
   }
 
-   .charts-section div{
-     height: 300px;
-     margin-bottom: 20px;
-   }
+  .header-control-panel div div:last-child {
+    gap: 20px;
+  }
 
-   .charts-section canvas {
-     height: 100%;
-   }
+  .charts-section div{
+    height: 300px;
+    margin-bottom: 20px;
+  }
 
-   .charts-section h2{
-     font-size: 1.3rem;
-   }
+  .charts-section canvas {
+    height: 100%;
+  }
+
+  .charts-section h2{
+    font-size: 1.3rem;
+  }
 }
 
 @media screen and (max-width: 900px) {
