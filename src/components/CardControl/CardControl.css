@@ -11,10 +11,6 @@
   background: #ededed;
 }
 
-.grid-card > div:first-child div {
-  height: 100%;
-}
-
 .info-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -54,7 +50,7 @@
 
 .total-doughnut div:last-child {
   position: absolute;
-  top: 88%;
+  top: 38%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 100;
@@ -185,6 +181,15 @@
     height: 250px;
     margin-bottom: 10px;
   }
+
+  .grid-card > div:first-child div {
+    height: 100%;
+  }
+
+  .total-doughnut div:last-child {
+    top: 89%;
+  }
+  
 }
 
 @media screen and (max-width: 540px) {
@@ -195,6 +200,11 @@
   .total-doughnut div:last-child {
     top: 90%;
   }
+
+  .grid-card > div:first-child div {
+    height: 100%;
+  }
+  
 }
 
 @media screen and (max-width: 1200px){
@@ -239,7 +249,7 @@
   }
 
   .total-doughnut div:last-child {
-    top: 96.5%;
+    top: 47%;
   }
 
   .total-doughnut div:last-child p:first-child {

@@ -55,9 +55,28 @@ const ControlPanel = () => {
   const [solicitudes, setSolicitudes] = useState(getCreditos()) */
 
   const [littleAlert, setLittleAlert] = useState({})
+  const [skeleton, setSkeleton] = useState('')
+  const [loading, setLoading] = useState(true)
 
 
-  const handleChange = (e) => {
+  useEffect(() => {
+
+    if(window.innerWidth < 540) {
+      setSkeleton('0')
+    } else if(window.innerWidth > 540 && window.innerWidth < 920) {
+      setSkeleton('1')
+    } else {
+      setSkeleton('2')
+    }
+
+    setTimeout(() => {
+      setLoading(false)
+    }, 3000)
+
+  }, [])
+
+
+  const handleChange = e => {
 
     const { name, value } = e.target
 
@@ -171,34 +190,23 @@ const ControlPanel = () => {
     return true
   }
 
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-
-    setTimeout(() => {
-      setLoading(false)
-    }, 3000)
-  }, [])
-
-
   return (
     <>
 
 
-      { littleAlert.msg && <ErrorAlert msg={littleAlert.msg} /> }
+      { littleAlert.msg && <ErrorAlert msg={ littleAlert.msg } /> }
 
         <div className="header-control-panel">
             
             <h1>Panel de control</h1>
 
-
             <div>
               <div>
-                <FontAwesomeIcon icon={faCalendarDays} />
+                <FontAwesomeIcon icon={ faCalendarDays } />
                 <input 
                   type="date" 
                   className="input-control" 
-                  onChange={handleChange}
+                  onChange={ handleChange }
                   value={dateI}
                   name="dateI"
                 />
@@ -206,19 +214,19 @@ const ControlPanel = () => {
                 <input 
                   type="date" 
                   className="input-control" 
-                  onChange={handleChange}
-                  value={dateF}
+                  onChange={ handleChange }
+                  value={ dateF }
                   name="dateF"  
                 />
               </div>
 
               <div>
                 <div>
-                  <FontAwesomeIcon icon={faFilter} />
+                  <FontAwesomeIcon icon={ faFilter } />
                   <select 
                     className="input-control" 
-                    onChange={handleChange}
-                    value={company}
+                    onChange={ handleChange }
+                    value={ company }
                     name="company"
                     >
                     <option value="1">Compañias</option>
@@ -252,55 +260,61 @@ const ControlPanel = () => {
 
           <section>
             <div style={{ margin: '25px 0 30px 0' }}>
-              <h2 style={{ marginBottom: '15px'}}>Afiliaciones</h2>
+              <h2 style={{ marginBottom: '15px' }}>Afiliaciones</h2>
               <div className="card-skeleton">
                 <div className="body-card-skeleton">
-                  <SkeletonDough />
+
+                  { skeleton === "0" && <SkeletonDough viewBox="0 0 496 350" radius="40%" /> }
+                  { skeleton === "1" && <SkeletonDough viewBox="0 0 496 300" radius="35%" /> }
+                  { skeleton === "2" && <SkeletonDough viewBox="0 0 496 400" radius="40%" /> }
+
                 </div>
                 <div className="body-card-skeleton">
 
-                  {window.innerWidth < 920 ? (
-
-                    <CardSkelenton540 />
-                    ) : (
-                    <CardSkelenton />
-                  )}
+                  { skeleton === '0' && <CardSkelenton540 /> }
+                  { skeleton === '1' && <CardSkelenton920 /> }
+                  { skeleton === '2' && <CardSkelenton /> }
+                  
                 </div>
               </div>
             </div>
             
             <div style={{ margin: '25px 0 30px 0' }}>
-            <h2 style={{ marginBottom: '15px'}}>Actualización de datos</h2>
+            <h2 style={{ marginBottom: '15px' }}>Actualización de datos</h2>
               <div className="card-skeleton">
                 <div className="body-card-skeleton">
-                  <SkeletonDough />
+
+                  { skeleton === "0" && <SkeletonDough viewBox="0 0 496 350" radius="40%" /> }
+                  { skeleton === "1" && <SkeletonDough viewBox="0 0 496 300" radius="35%" /> }
+                  { skeleton === "2" && <SkeletonDough viewBox="0 0 496 400" radius="40%" /> }
+
                 </div>
                 <div className="body-card-skeleton">
 
-                  {window.innerWidth < 920 ? (
+                  { skeleton === '0' && <CardSkelenton540 /> }
+                  { skeleton === '1' && <CardSkelenton920 /> }
+                  { skeleton === '2' && <CardSkelenton /> }
 
-                    <CardSkelenton540 />
-                    ) : (
-                    <CardSkelenton />
-                  )}
                 </div>
               </div>
             </div>
 
             <div style={{ margin: '25px 0 30px 0' }}>
-            <h2 style={{ marginBottom: '15px'}}>Solicitud de crédito</h2>
+            <h2 style={{ marginBottom: '15px' }}>Solicitud de crédito</h2>
               <div className="card-skeleton">
                 <div className="body-card-skeleton">
-                  <SkeletonDough />
+
+                  { skeleton === "0" && <SkeletonDough viewBox="0 0 496 350" radius="40%" /> }
+                  { skeleton === "1" && <SkeletonDough viewBox="0 0 496 300" radius="35%" /> }
+                  { skeleton === "2" && <SkeletonDough viewBox="0 0 496 400" radius="40%" /> }
+
                 </div>
                 <div className="body-card-skeleton">
 
-                  {window.innerWidth < 920 ? (
+                  { skeleton === '0' && <CardSkelenton540 /> }
+                  { skeleton === '1' && <CardSkelenton920 /> }
+                  { skeleton === '2' && <CardSkelenton /> }
 
-                    <CardSkelenton540 />
-                    ) : (
-                    <CardSkelenton />
-                  )}
                 </div>
               </div>
             </div>
@@ -312,27 +326,27 @@ const ControlPanel = () => {
             <div>
               <h2>Distribución documentos firmados</h2>
               <PieChart 
-                afiliaciones={afiliaciones.completed}
-                actualizacion={actualizaciones.completed}
-                creditos={solicitudes.completed}
+                afiliaciones={ afiliaciones.completed }
+                actualizacion={ actualizaciones.completed }
+                creditos={ solicitudes.completed }
               />
             </div>
 
             <div>
               <h2>Solicitudes de firma enviadas</h2>
               <BarChartSends 
-                afiliaciones={afiliaciones.filed}
-                actualizacion={actualizaciones?.filed}
-                creditos={solicitudes?.filed}
+                afiliaciones={ afiliaciones.filed }
+                actualizacion={ actualizaciones?.filed }
+                creditos={ solicitudes?.filed }
               /> 
             </div>
 
             <div>
               <h2>Estado de solicitudes</h2>
               <BarChart 
-                afiliaciones={[afiliaciones.completed, afiliaciones.requested, afiliaciones.expired, afiliaciones.rejected, afiliaciones.filed]}
-                actualizacion={[actualizaciones.completed, actualizaciones.requested, actualizaciones.expired, actualizaciones.rejected, actualizaciones.filed]}
-                creditos={[solicitudes.completed, solicitudes.requested, solicitudes.expired, solicitudes.rejected, solicitudes.filed]}
+                afiliaciones={ [afiliaciones.completed, afiliaciones.requested, afiliaciones.expired, afiliaciones.rejected, afiliaciones.filed] }
+                actualizacion={ [actualizaciones.completed, actualizaciones.requested, actualizaciones.expired, actualizaciones.rejected, actualizaciones.filed] }
+                creditos={ [solicitudes.completed, solicitudes.requested, solicitudes.expired, solicitudes.rejected, solicitudes.filed] }
               />
             </div>
           </section>
@@ -341,12 +355,12 @@ const ControlPanel = () => {
             <div style={{ margin: '25px 0 30px 0' }}>
               <CardControl 
                 title="Afiliaciones"
-                completadas={afiliaciones.completed}
-                solicitadas={afiliaciones.requested}
-                vencidas={afiliaciones.expired}
-                rechazadas={afiliaciones.rejected}
-                radicadas={afiliaciones.filed}
-                total={afiliaciones.total}
+                completadas={ afiliaciones.completed }
+                solicitadas={ afiliaciones.requested }
+                vencidas={ afiliaciones.expired }
+                rechazadas={ afiliaciones.rejected }
+                radicadas={ afiliaciones.filed }
+                total={ afiliaciones.total }
                 link="/afiliaciones"
               />
             </div>
@@ -355,24 +369,24 @@ const ControlPanel = () => {
 
               <CardControl 
                 title="Actualización de datos"
-                completadas={actualizaciones.completed}
-                solicitadas={actualizaciones.requested}
-                vencidas={actualizaciones.expired}
-                rechazadas={actualizaciones.rejected}
-                radicadas={actualizaciones.filed}
-                total={actualizaciones.total}
+                completadas={ actualizaciones.completed }
+                solicitadas={ actualizaciones.requested }
+                vencidas={ actualizaciones.expired }
+                rechazadas={ actualizaciones.rejected }
+                radicadas={ actualizaciones.filed }
+                total={ actualizaciones.total }
                 link="/actualizacion-datos"
               />
             </div>
             <div style={{ margin: '25px 0 30px 0' }}>
               <CardControl 
                 title="Solicitud de crédito"
-                completadas={solicitudes.completed}
-                solicitadas={solicitudes.requested}
-                vencidas={solicitudes.expired}
-                rechazadas={solicitudes.rejected}
-                radicadas={solicitudes.filed}
-                total={solicitudes.total}
+                completadas={ solicitudes.completed }
+                solicitadas={ solicitudes.requested }
+                vencidas={ solicitudes.expired }
+                rechazadas={ solicitudes.rejected }
+                radicadas={ solicitudes.filed }
+                total={ solicitudes.total }
                 link="/solicitudes-credito"
               />
             </div>

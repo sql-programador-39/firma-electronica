@@ -1,10 +1,14 @@
 
 import ContentLoader from 'react-content-loader'
 
-const SkeletonDough = props => {
+const SkeletonDough = ({radius, viewBox, props}) => {
+
+  /* console.log('SkeletonDough props:', props);
+  console.log('SkeletonDough radius:', radius); */
+  
   return (
     <ContentLoader 
-      viewBox="0 0 496 280" 
+      viewBox={viewBox}
       height="100%" 
       width="100%"
       speed={2}
@@ -12,7 +16,7 @@ const SkeletonDough = props => {
       foregroundColor="#f3f3f3"
       {...props}
       >
-      <circle cx="250" cy="140" r="35%" />
+      <circle cx="50%" cy="50%" r={radius} />
     </ContentLoader>
   )
 }

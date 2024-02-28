@@ -15,7 +15,7 @@ const BarChartSends = ({ afiliaciones, actualizacion, creditos }) => {
           backgroundColor: ['rgba(76, 175, 80, 0.5)', 'rgba(233, 169, 8, 0.5)', 'rgba(33, 150, 243, 0.5)'], 
           borderColor: ['rgba(76, 175, 80, 1)', 'rgba(233, 169, 8, 1)', 'rgba(33, 150, 243, 1)'],
           borderWidth: 1,
-          barThickness: 60
+          barThickness: 55
         }
       ]
     };

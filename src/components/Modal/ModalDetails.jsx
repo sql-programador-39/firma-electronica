@@ -12,8 +12,18 @@ const ModalDetails = ({data}) => {
   const { nombre, identificacion, fechaSolicitud, estado, fechaEstado, firmantes, acciones, canal } = data[0];
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [sizes, setSizes] = useState("");
+
   const showModal = () => {
     setIsModalOpen(true);
+
+    if(window.innerWidth < 540) {
+      setSizes('90%');
+    } else if(window.innerWidth > 540 && window.innerWidth < 1281) {
+      setSizes('70%');
+    } else if(window.innerWidth > 1282){
+      setSizes('50%');
+    }
   };
   const handleOk = () => {
     setIsModalOpen(false);
@@ -32,8 +42,8 @@ const ModalDetails = ({data}) => {
       </button>
       <Modal 
         title="Detalle de la Solicitud"
-        width={window.innerWidth > 820 ? "42%" : "90%"}
         open={isModalOpen}
+        width={sizes}
         onCancel={handleOk} 
         footer={[
           <button key="submit" className='button-card' onClick={handleOk}>

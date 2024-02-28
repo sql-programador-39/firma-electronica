@@ -35,13 +35,12 @@
   display: flex;
   gap: 10px;
   align-items: center;
-  justify-content: center;
   margin-bottom: 10px;
 }
 
 .header-control-panel div div:last-child {
   display: grid;
-  grid-template-columns: 50% auto;
+  grid-template-columns: 50% 1fr;
   gap: 10px;
 }
 
@@ -60,65 +59,13 @@
   margin-bottom: 10px;
 }
 
-.div-spinner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: auto;
-  height: 75vh;
-
-}
-
-.lds-facebook{
-  display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 80px;
-}
-
-.lds-facebook div {
-  display: inline-block;
-  position: absolute;
-  left: 8px;
-  width: 16px;
-  background: #000;
-  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
-}
-
-.lds-facebook div:nth-child(1) {
-  left: 8px;
-  animation-delay: -0.24s;
-}
-
-.lds-facebook div:nth-child(2) {
-  left: 32px;
-  animation-delay: -0.12s;
-}
-
-.lds-facebook div:nth-child(3) {
-  left: 56px;
-  animation-delay: 0;
-}
-
-@keyframes lds-facebook {
-  0% {
-    top: 8px;
-    height: 64px;
-  }
-  50%, 100% {
-    top: 24px;
-    height: 32px;
-  }
-}
-
 /* Media Queries */
 
 @media screen and (min-width: 500px) {
   .header-control-panel div div {
     gap: 5px;
   }
-  
+
 
   .header-control-panel {
     display: flex;
@@ -131,7 +78,7 @@
   .header-control-panel div{
     display: grid;
     grid-template-columns: 50% auto;
-    gap: 10px;
+    gap: 5px;
   }
 }
 
@@ -147,7 +94,10 @@
   .header-control-panel div div:last-child {
     gap: 10px;
   }
-  
+
+  .header-control-panel div {
+    gap: 10px;
+  }
 }
 
 @media screen and (min-width: 1300px) {
@@ -155,10 +105,10 @@
     height: 500px;
   }
   .charts-section div div{
-    height: 82%;
+    height: 84%;
   }
   .charts-section h2{
-    height: 15%;
+    height: 12%;
   }
 }
 
@@ -170,9 +120,9 @@
  
 @media screen and (max-width: 500px){
 
-  .header-control-panel div div:last-child {
+  /* .header-control-panel div div:last-child {
     gap: 10px !important;
-  }
+  } */
 
   .header-control-panel div div svg{
     display: none;
@@ -183,13 +133,18 @@
   }
 }
 
-@media  screen and (max-width: 850px){
+@media  screen and (max-width: 940px){
   .charts-section{
    grid-template-columns: 1fr;
   }
 
   .header-control-panel div div:last-child {
-    gap: 20px;
+    gap: 18px;
+  }
+
+  .header-control-panel div div {
+    justify-content: center;
+    align-items: center;
   }
 
   .charts-section div{
@@ -214,7 +169,7 @@
 
 @media screen and (max-width: 1300px) {
  .charts-section div div{
-   height: 80%;
+   height: 78%;
  }
  .charts-section h2{
    height: 20%;

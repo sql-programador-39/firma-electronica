@@ -4,7 +4,7 @@ import '../Afiliaciones/Afiliaciones.css';
 const Actualization = () => {
   return (
     <div>
-      <h1 style={{marginBottom: "20px"}}>Actualización de datos</h1>
+      <h1 style={{ marginBottom: "20px" }}>Actualización de datos</h1>
       <TableInfo />
     </div>
   )

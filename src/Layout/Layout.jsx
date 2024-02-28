@@ -7,6 +7,7 @@ import AsideMenu from "../components/AsideMenu/AsideMenu"
 import './Layout.css'
 
 const Layout = () => {
+  
   const [collapsed, setCollapsed] = useState(false);
 
   return (
@@ -18,12 +19,12 @@ const Layout = () => {
       <main>
         {<aside>
           <AsideMenu 
-            collapsed={collapsed}
-            setCollapsed={setCollapsed}
+            collapsed={ collapsed }
+            setCollapsed={ setCollapsed }
           />
         </aside>}
         
-        <div className={collapsed ? 'main-content2' : 'main-content'}>
+        <div className={ collapsed ? 'main-content2' : 'main-content' }>
           <Outlet />
         </div>
       </main> 

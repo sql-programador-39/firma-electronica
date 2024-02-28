@@ -787,14 +787,14 @@ const TableInfo = () => {
         style={{
           padding: 8,
         }}
-        onKeyDown={(e) => e.stopPropagation()}
+        onKeyDown={ e => e.stopPropagation() }
       >
         <Input
-          ref={searchInput}
-          placeholder={`Search ${dataIndex}`}
+          ref={ searchInput }
+          placeholder={ `Search ${dataIndex}` }
           value={selectedKeys[0]}
-          onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
-          onPressEnter={() => handleSearch(selectedKeys, confirm, dataIndex)}
+          onChange={ e => setSelectedKeys(e.target.value ? [e.target.value] : []) }
+          onPressEnter={ () => handleSearch(selectedKeys, confirm, dataIndex) }
           style={{
             marginBottom: 8,
             display: 'block',
@@ -803,7 +803,7 @@ const TableInfo = () => {
         <Space>
           <Button
             type="primary"
-            onClick={() => handleSearch(selectedKeys, confirm, dataIndex)}
+            onClick={ () => handleSearch(selectedKeys, confirm, dataIndex) }
             icon={<SearchOutlined />}
             size="small"
             style={{
@@ -813,7 +813,7 @@ const TableInfo = () => {
             Search
           </Button>
           <Button
-            onClick={() => clearFilters && handleReset(clearFilters)}
+            onClick={ () => clearFilters && handleReset(clearFilters) }
             size="small"
             style={{
               width: 90,
@@ -824,10 +824,10 @@ const TableInfo = () => {
           <Button
             type="link"
             size="small"
-            onClick={() => {
+            onClick={ () => {
               confirm({
                 closeDropdown: false,
-              });
+              } );
               setSearchText(selectedKeys[0]);
               setSearchedColumn(dataIndex);
             }}
@@ -837,9 +837,7 @@ const TableInfo = () => {
           <Button
             type="link"
             size="small"
-            onClick={() => {
-              close();
-            }}
+            onClick={ () => close() }
           >
             close
           </Button>
@@ -867,9 +865,9 @@ const TableInfo = () => {
             backgroundColor: '#ffc069',
             padding: 0,
           }}
-          searchWords={[searchText]}
+          searchWords={ [searchText] }
           autoEscape
-          textToHighlight={text ? text.toString() : ''}
+          textToHighlight={ text ? text.toString() : '' }
         />
       ) : (
         text
@@ -933,9 +931,9 @@ const TableInfo = () => {
 
   return (
     <>
-      <Table locale={{ emptyText: (<Empty image={Empty.PRESENTED_IMAGE_DEFAULT} description={false}>
-          <p>No se encontraron registros</p>
-        </Empty>) }} dataSource={dataSource} columns={columns} pagination={paginationConfig} />  
+      <Table locale={{ emptyText: (<Empty image={ Empty.PRESENTED_IMAGE_DEFAULT } description={ false }>
+        <p>No se encontraron registros</p>
+      </Empty>) }} dataSource={ dataSource } columns={ columns } pagination={ paginationConfig } />  
     </>
   )
 }

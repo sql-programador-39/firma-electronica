@@ -105,7 +105,6 @@
   }
   .modal-info-button {
     display: flex;
-    flex-direction: column;
     gap: 10px;
   }
   .modal-info-button button {
