@@ -18,7 +18,7 @@ const Nav = () => {
     localStorage.removeItem('token');
 
     setIsAuthenticaded(false);
-    navigate('/');
+    navigate(-1);
   }
 
   const items = [
@@ -40,14 +40,15 @@ const Nav = () => {
           menu={{ items }}
           trigger={['click']}
         >
-          <a>
+          <div>
+            
             <Space>
               OPA S.A.S
               <div className='drop-icon'>
                 <img src={user} alt="user" />
               </div>
             </Space>
-          </a>
+          </div>
         </Dropdown>
       </div>
     </nav>
