@@ -113,8 +113,8 @@ const FormLogin = () => {
         {/* Switch */}
 
         <div className='switch'>
-          <Switch onChange={onChange} />
-          <div>Recuerdame</div>
+          <Switch id="switch-login" title="switchLogin" onChange={onChange} style={{ background: "#6f6f6f" }} />
+          <div style={{color: "#6f6f6f", fontSize: "1.1rem"}}>Recuerdame</div>
         </div>
 
         {/* Alert */}

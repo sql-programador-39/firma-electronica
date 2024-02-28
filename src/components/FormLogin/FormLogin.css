@@ -60,6 +60,7 @@
   color: white;
   cursor: pointer;
   font-weight: 700;
+  font-size: 1.025rem;
   transition: all 0.3s;
   box-shadow:  2px 3px 5px #888888;
   width: 30%;
