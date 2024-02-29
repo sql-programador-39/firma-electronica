@@ -8,32 +8,24 @@ import BarChart from "../../components/BarsChart/BarChart"
 import BarChartSends from "../../components/BarChartSends/BarChartSends"
 import CardControl from "../../components/CardControl/CardControl"
 import ErrorAlert from "../../components/ErrorAlert/ErrorAlert"
-
-import './ControlPanel.css'
-import '../../components/CardControl/CardControl.css'
-import '../../components/Skeletons/Skeleton.css'
-
-import { getActualizacion, getAfiliaciones, getCreditos } from "../../api/api"
 import PieChart2 from "../../components/Skeletons/Skeleton"
 import CardSkelenton from "../../components/Skeletons/Skeletons2"
 import SkeletonDough from "../../components/Skeletons/SkeletonDough"
 import CardSkelenton920 from "../../components/Skeletons/CardSkeleton920"
 import CardSkelenton540 from "../../components/Skeletons/CardSkeleton540"
 
+import { getActualizacion, getAfiliaciones, getCreditos } from "../../api/api"
+import { validateInitialFinal, validateInitialDate, validateFinalDate } from "../../helpers/datesValidations"
+
+import './ControlPanel.css'
+import '../../components/CardControl/CardControl.css'
+import '../../components/Skeletons/Skeleton.css'
+
+
 const ControlPanel = () => {
 
- /*  const [data, setData] = useState({})
-  const [data2, setData2] = useState({})
-  const [data3, setData3] = useState({})
-
-  useEffect(() => {
-    setData(getAfiliaciones())
-    setData2(getActualizacion())
-    setData3(getCreditos())
-  }, []) */
-
   const dateNow = new Date();
-  
+
   // Resta 30 días a la fecha actual para obtener la fecha inicial
   const InitalDate = new Date(dateNow);
   InitalDate.setDate(InitalDate.getDate() - 30);
@@ -41,40 +33,50 @@ const ControlPanel = () => {
   // Formatea las fechas en formato YYYY-MM-DD
   const FinalDateFormat = dateNow.toISOString().split('T')[0];
   const InitalDateFormat = InitalDate.toISOString().split('T')[0];
+
+  const [afiliaciones, setAfiliaciones] = useState([])
+  const [actualizaciones, setActualizaciones] = useState([])
+  const [solicitudes, setSolicitudes] = useState([])
   
   const [company, setCompany] = useState("")
   const [dateF, setDateF] = useState(FinalDateFormat);
   const [dateI, setDateI] = useState(InitalDateFormat);
-
-  const afiliaciones = getAfiliaciones()
-  const actualizaciones = getActualizacion()
-  const solicitudes = getCreditos()
-
-  /* const [afiliaciones, setAfiliaciones] = useState(getAfiliaciones())
-  const [actualizaciones, setActualizaciones] = useState(getActualizacion())
-  const [solicitudes, setSolicitudes] = useState(getCreditos()) */
-
+  
   const [littleAlert, setLittleAlert] = useState({})
   const [skeleton, setSkeleton] = useState('')
   const [loading, setLoading] = useState(true)
 
-
   useEffect(() => {
 
     if(window.innerWidth < 540) {
+
       setSkeleton('0')
     } else if(window.innerWidth > 540 && window.innerWidth < 920) {
+
       setSkeleton('1')
     } else {
+
       setSkeleton('2')
     }
 
     setTimeout(() => {
       setLoading(false)
     }, 3000)
+    
+    getInfo()
 
   }, [])
+  
 
+  const getInfo = async () => {
+    const responseAfiliaciones = await getAfiliaciones()
+    const responseActualizaciones = await getActualizacion()
+    const responseSolicitudes = await getCreditos()
+
+    setAfiliaciones(responseAfiliaciones)
+    setActualizaciones(responseActualizaciones)
+    setSolicitudes(responseSolicitudes) 
+  }
 
   const handleChange = e => {
 
@@ -94,7 +96,7 @@ const ControlPanel = () => {
           
           setTimeout(() => {
             setLittleAlert({})
-          }, 3000)
+          }, 4000)
 
           return
         }
@@ -109,7 +111,7 @@ const ControlPanel = () => {
           
           setTimeout(() => {
             setLittleAlert({})
-          }, 3000)
+          }, 4000)
 
           return
         }
@@ -123,7 +125,7 @@ const ControlPanel = () => {
           
           setTimeout(() => {
             setLittleAlert({})
-          }, 5000)
+          }, 4000)
 
           return
         }
@@ -142,7 +144,6 @@ const ControlPanel = () => {
 
           return
         }
-        
         break;
 
       default:
@@ -150,49 +151,8 @@ const ControlPanel = () => {
     }
   }
 
-  const validateInitialFinal = (initialDate, finalDate) => {
-    const enteredDate = new Date(initialDate);
-    const finalDateInput = new Date(finalDate);
-
-    if(enteredDate > finalDateInput) {
-      return false
-    } 
-    return true
-  }
-
-  const validateInitialDate = (initialDate, finalDate) => {
-      
-      const enteredDate = new Date(initialDate);
-  
-      const finalDateInput = new Date(finalDate);
-
-      const timeDifference = finalDateInput.getTime() - enteredDate.getTime();
-      const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
-  
-      if(daysDifference  > 30) {
-        return false
-      } else {
-        return true
-      }
-      
-  }
-
-  const validateFinalDate = (finalDate) => {
-
-    const enteredDate = new Date(finalDate);
-
-    const currentDate = new Date();
-
-    if(enteredDate > currentDate) {
-      return false
-    } 
-      
-    return true
-  }
-
   return (
     <>
-
 
       { littleAlert.msg && <ErrorAlert msg={ littleAlert.msg } /> }
 

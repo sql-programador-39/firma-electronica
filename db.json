@@ -1,0 +1,619 @@
+[
+  {
+    "id": "1",
+    "solicitud": "12563",
+    "nombre": "Mike",
+    "identificacion": "1128456987",
+    "fechaSolicitud": "2021/12/10",
+    "estado": "Completada",
+    "fechaEstado": "2021/12/12",
+    "canal": "Web",
+    "firmantes": [
+      {
+        "identificacion": "1128456987",
+        "nombre": "Camilo Alejandro Ardila Molina",
+        "email": "correo@correo.com",
+        "telefono": "1234567890"
+      },
+      {
+        "identificacion": "1128456987",
+        "nombre": "Mike 2",
+        "email": "correo@correo.com",
+        "telefono": "1234567890"
+      }
+    ],
+    "seguimiento": [
+      {
+        "fecha": "2021/12/12",
+        "accion": "Aprobar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "accion": "Aprobar solicitud",
+        "fecha": "2021/12/12",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Aprobar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      }
+    ],
+    "formato": "PDF"
+  },
+  {
+    "id": "2",
+    "solicitud": 369,
+    "nombre": "Anto",
+    "fechaSolicitud": "2024/10/9",
+    "estado": "Radicada",
+    "fechaEstado": "2024/6/28",
+    "canal": "Web",
+    "firmantes": [
+      {
+        "identificacion": "1128456987",
+        "nombre": "Camilo Alejandro Ardila Molina",
+        "email": "correo@correo.com",
+        "telefono": "1234567890"
+      },
+      {
+        "identificacion": "1128456987",
+        "nombre": "Mike 2",
+        "email": "correo@correo.com",
+        "telefono": "1234567890"
+      }
+    ],
+    "seguimiento": [
+      {
+        "fecha": "2021/12/12",
+        "accion": "Aprobar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "accion": "Aprobar solicitud",
+        "fecha": "2021/12/12",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Aprobar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      }
+    ],
+    "formato": "PDF"
+  },
+  {
+    "id": "3",
+    "solicitud": "25",
+    "nombre": "Sebastian",
+    "fechaSolicitud": "2019/9/17",
+    "estado": "Solicitada",
+    "fechaEstado": "2019/9/26",
+    "canal": "Web",
+    "firmantes": [
+      {
+        "identificacion": "1128456987",
+        "nombre": "Camilo Alejandro Ardila Molina",
+        "email": "correo@correo.com",
+        "telefono": "1234567890"
+      },
+      {
+        "identificacion": "1128456987",
+        "nombre": "Mike 2",
+        "email": "correo@correo.com",
+        "telefono": "1234567890"
+      }
+    ],
+    "seguimiento": [
+      {
+        "fecha": "2021/12/12",
+        "accion": "Aprobar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "accion": "Aprobar solicitud",
+        "fecha": "2021/12/12",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Aprobar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      }
+    ],
+    "formato": "PDF"
+  },
+  {
+    "id": "4",
+    "solicitud": "987",
+    "nombre": "Miguel",
+    "fechaSolicitud": "2023/7/6",
+    "estado": "Solicitada",
+    "fechaEstado": "2023/7/15",
+    "canal": "Web",
+    "firmantes": [
+      {
+        "identificacion": "1128456987",
+        "nombre": "Camilo Alejandro Ardila Molina",
+        "email": "correo@correo.com",
+        "telefono": "1234567890"
+      },
+      {
+        "identificacion": "1128456987",
+        "nombre": "Mike 2",
+        "email": "correo@correo.com",
+        "telefono": "1234567890"
+      }
+    ],
+    "seguimiento": [
+      {
+        "fecha": "2021/12/12",
+        "accion": "Aprobar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "accion": "Aprobar solicitud",
+        "fecha": "2021/12/12",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Aprobar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      }
+    ],
+    "formato": "PDF"
+  },
+  {
+    "id": "5",
+    "solicitud": "159",
+    "nombre": "Esteban",
+    "fechaSolicitud": "2022/5/4",
+    "estado": "Completada",
+    "fechaEstado": "2022/5/13",
+    "canal": "Web",
+    "firmantes": [
+      {
+        "identificacion": "1128456987",
+        "nombre": "Camilo Alejandro Ardila Molina",
+        "email": "correo@correo.com",
+        "telefono": "1234567890"
+      },
+      {
+        "identificacion": "1128456987",
+        "nombre": "Mike 2",
+        "email": "correo@correo.com",
+        "telefono": "1234567890"
+      }
+    ],
+    "seguimiento": [
+      {
+        "fecha": "2021/12/12",
+        "accion": "Aprobar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "accion": "Aprobar solicitud",
+        "fecha": "2021/12/12",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Aprobar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      }
+    ],
+    "formato": "PDF"
+  },
+  {
+    "id": "6",
+    "solicitud": "79852",
+    "nombre": "Brandon de jesus",
+    "fechaSolicitud": "2017/4/2",
+    "estado": "Rechazada",
+    "fechaEstado": "2017/4/11",
+    "canal": "Web",
+    "firmantes": [
+      {
+        "identificacion": "1128456987",
+        "nombre": "Camilo Alejandro Ardila Molina",
+        "email": "correo@correo.com",
+        "telefono": "1234567890"
+      },
+      {
+        "identificacion": "1128456987",
+        "nombre": "Mike 2",
+        "email": "correo@correo.com",
+        "telefono": "1234567890"
+      }
+    ],
+    "seguimiento": [
+      {
+        "fecha": "2021/12/12",
+        "accion": "Aprobar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "accion": "Aprobar solicitud",
+        "fecha": "2021/12/12",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Aprobar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      }
+    ],
+    "formato": "PDF"
+  },
+  {
+    "id": "7",
+    "solicitud": "2587",
+    "nombre": "Ana Maria",
+    "fechaSolicitud": "2023/5/8",
+    "estado": "Vencida",
+    "fechaEstado": "2023/5/17",
+    "canal": "Web",
+    "firmantes": [
+      {
+        "identificacion": "1128456987",
+        "nombre": "Camilo Alejandro Ardila Molina",
+        "email": "correo@correo.com",
+        "telefono": "1234567890"
+      },
+      {
+        "identificacion": "1128456987",
+        "nombre": "Mike 2",
+        "email": "correo@correo.com",
+        "telefono": "1234567890"
+      }
+    ],
+    "seguimiento": [
+      {
+        "fecha": "2021/12/12",
+        "accion": "Aprobar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "accion": "Aprobar solicitud",
+        "fecha": "2021/12/12",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Aprobar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      }
+    ],
+    "formato": "PDF"
+  },
+  {
+    "id": "8",
+    "solicitud": "65412",
+    "nombre": "Jhonatan",
+    "fechaSolicitud": "2018/12/30",
+    "estado": "Vencida",
+    "fechaEstado": "2019/1/6",
+    "canal": "Web",
+    "firmantes": [
+      {
+        "identificacion": "1128456987",
+        "nombre": "Camilo Alejandro Ardila Molina",
+        "email": "correo@correo.com",
+        "telefono": "1234567890"
+      },
+      {
+        "identificacion": "1128456987",
+        "nombre": "Mike 2",
+        "email": "correo@correo.com",
+        "telefono": "1234567890"
+      }
+    ],
+    "seguimiento": [
+      {
+        "fecha": "2021/12/12",
+        "accion": "Aprobar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "accion": "Aprobar solicitud",
+        "fecha": "2021/12/12",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Aprobar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      }
+    ],
+    "formato": "PDF"
+  },
+  {
+    "id": "9",
+    "solicitud": "3",
+    "nombre": "Antonio",
+    "fechaSolicitud": "2024/3/13",
+    "estado": "Vencida",
+    "fechaEstado": "2024/3/22",
+    "canal": "Web",
+    "firmantes": [
+      {
+        "identificacion": "1128456987",
+        "nombre": "Camilo Alejandro Ardila Molina",
+        "email": "correo@correo.com",
+        "telefono": "1234567890"
+      },
+      {
+        "identificacion": "1128456987",
+        "nombre": "Mike 2",
+        "email": "correo@correo.com",
+        "telefono": "1234567890"
+      }
+    ],
+    "seguimiento": [
+      {
+        "fecha": "2021/12/12",
+        "accion": "Aprobar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "accion": "Aprobar solicitud",
+        "fecha": "2021/12/12",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Aprobar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      }
+    ],
+    "formato": "PDF"
+  },
+  {
+    "id": "10",
+    "solicitud": "78",
+    "nombre": "Diana",
+    "fechaSolicitud": "2023/10/19",
+    "estado": "Radicada",
+    "fechaEstado": "2023/10/28",
+    "canal": "Web",
+    "firmantes": [
+      {
+        "identificacion": "1128456987",
+        "nombre": "Camilo Alejandro Ardila Molina",
+        "email": "correo@correo.com",
+        "telefono": "1234567890"
+      },
+      {
+        "identificacion": "1128456987",
+        "nombre": "Mike 2",
+        "email": "correo@correo.com",
+        "telefono": "1234567890"
+      }
+    ],
+    "seguimiento": [
+      {
+        "fecha": "2021/12/12",
+        "accion": "Aprobar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "accion": "Aprobar solicitud",
+        "fecha": "2021/12/12",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Aprobar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      }
+    ],
+    "formato": "PDF"
+  },
+  {
+    "id": "11",
+    "solicitud": "961",
+    "nombre": "Gregorio",
+    "fechaSolicitud": "2023/11/25",
+    "estado": "Solicitada",
+    "fechaEstado": "2023/12/4",
+    "canal": "Web",
+    "firmantes": [
+      {
+        "identificacion": "1128456987",
+        "nombre": "Camilo Alejandro Ardila Molina",
+        "email": "correo@correo.com",
+        "telefono": "1234567890"
+      },
+      {
+        "identificacion": "1128456987",
+        "nombre": "Mike 2",
+        "email": "correo@correo.com",
+        "telefono": "1234567890"
+      }
+    ],
+    "seguimiento": [
+      {
+        "fecha": "2021/12/12",
+        "accion": "Aprobar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "accion": "Aprobar solicitud",
+        "fecha": "2021/12/12",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Aprobar solicitud",
+        "estado": "Completada"
+      },
+      {
+        "fecha": "2021/12/12",
+        "accion": "Rechazar solicitud",
+        "estado": "Completada"
+      }
+    ],
+    "formato": "PDF"
+  }
+]

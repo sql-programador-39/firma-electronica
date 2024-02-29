@@ -1,81 +1,65 @@
 import axios from 'axios';
-import { data, data2, data3 } from './data';
 
-const getAfiliaciones = () => {
-    const response = data
+const getAfiliaciones = async () => {
+    const url = '../../db.json';
 
-    let completed = 0
-    let requested = 0
-    let rejected = 0
-    let filed = 0
-    let expired = 0
+    try {
+        const response = await axios(url)
+        
+        const arrayAfiliaciones = response.data
 
-    response.forEach(element => {
-        if (element.estado === 'Completada') {
-            completed++
-        } else if (element.estado === 'Solicitada') {
-            requested++
-        } else if (element.estado === 'Rechazada') {
-            rejected++
-        } else if (element.estado === 'Radicada') {
-            filed++
-        } else if (element.estado === 'Vencida') {
-            expired++
-        }        
-    });
+        const arrayNovelty = sumNovelty(arrayAfiliaciones)
 
-    return {
-        completed,
-        requested,
-        rejected,
-        filed,
-        expired,
-        total: response.length
-    };
+        return arrayNovelty
+
+    } catch (error) {
+        console.error('Error fetching data', error)
+    }
 }
 
-const getActualizacion = () => {
-    const response = data2
-    let completed = 0
-    let requested = 0
-    let rejected = 0
-    let filed = 0
-    let expired = 0
+const getActualizacion = async () => {
+    const url = '../../db.json';
 
-    response.forEach(element => {
-        if (element.estado === 'Completada') {
-            completed++
-        } else if (element.estado === 'Solicitada') {
-            requested++
-        } else if (element.estado === 'Rechazada') {
-            rejected++
-        } else if (element.estado === 'Radicada') {
-            filed++
-        } else if (element.estado === 'Vencida') {
-            expired++
-        }        
-    });
+    try {
+        const response = await axios(url)
+        
+        const arrayActualizaciones = response.data
 
-    return {
-        completed,
-        requested,
-        rejected,
-        filed,
-        expired,
-        total: response.length
-    };
+        const arrayNovelty = sumNovelty(arrayActualizaciones)
+
+        return arrayNovelty
+
+    } catch (error) {
+        console.error('Error fetching data', error)
+    }
 }
 
-const getCreditos = () => {
-    const response = data3
+const getCreditos = async () => {
+    
+    const url = '../../db.json';
 
+    try {
+        const response = await axios(url)
+        
+        const arraySolicitudes = response.data
+
+        const arrayNovelty = sumNovelty(arraySolicitudes)
+
+        return arrayNovelty
+
+    } catch (error) {
+        console.error('Error fetching data', error)
+    }
+}
+
+const sumNovelty = async (noveltys) => {
     let completed = 0
     let requested = 0
     let rejected = 0
     let filed = 0
     let expired = 0
 
-    response.forEach(element => {
+    noveltys.forEach(element => {
         if (element.estado === 'Completada') {
             completed++
         } else if (element.estado === 'Solicitada') {
@@ -87,21 +71,21 @@ const getCreditos = () => {
         } else if (element.estado === 'Vencida') {
             expired++
         }        
-    });
+    })
 
     return {
+        actualizacionesInfo: noveltys,
         completed,
         requested,
         rejected,
         filed,
         expired,
-        total: response.length
-    };
-
+        total: noveltys.length
+    }
 }
 
 export {
     getAfiliaciones,
     getActualizacion,
-    getCreditos,
+    getCreditos  
 }
