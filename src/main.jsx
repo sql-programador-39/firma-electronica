@@ -6,6 +6,7 @@ import ControlPanel from './pages/ControlPanel/ControlPanel'
 import Login from './pages/Login/Login'
 import ProtectedRoute from './pages/ControlPanel/ProtectedRoute'
 import { AuthProvider } from './auth/AuthProvider.jsx'
+import { NoveltyProvider } from './context/NoveltyProvider.jsx'
 import Afiliaciones from './pages/Afiliaciones/Afiliaciones.jsx'
 import Actualization from './pages/Actualization/Actualization.jsx'
 import Credits from './pages/Credits/Credits.jsx'
@@ -51,7 +52,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <NoveltyProvider>
+        <RouterProvider router={router} />
+      </NoveltyProvider>
     </AuthProvider>
   </React.StrictMode>,
 )

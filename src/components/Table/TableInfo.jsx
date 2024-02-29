@@ -1,9 +1,11 @@
 import { useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { SearchOutlined } from '@ant-design/icons';
 import { Button, Input, Space, Table, Empty } from 'antd';
 import Highlighter from 'react-highlight-words';
-
 import ModalDetails from '../Modal/ModalDetails';
+import useNovelty from '../../hooks/useNovelty';
+
 import '../../components/CardControl/CardControl.css';
 import './TableInfo.css';
 
@@ -768,7 +770,18 @@ const TableInfo = () => {
 
   const [searchText, setSearchText] = useState('');
   const [searchedColumn, setSearchedColumn] = useState('');
+  const [infoTable, setInfoTable] = useState([]);
+  const [flag, setFlag] = useState(false); 
   const searchInput = useRef(null);
+
+  const { afiliaciones, actualizaciones, solicitudes } = useNovelty();
+
+  const location = useLocation();
+
+  if (location.pathname === '/afiliaciones' && !flag) {
+    setInfoTable(afiliaciones);
+    setFlag(true);
+  }
 
   const handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
@@ -933,7 +946,7 @@ const TableInfo = () => {
     <>
       <Table locale={{ emptyText: (<Empty image={ Empty.PRESENTED_IMAGE_DEFAULT } description={ false }>
         <p>No se encontraron registros</p>
-      </Empty>) }} dataSource={ dataSource } columns={ columns } pagination={ paginationConfig } />  
+      </Empty>) }} dataSource={ infoTable } columns={ columns } pagination={ paginationConfig } />  
     </>
   )
 }

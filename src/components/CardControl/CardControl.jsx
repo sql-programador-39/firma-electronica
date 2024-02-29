@@ -10,7 +10,7 @@ import { faCircleCheck,
 import './CardControl.css'
 import CardInGray from "./CardInGray"
 
-const CardControl = ({ title, completadas, solicitadas, vencidas, rechazadas, radicadas, link, total }) => {
+const CardControl = ({ title, completadas, solicitadas, vencidas, rechazadas, radicadas, total, link }) => {
 
   return (
     <>

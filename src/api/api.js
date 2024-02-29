@@ -74,7 +74,7 @@ const sumNovelty = async (noveltys) => {
     })
 
     return {
-        actualizacionesInfo: noveltys,
+        NoveltysInfo: noveltys,
         completed,
         requested,
         rejected,
