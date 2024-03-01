@@ -4,13 +4,25 @@ const getAfiliaciones = async () => {
     const url = '../../db.json';
 
     try {
-        const response = await axios.get(url)
+        /* const response = await axios.get(url)
         
         const arrayAfiliaciones = response.data
 
         const arrayNovelty = sumNovelty(arrayAfiliaciones)
 
-        return arrayNovelty
+        return arrayNovelty */
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status}`);
+          }
+      
+          const data = await response.json();
+      
+          // Aquí puedes hacer lo que necesites con los datos, como pasarlos a sumNovelty
+          const arrayNovelty = sumNovelty(data);
+      
+          return arrayNovelty;
 
     } catch (error) {
         console.error('Error fetching data', error)
@@ -21,13 +33,18 @@ const getActualizacion = async () => {
     const url = '../../db.json';
 
     try {
-        const response = await axios.get(url)
-        
-        const arrayActualizaciones = response.data
+        const response = await fetch(url);
 
-        const arrayNovelty = sumNovelty(arrayActualizaciones)
-
-        return arrayNovelty
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status}`);
+          }
+      
+          const data = await response.json();
+      
+          // Aquí puedes hacer lo que necesites con los datos, como pasarlos a sumNovelty
+          const arrayNovelty = sumNovelty(data);
+      
+          return arrayNovelty;
 
     } catch (error) {
         console.error('Error fetching data', error)
@@ -39,13 +56,18 @@ const getCreditos = async () => {
     const url = '../../db.json';
 
     try {
-        const response = await axios.get(url)
-        
-        const arraySolicitudes = response.data
+        const response = await fetch(url);
 
-        const arrayNovelty = sumNovelty(arraySolicitudes)
-
-        return arrayNovelty
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status}`);
+          }
+      
+          const data = await response.json();
+      
+          // Aquí puedes hacer lo que necesites con los datos, como pasarlos a sumNovelty
+          const arrayNovelty = sumNovelty(data);
+      
+          return arrayNovelty;
 
     } catch (error) {
         console.error('Error fetching data', error)
@@ -63,7 +85,7 @@ const sumNovelty = (noveltys) => {
 
 
     noveltys.forEach(element => {
-        console.log(element);
+        //console.log(element);
         if (element.estado === 'Completada') {
             completed++
         } else if (element.estado === 'Solicitada') {
