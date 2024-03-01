@@ -59,7 +59,23 @@ const sumNovelty = (noveltys) => {
     let filed = 0
     let expired = 0
 
-    noveltys.forEach(element => {
+    
+    for(let p = 0, len = noveltys.length; p < len; p++) {
+        if (noveltys[p].estado === 'Completada') {
+            completed++
+        } else if (noveltys[p].estado === 'Solicitada') {
+            requested++
+        } else if (noveltys[p].estado === 'Rechazada') {
+            rejected++
+        } else if (noveltys[p].estado === 'Radicada') {
+            filed++
+        } else if (noveltys[p].estado === 'Vencida') {
+            expired++
+        }
+    }
+
+    /* noveltys.forEach(element => {
+        console.log(element);
         if (element.estado === 'Completada') {
             completed++
         } else if (element.estado === 'Solicitada') {
@@ -71,7 +87,7 @@ const sumNovelty = (noveltys) => {
         } else if (element.estado === 'Vencida') {
             expired++
         }        
-    })
+    }) */
 
     return {
         NoveltysInfo: noveltys,
