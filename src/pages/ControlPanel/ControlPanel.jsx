@@ -14,7 +14,8 @@ import SkeletonDough from "../../components/Skeletons/SkeletonDough"
 import CardSkelenton920 from "../../components/Skeletons/CardSkeleton920"
 import CardSkelenton540 from "../../components/Skeletons/CardSkeleton540"
 
-import { getActualizacion, getAfiliaciones, getCreditos } from "../../api/api"
+import useNovelty from "../../hooks/useNovelty"
+
 import { validateInitialFinal, validateInitialDate, validateFinalDate } from "../../helpers/datesValidations"
 
 import './ControlPanel.css'
@@ -23,6 +24,8 @@ import '../../components/Skeletons/Skeleton.css'
 
 
 const ControlPanel = () => {
+
+  const { afiliaciones, actualizaciones, solicitudes } = useNovelty()
 
   const dateNow = new Date();
 
@@ -34,9 +37,7 @@ const ControlPanel = () => {
   const FinalDateFormat = dateNow.toISOString().split('T')[0];
   const InitalDateFormat = InitalDate.toISOString().split('T')[0];
 
-  const [afiliaciones, setAfiliaciones] = useState([])
-  const [actualizaciones, setActualizaciones] = useState([])
-  const [solicitudes, setSolicitudes] = useState([])
+
   
   const [company, setCompany] = useState("")
   const [dateF, setDateF] = useState(FinalDateFormat);
@@ -63,20 +64,8 @@ const ControlPanel = () => {
       setLoading(false)
     }, 3000)
     
-    getInfo()
-
   }, [])
   
-
-  const getInfo = async () => {
-    const responseAfiliaciones = await getAfiliaciones()
-    const responseActualizaciones = await getActualizacion()
-    const responseSolicitudes = await getCreditos()
-
-    setAfiliaciones(responseAfiliaciones)
-    setActualizaciones(responseActualizaciones)
-    setSolicitudes(responseSolicitudes) 
-  }
 
   const handleChange = e => {
 
