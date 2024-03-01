@@ -74,17 +74,17 @@ const getCreditos = async () => {
     }
 }
 
-const sumNovelty = (noveltys) => {
+const sumNovelty = async (noveltys) => {
+    if(noveltys === undefined) return
+
+
     let completed = 0
     let requested = 0
     let rejected = 0
     let filed = 0
     let expired = 0
 
-    if(noveltys === undefined) return
-
-
-    noveltys.forEach(element => {
+    await noveltys.forEach(element => {
         //console.log(element);
         if (element.estado === 'Completada') {
             completed++
