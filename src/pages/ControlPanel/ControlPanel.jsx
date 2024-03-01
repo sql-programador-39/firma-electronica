@@ -60,6 +60,8 @@ const ControlPanel = () => {
       setSkeleton('2')
     }
 
+    console.log(afiliaciones, actualizaciones, solicitudes)
+
     setTimeout(() => {
       setLoading(false)
     }, 3000)

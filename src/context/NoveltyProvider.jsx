@@ -17,7 +17,7 @@ const NoveltyProvider = ({children}) => {
 
     setAfiliaciones(responseAfiliaciones)
     setActualizaciones(responseActualizaciones)
-    setSolicitudes(responseSolicitudes) 
+    setSolicitudes(responseSolicitudes)
   }
 
   useEffect(() => {

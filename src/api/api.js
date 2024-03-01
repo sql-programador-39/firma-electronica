@@ -20,9 +20,36 @@ const getAfiliaciones = async () => {
           const data = await response.json();
       
           // Aquí puedes hacer lo que necesites con los datos, como pasarlos a sumNovelty
-          const arrayNovelty = sumNovelty(data);
-      
-          return arrayNovelty;
+          let completed = 0
+          let requested = 0
+          let rejected = 0
+          let filed = 0
+          let expired = 0
+    
+          data.forEach(element => {
+            //console.log(element);
+            if (element.estado === 'Completada') {
+                completed++
+            } else if (element.estado === 'Solicitada') {
+                requested++
+            } else if (element.estado === 'Rechazada') {
+                rejected++
+            } else if (element.estado === 'Radicada') {
+                filed++
+            } else if (element.estado === 'Vencida') {
+                expired++
+            }        
+        })
+    
+        return {
+            NoveltysInfo: data,
+            completed,
+            requested,
+            rejected,
+            filed,
+            expired,
+            total: data.length
+        }
 
     } catch (error) {
         console.error('Error fetching data', error)
@@ -33,7 +60,7 @@ const getActualizacion = async () => {
     const url = '../../db.json';
 
     try {
-        const response = await fetch(url);
+        /* const response = await fetch(url);
 
         if (!response.ok) {
             throw new Error(`Error: ${response.status}`);
@@ -44,8 +71,48 @@ const getActualizacion = async () => {
           // Aquí puedes hacer lo que necesites con los datos, como pasarlos a sumNovelty
           const arrayNovelty = sumNovelty(data);
       
-          return arrayNovelty;
+          return arrayNovelty; */
 
+
+          const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status}`);
+          }
+      
+          const data = await response.json();
+      
+          // Aquí puedes hacer lo que necesites con los datos, como pasarlos a sumNovelty
+          let completed = 0
+          let requested = 0
+          let rejected = 0
+          let filed = 0
+          let expired = 0
+    
+          data.forEach(element => {
+            //console.log(element);
+            if (element.estado === 'Completada') {
+                completed++
+            } else if (element.estado === 'Solicitada') {
+                requested++
+            } else if (element.estado === 'Rechazada') {
+                rejected++
+            } else if (element.estado === 'Radicada') {
+                filed++
+            } else if (element.estado === 'Vencida') {
+                expired++
+            }        
+        })
+    
+        return {
+            NoveltysInfo: data,
+            completed,
+            requested,
+            rejected,
+            filed,
+            expired,
+            total: data.length
+        }
     } catch (error) {
         console.error('Error fetching data', error)
     }
@@ -56,7 +123,7 @@ const getCreditos = async () => {
     const url = '../../db.json';
 
     try {
-        const response = await fetch(url);
+        /* const response = await fetch(url);
 
         if (!response.ok) {
             throw new Error(`Error: ${response.status}`);
@@ -67,14 +134,54 @@ const getCreditos = async () => {
           // Aquí puedes hacer lo que necesites con los datos, como pasarlos a sumNovelty
           const arrayNovelty = sumNovelty(data);
       
-          return arrayNovelty;
+          return arrayNovelty; */
+
+          const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status}`);
+          }
+      
+          const data = await response.json();
+      
+          // Aquí puedes hacer lo que necesites con los datos, como pasarlos a sumNovelty
+          let completed = 0
+          let requested = 0
+          let rejected = 0
+          let filed = 0
+          let expired = 0
+    
+          data.forEach(element => {
+            //console.log(element);
+            if (element.estado === 'Completada') {
+                completed++
+            } else if (element.estado === 'Solicitada') {
+                requested++
+            } else if (element.estado === 'Rechazada') {
+                rejected++
+            } else if (element.estado === 'Radicada') {
+                filed++
+            } else if (element.estado === 'Vencida') {
+                expired++
+            }        
+        })
+    
+        return {
+            NoveltysInfo: data,
+            completed,
+            requested,
+            rejected,
+            filed,
+            expired,
+            total: data.length
+        }
 
     } catch (error) {
         console.error('Error fetching data', error)
     }
 }
 
-const sumNovelty = async (noveltys) => {
+/* const sumNovelty = async (noveltys) => {
     if(noveltys === undefined) return
 
 
@@ -108,7 +215,7 @@ const sumNovelty = async (noveltys) => {
         expired,
         total: noveltys.length
     }
-}
+} */
 
 export {
     getAfiliaciones,
