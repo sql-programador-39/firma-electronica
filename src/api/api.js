@@ -52,7 +52,7 @@ const getCreditos = async () => {
     }
 }
 
-const sumNovelty = async (noveltys) => {
+const sumNovelty = (noveltys) => {
     let completed = 0
     let requested = 0
     let rejected = 0
