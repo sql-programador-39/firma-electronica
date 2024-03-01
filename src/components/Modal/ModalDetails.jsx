@@ -9,7 +9,7 @@ import './ModalDetails.css';
 
 const ModalDetails = ({data}) => {
 
-  const { nombre, identificacion, fechaSolicitud, estado, fechaEstado, firmantes, acciones, canal } = data[0];
+  const { solicitud, nombre, identificacion, fechaSolicitud, estado, fechaEstado, firmantes, seguimiento, canal } = data[0];
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [sizes, setSizes] = useState("");
@@ -41,7 +41,7 @@ const ModalDetails = ({data}) => {
         }
       </button>
       <Modal 
-        title="Detalle de la Solicitud"
+        title={`Detalle de la Solicitud: ${solicitud}`}
         open={isModalOpen}
         width={sizes}
         onCancel={handleOk} 
@@ -108,7 +108,7 @@ const ModalDetails = ({data}) => {
             <h3>Seguimiento</h3>
 
             <div className='body-modal-info-2'>
-              {acciones.map((accion, index) => (
+              {seguimiento.map((accion, index) => (
                 <CardAccion key={index} data={accion} />
               ))}
             </div>
