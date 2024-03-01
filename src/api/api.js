@@ -4,7 +4,7 @@ const getAfiliaciones = async () => {
     const url = '../../db.json';
 
     try {
-        const response = await axios(url)
+        const response = await axios.get(url)
         
         const arrayAfiliaciones = response.data
 
@@ -21,7 +21,7 @@ const getActualizacion = async () => {
     const url = '../../db.json';
 
     try {
-        const response = await axios(url)
+        const response = await axios.get(url)
         
         const arrayActualizaciones = response.data
 
@@ -39,7 +39,7 @@ const getCreditos = async () => {
     const url = '../../db.json';
 
     try {
-        const response = await axios(url)
+        const response = await axios.get(url)
         
         const arraySolicitudes = response.data
 
