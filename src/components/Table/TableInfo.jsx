@@ -10,9 +10,8 @@ import '../../components/CardControl/CardControl.css';
 import './TableInfo.css';
 
 const paginationConfig = {
-  pageSize: 8,
+  pageSize: 8
 };
-
 
 const TableInfo = () => {
 

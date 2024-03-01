@@ -40,6 +40,7 @@ const ModalDetails = ({data}) => {
           )
         }
       </button>
+      
       <Modal 
         title={`Detalle de la Solicitud: ${solicitud}`}
         open={isModalOpen}
