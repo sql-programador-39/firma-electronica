@@ -85,7 +85,7 @@ const FormLogin = () => {
       <Form className='form-login' onSubmit={handleSubmit} noValidate>
       { innerWidth < 768 && (
         <>
-        <img src={logoOpa} alt="logo opa" width={160} height={70} style={{margin: "15px auto", display: "flex"}}/>
+        <img src={logoOpa} alt="logo opa" width={160} height={80} style={{margin: "15px auto", display: "flex"}}/>
         <h2 className="title">Firmas Electronicas</h2>
         </>
       )}
