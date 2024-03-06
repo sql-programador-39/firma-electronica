@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Form } from 'react-router-dom';
 import { Switch } from 'antd';
+import logoOpa from '../../assets/Logo-opa.png';
 
 import useAuth from '../../hooks/useAuth';
 import clientAxios from '../../config/clientAxios';
@@ -80,7 +81,14 @@ const FormLogin = () => {
     <>
       {/* Form */}
 
+
       <Form className='form-login' onSubmit={handleSubmit} noValidate>
+      { innerWidth < 768 && (
+        <>
+        <img src={logoOpa} alt="logo opa" width={150} height={70} style={{margin: "5px auto", display: "flex"}}/>
+        <h2 className="title">Firmas Electronicas</h2>
+        </>
+      )}
         <h2>Inciar sesión</h2>
 
         <div className='form-input'>

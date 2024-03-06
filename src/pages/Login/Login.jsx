@@ -12,7 +12,7 @@ const Login = () => {
             <InfoLogin />
           </div>
         </div>
-
+        
         <FormLogin />
       </div>    
     </>
