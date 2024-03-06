@@ -37,8 +37,6 @@ const ControlPanel = () => {
   const FinalDateFormat = dateNow.toISOString().split('T')[0];
   const InitalDateFormat = InitalDate.toISOString().split('T')[0];
 
-
-  
   const [company, setCompany] = useState("")
   const [dateF, setDateF] = useState(FinalDateFormat);
   const [dateI, setDateI] = useState(InitalDateFormat);
@@ -59,8 +57,6 @@ const ControlPanel = () => {
 
       setSkeleton('2')
     }
-
-    console.log(afiliaciones, actualizaciones, solicitudes)
 
     setTimeout(() => {
       setLoading(false)

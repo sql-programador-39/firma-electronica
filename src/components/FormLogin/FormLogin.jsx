@@ -10,6 +10,7 @@ import ErrorAlert from '../ErrorAlert/ErrorAlert';
 
 import './FormLogin.css';
 
+
 const FormLogin = () => {
 
   const navigate = useNavigate();
@@ -20,9 +21,6 @@ const FormLogin = () => {
   const [password, setPassword] = useState('');
   const [alert, setAlert] = useState({});
 
-  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-
   const onChange = (checked) => {
     console.log(`switch to ${checked}`);
   };
@@ -30,8 +28,6 @@ const FormLogin = () => {
   const handleSubmit = async e => {
     
     e.preventDefault();
-
-  
 
     if ([user.trim(), password.trim()].includes('')){
       setAlert({
@@ -44,6 +40,8 @@ const FormLogin = () => {
 
       return;
     }
+
+    const emailRegex = new RegExp("([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])");
 
     if (!emailRegex.test(user)) {
       setAlert({

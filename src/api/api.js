@@ -1,187 +1,67 @@
 import axios from 'axios';
 
+// Consultamos toda la informacion con respecto a las afiliaciones del servicio de firmas
+
 const getAfiliaciones = async () => {
     const url = '../../db.json';
 
     try {
-        /* const response = await axios.get(url)
+        const response = await axios(url)
         
-        const arrayAfiliaciones = response.data
+        const newArray = response.data
 
-        const arrayNovelty = sumNovelty(arrayAfiliaciones)
+        const arrayNovelty = sumNovelty(newArray)
 
-        return arrayNovelty */
-        const response = await fetch(url);
-
-        if (!response.ok) {
-            throw new Error(`Error: ${response.status}`);
-          }
-      
-          const data = await response.json();
-      
-          // Aquí puedes hacer lo que necesites con los datos, como pasarlos a sumNovelty
-          let completed = 0
-          let requested = 0
-          let rejected = 0
-          let filed = 0
-          let expired = 0
-    
-          data.forEach(element => {
-            //console.log(element);
-            if (element.estado === 'Completada') {
-                completed++
-            } else if (element.estado === 'Solicitada') {
-                requested++
-            } else if (element.estado === 'Rechazada') {
-                rejected++
-            } else if (element.estado === 'Radicada') {
-                filed++
-            } else if (element.estado === 'Vencida') {
-                expired++
-            }        
-        })
-    
-        return {
-            NoveltysInfo: data,
-            completed,
-            requested,
-            rejected,
-            filed,
-            expired,
-            total: data.length
-        }
+        return arrayNovelty
 
     } catch (error) {
         console.error('Error fetching data', error)
     }
 }
+
+//Consultamos toda la informacion con respecto a las actualizaciones de datos
 
 const getActualizacion = async () => {
     const url = '../../db.json';
 
     try {
-        /* const response = await fetch(url);
+        const response = await axios(url)
+        
+        const newArray = response.data
 
-        if (!response.ok) {
-            throw new Error(`Error: ${response.status}`);
-          }
-      
-          const data = await response.json();
-      
-          // Aquí puedes hacer lo que necesites con los datos, como pasarlos a sumNovelty
-          const arrayNovelty = sumNovelty(data);
-      
-          return arrayNovelty; */
+        const arrayNovelty = sumNovelty(newArray)
 
+        return arrayNovelty
 
-          const response = await fetch(url);
-
-        if (!response.ok) {
-            throw new Error(`Error: ${response.status}`);
-          }
-      
-          const data = await response.json();
-      
-          // Aquí puedes hacer lo que necesites con los datos, como pasarlos a sumNovelty
-          let completed = 0
-          let requested = 0
-          let rejected = 0
-          let filed = 0
-          let expired = 0
-    
-          data.forEach(element => {
-            //console.log(element);
-            if (element.estado === 'Completada') {
-                completed++
-            } else if (element.estado === 'Solicitada') {
-                requested++
-            } else if (element.estado === 'Rechazada') {
-                rejected++
-            } else if (element.estado === 'Radicada') {
-                filed++
-            } else if (element.estado === 'Vencida') {
-                expired++
-            }        
-        })
-    
-        return {
-            NoveltysInfo: data,
-            completed,
-            requested,
-            rejected,
-            filed,
-            expired,
-            total: data.length
-        }
     } catch (error) {
         console.error('Error fetching data', error)
     }
 }
+
+//Consultamos toda la informacion con respecto a las solicitudes de credito
 
 const getCreditos = async () => {
     
     const url = '../../db.json';
 
     try {
-        /* const response = await fetch(url);
+        const response = await axios(url)
+        
+        const newArray = response.data
 
-        if (!response.ok) {
-            throw new Error(`Error: ${response.status}`);
-          }
-      
-          const data = await response.json();
-      
-          // Aquí puedes hacer lo que necesites con los datos, como pasarlos a sumNovelty
-          const arrayNovelty = sumNovelty(data);
-      
-          return arrayNovelty; */
+        const arrayNovelty = sumNovelty(newArray)
 
-          const response = await fetch(url);
-
-        if (!response.ok) {
-            throw new Error(`Error: ${response.status}`);
-          }
-      
-          const data = await response.json();
-      
-          // Aquí puedes hacer lo que necesites con los datos, como pasarlos a sumNovelty
-          let completed = 0
-          let requested = 0
-          let rejected = 0
-          let filed = 0
-          let expired = 0
-    
-          data.forEach(element => {
-            //console.log(element);
-            if (element.estado === 'Completada') {
-                completed++
-            } else if (element.estado === 'Solicitada') {
-                requested++
-            } else if (element.estado === 'Rechazada') {
-                rejected++
-            } else if (element.estado === 'Radicada') {
-                filed++
-            } else if (element.estado === 'Vencida') {
-                expired++
-            }        
-        })
-    
-        return {
-            NoveltysInfo: data,
-            completed,
-            requested,
-            rejected,
-            filed,
-            expired,
-            total: data.length
-        }
+        return arrayNovelty
 
     } catch (error) {
         console.error('Error fetching data', error)
     }
 }
 
-/* const sumNovelty = async (noveltys) => {
+//Sumamos la cantidad de solicitudes por estado para poder obtener el total y mostrarlo en el panel de control
+
+const sumNovelty = async (noveltys) => {
+
     if(noveltys === undefined) return
 
 
@@ -192,7 +72,6 @@ const getCreditos = async () => {
     let expired = 0
 
     await noveltys.forEach(element => {
-        //console.log(element);
         if (element.estado === 'Completada') {
             completed++
         } else if (element.estado === 'Solicitada') {
@@ -215,7 +94,7 @@ const getCreditos = async () => {
         expired,
         total: noveltys.length
     }
-} */
+}
 
 export {
     getAfiliaciones,
