@@ -6,6 +6,9 @@ import Highlighter from 'react-highlight-words';
 import ModalDetails from '../Modal/ModalDetails';
 import useNovelty from '../../hooks/useNovelty';
 
+import { formatDate } from '../../helpers/formatDate';
+import { changeStatusName } from '../../helpers/changeStatusName';
+
 import '../../components/CardControl/CardControl.css';
 import './TableInfo.css';
 
@@ -26,16 +29,16 @@ const TableInfo = () => {
 
   useEffect(() => {
     if (location.pathname === '/afiliaciones') {
-      
+
       if(afiliaciones.NoveltysInfo === undefined) return
 
       const newArray = afiliaciones.NoveltysInfo.map((item) => {
         return {
           key: item.id,
-          solicitud: item.solicitud,
-          nombre: item.nombre,
-          estado: item.estado,
-          fecha: item.fechaEstado,
+          solicitud: item.requestNumber,
+          nombre: item.fullName,
+          estado: changeStatusName(item.estadoSolicitud),
+          fecha: formatDate(item.requestDate),
           detalle: <ModalDetails data={[item]} />
         }
       })
@@ -49,10 +52,10 @@ const TableInfo = () => {
       const newArray = actualizaciones.NoveltysInfo.map((item) => {
         return {
           key: item.id,
-          solicitud: item.solicitud,
-          nombre: item.nombre,
-          estado: item.estado,
-          fecha: item.fechaEstado,
+          solicitud: item.requestNumber,
+          nombre: item.fullName,
+          estado: changeStatusName(item.estadoSolicitud),
+          fecha: formatDate(item.requestDate),
           detalle: <ModalDetails data={[item]} />
         }
       })
@@ -66,10 +69,10 @@ const TableInfo = () => {
       const newArray = solicitudes.NoveltysInfo.map((item) => {
         return {
           key: item.id,
-          solicitud: item.solicitud,
-          nombre: item.nombre,
-          estado: item.estado,
-          fecha: item.fechaEstado,
+          solicitud: item.requestNumber,
+          nombre: item.fullName,
+          estado: changeStatusName(item.estadoSolicitud),
+          fecha: formatDate(item.requestDate),
           detalle: <ModalDetails data={[item]} />
         }
       })

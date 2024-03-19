@@ -4,12 +4,15 @@ import { Modal } from 'antd';
 import CardAccion from '../CardAccion/CardAccion';
 import CardFirmante from '../CardFirmante/CardFirmante';
 
+import { formatDate } from '../../helpers/formatDate';
+import { changeStatusName } from '../../helpers/changeStatusName';
+
 import '../../components/CardControl/CardControl.css';
 import './ModalDetails.css';
 
 const ModalDetails = ({data}) => {
 
-  const { solicitud, nombre, identificacion, fechaSolicitud, estado, fechaEstado, firmantes, seguimiento, canal } = data[0];
+  const { requestNumber, fullName, identification, requestDate, estadoSolicitud, fechaEstado, digitalSigners, actionTracking, channel, pdfs } = data[0];
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [sizes, setSizes] = useState("");
@@ -29,6 +32,13 @@ const ModalDetails = ({data}) => {
     setIsModalOpen(false);
   };
 
+  const openPdf = () => {
+    if(pdfs.length > 0){
+      const newWindow = window.open();
+      newWindow.document.write('<iframe src="data:application/pdf;base64,' + pdfs[0].pdf64 + '" width="100%" height="100%"></iframe>');
+    }
+  }
+
   return (
     <>
       <button className='button-card' onClick={showModal}>
@@ -42,7 +52,7 @@ const ModalDetails = ({data}) => {
       </button>
       
       <Modal 
-        title={`Detalle de la Solicitud: ${solicitud}`}
+        title={`Detalle de la Solicitud: ${requestNumber}`}
         open={isModalOpen}
         width={sizes}
         onCancel={handleOk} 
@@ -58,17 +68,17 @@ const ModalDetails = ({data}) => {
             <div>
               <div>
                 <p className='p-modal'>Nombre:</p>
-                <p>{ nombre }</p>
+                <p>{ fullName }</p>
               </div>
 
               <div>
                 <p className='p-modal'>Identificación:</p>
-                <p>{ identificacion }</p>
+                <p>{ identification }</p>
               </div>
 
               <div>
                 <p className='p-modal'>Fecha Solicitud:</p>
-                <p>{ fechaSolicitud }</p>
+                <p>{ formatDate(requestDate) }</p>
               </div>
 
               <div>
@@ -80,16 +90,16 @@ const ModalDetails = ({data}) => {
             <div>
               <div>
                 <p className='p-modal'>Estado:</p>
-                <p>{ estado }</p>
+                <p>{ changeStatusName(estadoSolicitud) }</p>
               </div>
               <div>
                 <p className='p-modal'>Canal:</p>
-                <p>{ canal }</p>
+                <p>{ channel }</p>
               </div>
 
               <div className='modal-info-button'>
                 <p className='p-modal'>Archivo:</p>
-                <button>Descargar</button>
+                <button onClick={openPdf}>Ver documento</button>
               </div>
             </div>
           </div>
@@ -99,7 +109,7 @@ const ModalDetails = ({data}) => {
           <div >
             <h3>Firmantes</h3>
             <div className='body-modal-info-1'>
-              {firmantes.map((firmante, index) => (
+              {digitalSigners.map((firmante, index) => (
                 <CardFirmante key={index} data={firmante} />
               ))}
             </div>
@@ -109,7 +119,7 @@ const ModalDetails = ({data}) => {
             <h3>Seguimiento</h3>
 
             <div className='body-modal-info-2'>
-              {seguimiento.map((accion, index) => (
+              {actionTracking.map((accion, index) => (
                 <CardAccion key={index} data={accion} />
               ))}
             </div>

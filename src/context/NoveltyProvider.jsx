@@ -8,6 +8,7 @@ const NoveltyProvider = ({children}) => {
   const [afiliaciones, setAfiliaciones] = useState([])
   const [actualizaciones, setActualizaciones] = useState([])
   const [solicitudes, setSolicitudes] = useState([])
+  const [loading, setLoading] = useState(true)
 
 
   const getInfo = async () => {
@@ -18,6 +19,8 @@ const NoveltyProvider = ({children}) => {
     setAfiliaciones(responseAfiliaciones)
     setActualizaciones(responseActualizaciones)
     setSolicitudes(responseSolicitudes)
+
+    setLoading(false)
   }
 
   useEffect(() => {
@@ -28,7 +31,8 @@ const NoveltyProvider = ({children}) => {
     <NoveltyContext.Provider value={{
       afiliaciones,
       actualizaciones,
-      solicitudes
+      solicitudes,
+      loading
     }}>
       {children}
     </NoveltyContext.Provider>

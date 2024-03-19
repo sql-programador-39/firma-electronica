@@ -25,7 +25,7 @@ import '../../components/Skeletons/Skeleton.css'
 
 const ControlPanel = () => {
 
-  const { afiliaciones, actualizaciones, solicitudes } = useNovelty()
+  const { afiliaciones, actualizaciones, solicitudes, loading } = useNovelty()
 
   const dateNow = new Date();
 
@@ -43,7 +43,7 @@ const ControlPanel = () => {
   
   const [littleAlert, setLittleAlert] = useState({})
   const [skeleton, setSkeleton] = useState('')
-  const [loading, setLoading] = useState(true)
+  /* const [loading, setLoading] = useState(true) */
 
   useEffect(() => {
 
@@ -58,12 +58,12 @@ const ControlPanel = () => {
       setSkeleton('2')
     }
 
-    setTimeout(() => {
+    /* if(afiliaciones && actualizaciones && solicitudes) {
       setLoading(false)
-    }, 3000)
+    } */
     
   }, [])
-  
+
 
   const handleChange = e => {
 
@@ -282,18 +282,18 @@ const ControlPanel = () => {
             <div>
               <h2>Solicitudes de firma enviadas</h2>
               <BarChartSends 
-                afiliaciones={ afiliaciones.filed }
-                actualizacion={ actualizaciones?.filed }
-                creditos={ solicitudes?.filed }
+                afiliaciones={ afiliaciones.submit }
+                actualizacion={ actualizaciones?.submit }
+                creditos={ solicitudes?.submit }
               /> 
             </div>
 
             <div>
               <h2>Estado de solicitudes</h2>
               <BarChart 
-                afiliaciones={ [afiliaciones.completed, afiliaciones.requested, afiliaciones.expired, afiliaciones.rejected, afiliaciones.filed] }
-                actualizacion={ [actualizaciones.completed, actualizaciones.requested, actualizaciones.expired, actualizaciones.rejected, actualizaciones.filed] }
-                creditos={ [solicitudes.completed, solicitudes.requested, solicitudes.expired, solicitudes.rejected, solicitudes.filed] }
+                afiliaciones={ [afiliaciones.completed, afiliaciones.requested, afiliaciones.expired, afiliaciones.notCompleted, afiliaciones.submit] }
+                actualizacion={ [actualizaciones.completed, actualizaciones.requested, actualizaciones.expired, actualizaciones.notCompleted, actualizaciones.submit] }
+                creditos={ [solicitudes.completed, solicitudes.requested, solicitudes.expired, solicitudes.notCompleted, solicitudes.submit] }
               />
             </div>
           </section>
@@ -302,11 +302,11 @@ const ControlPanel = () => {
             <div style={{ margin: '25px 0 30px 0' }}>
               <CardControl 
                 title="Afiliaciones"
-                completadas={ afiliaciones.completed }
-                solicitadas={ afiliaciones.requested }
-                vencidas={ afiliaciones.expired }
-                rechazadas={ afiliaciones.rejected }
-                radicadas={ afiliaciones.filed }
+                completed={ afiliaciones.completed }
+                requested={ afiliaciones.requested }
+                expired={ afiliaciones.expired }
+                notCompleted={ afiliaciones.notCompleted }
+                submit={ afiliaciones.submit }
                 total={ afiliaciones.total }
                 link="/afiliaciones"
               />
@@ -316,11 +316,11 @@ const ControlPanel = () => {
 
               <CardControl 
                 title="Actualización de datos"
-                completadas={ actualizaciones.completed }
-                solicitadas={ actualizaciones.requested }
-                vencidas={ actualizaciones.expired }
-                rechazadas={ actualizaciones.rejected }
-                radicadas={ actualizaciones.filed }
+                completed={ actualizaciones.completed }
+                requested={ actualizaciones.requested }
+                expired={ actualizaciones.expired }
+                notCompleted={ actualizaciones.notCompleted }
+                submit={ actualizaciones.submit }
                 total={ actualizaciones.total }
                 link="/actualizacion-datos"
               />
@@ -328,11 +328,11 @@ const ControlPanel = () => {
             <div style={{ margin: '25px 0 30px 0' }}>
               <CardControl 
                 title="Solicitud de crédito"
-                completadas={ solicitudes.completed }
-                solicitadas={ solicitudes.requested }
-                vencidas={ solicitudes.expired }
-                rechazadas={ solicitudes.rejected }
-                radicadas={ solicitudes.filed }
+                completed={ solicitudes.completed }
+                requested={ solicitudes.requested }
+                expired={ solicitudes.expired }
+                notCompleted={ solicitudes.notCompleted }
+                submit={ solicitudes.submit }
                 total={ solicitudes.total }
                 link="/solicitudes-credito"
               />
@@ -343,5 +343,11 @@ const ControlPanel = () => {
     </>
   )
 }
+
+/* completed = completada
+    submit = radicada
+    requested = solicitada
+    notcompleted = rechazada
+    confirmed = confirmadas */
 
 export default ControlPanel

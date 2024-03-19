@@ -5,7 +5,7 @@ import './CardFirmante.css'
 
 const CardFirmante = ({data}) => {
   
-  const {nombre, identificacion, email, telefono} = data;
+  const { fullName, identification, email, phone } = data;
   
   return (
     <>
@@ -13,12 +13,12 @@ const CardFirmante = ({data}) => {
         <div>
           <FontAwesomeIcon icon={faUser} />
           <p>Nombre:</p>
-          <p>{ nombre }</p>
+          <p>{ fullName }</p>
         </div>
         <div>
           <FontAwesomeIcon icon={faAddressCard} />
           <p>Identificación:</p>
-          <p>{ identificacion }</p>
+          <p>{ identification }</p>
         </div>
         <div>
           <FontAwesomeIcon icon={faEnvelope} />
@@ -28,7 +28,7 @@ const CardFirmante = ({data}) => {
         <div>
         <FontAwesomeIcon icon={faPhone} />
           <p>Telefono:</p>
-          <p>{ telefono }</p>
+          <p>{ phone }</p>
         </div>
       </div> 
     </>

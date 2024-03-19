@@ -70,6 +70,7 @@ const FormLogin = () => {
       })
     } */
 
+    localStorage.setItem('token', 'token');
     setIsAuthenticaded(true);
     setAlert({});
     setUser('');

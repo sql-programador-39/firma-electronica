@@ -11,9 +11,9 @@ import Afiliaciones from './pages/Afiliaciones/Afiliaciones.jsx'
 import Actualization from './pages/Actualization/Actualization.jsx'
 import Credits from './pages/Credits/Credits.jsx'
 import Layout from './Layout/Layout'
+import Pruebas from './pages/Pruebas.jsx'
 
 const router = createBrowserRouter([
-
     { 
       path: '/', 
       element: <Login />,
@@ -45,6 +45,10 @@ const router = createBrowserRouter([
           ],
         }
       ],
+    },
+    {
+      path: '/api-pruebas',
+      element: <Pruebas />,
     }
     
   ])
