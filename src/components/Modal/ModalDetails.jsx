@@ -5,7 +5,7 @@ import CardAccion from '../CardAccion/CardAccion';
 import CardFirmante from '../CardFirmante/CardFirmante';
 
 import { formatDate } from '../../helpers/formatDate';
-import { changeStatusName } from '../../helpers/changeStatusName';
+import { changeStatusName, changeChannelName } from '../../helpers/changeNames';
 
 import '../../components/CardControl/CardControl.css';
 import './ModalDetails.css';
@@ -94,7 +94,7 @@ const ModalDetails = ({data}) => {
               </div>
               <div>
                 <p className='p-modal'>Canal:</p>
-                <p>{ channel }</p>
+                <p>{ changeChannelName(channel) }</p>
               </div>
 
               <div className='modal-info-button'>

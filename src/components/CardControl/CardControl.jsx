@@ -8,9 +8,8 @@ import { faCircleCheck,
           faTriangleExclamation, 
           faFileImport } from '@fortawesome/free-solid-svg-icons'
 import './CardControl.css'
-import CardInGray from "./CardInGray"
 
-const CardControl = ({ title, completed, requested, expired, notCompleted, submit, total, link }) => {
+const CardControl = ({ title, completed, requested, expired, notCompleted, submit, confirmed, total, link }) => {
 
   return (
     <>
@@ -25,11 +24,12 @@ const CardControl = ({ title, completed, requested, expired, notCompleted, submi
         
         <div className="total-doughnut" >
           <Doughnut 
-            completadas={completed}
-            solicitadas={requested}
-            vencidas={expired}
-            rechazadas={notCompleted}
-            radicadas={submit}
+            completed={completed}
+            requested={requested}
+            expired={expired}
+            notCompleted={notCompleted}
+            submit={submit}
+            confirmed={confirmed}
           />
           <div>
             <p>Total</p>
@@ -56,7 +56,7 @@ const CardControl = ({ title, completed, requested, expired, notCompleted, submi
               />
           </div>
 
-          <div className="card-gray grid-card-in grid-item-third-column">
+          {/* <div className="card-gray grid-card-in grid-item-third-column">
             { window.innerWidth > 820 ? (
               <CardInGray 
                 title="Vencidas"
@@ -72,12 +72,14 @@ const CardControl = ({ title, completed, requested, expired, notCompleted, submi
                 icon2={faChartLine}
               />
             )}
-          </div>
-          <div className="card-red grid-card-in">
+          </div> */}
+          
+
+          <div className="card-purple grid-card-in">
             <CardIn 
-              title="Rechazadas"
-              number={notCompleted}
-              icon={faCircleXmark}
+              title="Confirmadas"
+              number={confirmed}
+              icon={faTriangleExclamation}
               icon2={faChartLine}
             />
           </div>
@@ -87,6 +89,24 @@ const CardControl = ({ title, completed, requested, expired, notCompleted, submi
               title="Radicadas"
               number={submit}
               icon={faFileImport}
+              icon2={faChartLine}
+            />
+          </div>
+            
+          <div className="card-red grid-card-in">
+            <CardIn 
+              title="No completadas"
+              number={notCompleted}
+              icon={faCircleXmark}
+              icon2={faChartLine}
+            />
+          </div>
+
+          <div className="card-gray grid-card-in">
+            <CardIn
+              title="Vencidas"
+              number={expired}
+              icon={faTriangleExclamation}
               icon2={faChartLine}
             />
           </div>

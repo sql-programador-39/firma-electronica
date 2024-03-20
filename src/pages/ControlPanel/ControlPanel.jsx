@@ -25,7 +25,7 @@ import '../../components/Skeletons/Skeleton.css'
 
 const ControlPanel = () => {
 
-  const { afiliaciones, actualizaciones, solicitudes, loading } = useNovelty()
+  const { afiliaciones, actualizaciones, solicitudes, loading, getInfo } = useNovelty()
 
   const dateNow = new Date();
 
@@ -58,9 +58,7 @@ const ControlPanel = () => {
       setSkeleton('2')
     }
 
-    /* if(afiliaciones && actualizaciones && solicitudes) {
-      setLoading(false)
-    } */
+    getInfo()
     
   }, [])
 
@@ -291,9 +289,9 @@ const ControlPanel = () => {
             <div>
               <h2>Estado de solicitudes</h2>
               <BarChart 
-                afiliaciones={ [afiliaciones.completed, afiliaciones.requested, afiliaciones.expired, afiliaciones.notCompleted, afiliaciones.submit] }
-                actualizacion={ [actualizaciones.completed, actualizaciones.requested, actualizaciones.expired, actualizaciones.notCompleted, actualizaciones.submit] }
-                creditos={ [solicitudes.completed, solicitudes.requested, solicitudes.expired, solicitudes.notCompleted, solicitudes.submit] }
+                afiliaciones={ [afiliaciones.completed, afiliaciones.requested, afiliaciones.expired, afiliaciones.notCompleted, afiliaciones.submit, afiliaciones.confirmed] }
+                actualizacion={ [actualizaciones.completed, actualizaciones.requested, actualizaciones.expired, actualizaciones.notCompleted, actualizaciones.submit, actualizaciones.confirmed] }
+                creditos={ [solicitudes.completed, solicitudes.requested, solicitudes.expired, solicitudes.notCompleted, solicitudes.submit, solicitudes.confirmed] }
               />
             </div>
           </section>
@@ -307,6 +305,7 @@ const ControlPanel = () => {
                 expired={ afiliaciones.expired }
                 notCompleted={ afiliaciones.notCompleted }
                 submit={ afiliaciones.submit }
+                confirmed={ afiliaciones.confirmed }
                 total={ afiliaciones.total }
                 link="/afiliaciones"
               />
@@ -321,6 +320,7 @@ const ControlPanel = () => {
                 expired={ actualizaciones.expired }
                 notCompleted={ actualizaciones.notCompleted }
                 submit={ actualizaciones.submit }
+                confirmed={ actualizaciones.confirmed }
                 total={ actualizaciones.total }
                 link="/actualizacion-datos"
               />
@@ -333,6 +333,7 @@ const ControlPanel = () => {
                 expired={ solicitudes.expired }
                 notCompleted={ solicitudes.notCompleted }
                 submit={ solicitudes.submit }
+                confirmed={ solicitudes.confirmed }
                 total={ solicitudes.total }
                 link="/solicitudes-credito"
               />

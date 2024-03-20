@@ -16,7 +16,7 @@ const FormLogin = () => {
 
   const navigate = useNavigate();
 
-  const { setIsAuthenticaded } = useAuth()
+  const { authUser } = useAuth()
 
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
@@ -56,22 +56,7 @@ const FormLogin = () => {
       return;
     }
 
-    /* try {
-      const { data } = await clientAxios.post('/auth/login', 
-      {
-        email: user,
-        password: password,
-      })
-      
-      localStorage.setItem('token', data.token);
-    } catch (error) {
-      setAlert({
-        msg: error.response.data.msg
-      })
-    } */
-
-    localStorage.setItem('token', 'token');
-    setIsAuthenticaded(true);
+    authUser();
     setAlert({});
     setUser('');
     setPassword('');

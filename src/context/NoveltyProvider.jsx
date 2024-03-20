@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from 'react'
+import { createContext, useState } from 'react'
 import { getActualizacion, getAfiliaciones, getCreditos } from "../api/api"
 
 const NoveltyContext = createContext()
@@ -19,19 +19,16 @@ const NoveltyProvider = ({children}) => {
     setAfiliaciones(responseAfiliaciones)
     setActualizaciones(responseActualizaciones)
     setSolicitudes(responseSolicitudes)
-
+    
     setLoading(false)
   }
-
-  useEffect(() => {
-    getInfo()
-  }, [])
 
   return (
     <NoveltyContext.Provider value={{
       afiliaciones,
       actualizaciones,
       solicitudes,
+      getInfo,
       loading
     }}>
       {children}

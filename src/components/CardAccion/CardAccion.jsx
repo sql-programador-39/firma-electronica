@@ -1,3 +1,4 @@
+import { formatDate } from '../../helpers/formatDate';
 import './CardAccion.css'
 
 const CardAccion = ({data}) => {
@@ -18,7 +19,7 @@ const CardAccion = ({data}) => {
           </div>
 
           <div>
-            <p>{ actionDate }</p>
+            <p>{ formatDate(actionDate) }</p>
           </div>
         </div>
 

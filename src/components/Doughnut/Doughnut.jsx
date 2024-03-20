@@ -1,21 +1,21 @@
 import { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
 
-const MyDoughnutChart = ({ completadas, solicitadas, vencidas, rechazadas, radicadas }) => {
+const MyDoughnutChart = ({ completed, submit, expired, notCompleted, requested, confirmed }) => {
   const chartRef = useRef(null);
   const myDonChart = useRef(null); 
 
   useEffect(() => {
-    const totalData = [completadas, radicadas, solicitadas, rechazadas, vencidas]
+    const totalData = [completed, submit, requested, notCompleted, expired, confirmed]
 
 
     const data = {
-      labels: ['Completadas', 'Radicadas', 'Solicitadas', 'Rechazadas', 'Vencidas'],
+      labels: ['Completadas', 'Radicadas', 'Solicitadas', 'No Completadas', 'Vencidas', 'Confirmadas'],
       datasets: [
         {
           data: totalData,
-          backgroundColor: ['rgba(76, 175, 80, 0.5)', 'rgba(233, 169, 8, 0.5)', 'rgba(33, 150, 243, 0.5)', 'rgba(255, 99, 132, 0.5)', 'rgba(142, 141, 141, 0.5)'],
-          borderColor: ['rgba(76, 175, 80, 1)', 'rgba(233, 169, 8, 1)', 'rgba(33, 150, 243, 1)', 'rgba(255, 99, 132, 1)', 'rgba(142, 141, 141, 1)'],
+          backgroundColor: ['rgba(76, 175, 80, 0.5)', 'rgba(233, 169, 8, 0.5)', 'rgba(33, 150, 243, 0.5)', 'rgba(255, 99, 132, 0.5)', 'rgba(142, 141, 141, 0.5)', 'rgba(105, 55, 126, .5)'],
+          borderColor: ['rgba(76, 175, 80, 1)', 'rgba(233, 169, 8, 1)', 'rgba(33, 150, 243, 1)', 'rgba(255, 99, 132, 1)', 'rgba(142, 141, 141, 1)', 'rgba(105, 55, 126, 1)'],
           borderWidth: 1,
         },
       ],

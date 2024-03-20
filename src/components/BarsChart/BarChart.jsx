@@ -19,7 +19,7 @@ const BarChart = ({ afiliaciones, actualizacion, creditos}) => {
           borderWidth: 1
         },
         {
-          label: 'Rechazadas',
+          label: 'No Completadas',
           data: [afiliaciones[3], actualizacion[3], creditos[3]],
           backgroundColor: 'rgba(255, 99, 132, 0.5)', // Rojo
           borderColor: 'rgba(255, 99, 132, 1)',
@@ -44,6 +44,13 @@ const BarChart = ({ afiliaciones, actualizacion, creditos}) => {
           data: [afiliaciones[2], actualizacion[2], creditos[2]],
           backgroundColor: 'rgba(142, 141, 141, 0.5)',
           borderColor: 'rgba(142, 141, 141, 1)',
+          borderWidth: 1
+        },
+        {
+          label: 'Confirmadas',
+          data: [afiliaciones[5], actualizacion[5], creditos[5]],
+          backgroundColor: 'rgba(105, 55, 126, .5)',
+          borderColor: 'rgba(105, 55, 126, 1)',
           borderWidth: 1
         }
       ]

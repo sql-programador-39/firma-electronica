@@ -7,7 +7,7 @@ import ModalDetails from '../Modal/ModalDetails';
 import useNovelty from '../../hooks/useNovelty';
 
 import { formatDate } from '../../helpers/formatDate';
-import { changeStatusName } from '../../helpers/changeStatusName';
+import { changeStatusName } from '../../helpers/changeNames';
 
 import '../../components/CardControl/CardControl.css';
 import './TableInfo.css';

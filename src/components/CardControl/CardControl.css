@@ -104,6 +104,13 @@
   border-radius: 10px;
 }
 
+.card-purple {
+  background-color: #69377E;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
 .button-card {
   padding: 0.5rem 1rem;
   border: none;
@@ -120,25 +127,6 @@
 .button-card:hover {
   background-color: rgba(255, 94, 0, 0.8);
   scale: 1.03;
-}
-
-.grid-card-in .card-in-gray {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.grid-card-in .card-in-gray p {
-  font-size: 2.5rem;
-}
-
-.grid-card-in .card-in-gray svg {
-  width: 60px;
-  height: 60px;
-  padding: 10px;
-  margin: auto;
-  opacity: 0.5;
 }
 
 @media screen and (min-width: 920px) {
@@ -164,12 +152,6 @@
     justify-content: center;
     align-items: center;
   }
-
-  .grid-item-third-column {
-    grid-column: 3;
-    grid-row: span 2; 
-  }
-
 }
 
 @media (min-width: 540px) and (max-width: 920px){
@@ -189,7 +171,6 @@
   .total-doughnut div:last-child {
     top: 89%;
   }
-  
 }
 
 @media screen and (max-width: 540px) {
@@ -204,7 +185,6 @@
   .grid-card > div:first-child div {
     height: 100%;
   }
-  
 }
 
 @media screen and (max-width: 1200px){
@@ -213,10 +193,6 @@
   }
   
   .grid-card-in div:last-child p{
-    font-size: 1.2rem;
-  }
-
-  .grid-card-in .card-in-gray p {
     font-size: 1.2rem;
   }
   

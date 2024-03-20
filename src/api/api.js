@@ -11,11 +11,14 @@ const dictionary = {
 /* axios.defaults.timeout = 3000; */
 // Consultamos toda la informacion con respecto a las afiliaciones del servicio de firmas
 
+let response = {}
+
+
 const getAfiliaciones = async () => {
-    const url = 'http://10.2.0.70:81/api/DigitalSignatureReport/ObtenerReporteTipoOperacion?CompanyId=E8FCFE70-7121-4414-9C28-188925029393';
+    const url = 'http://10.2.0.70:81/api/DigitalSignatureReport/ObtenerReporteTipoOperacion?CompanyId=E8FCFE70-7121-4414-9C28-188925029393&ReportType=Affiliation';
 
     try {
-        const response = await axios.post(url)
+        response = await axios.post(url)
         
         const newArray = await response.data.object
 
@@ -31,7 +34,7 @@ const getAfiliaciones = async () => {
 //Consultamos toda la informacion con respecto a las actualizaciones de datos
 
 const getActualizacion = async () => {
-    const url = 'http://10.2.0.70:81/api/DigitalSignatureReport/ObtenerReporteTipoOperacion?CompanyId=E8FCFE70-7121-4414-9C28-188925029393';
+    const url = 'http://10.2.0.70:81/api/DigitalSignatureReport/ObtenerReporteTipoOperacion?CompanyId=E8FCFE70-7121-4414-9C28-188925029393&ReportType=DataUpdate';
 
     try {
         const response = await axios.post(url)
@@ -54,7 +57,7 @@ const getCreditos = async () => {
     const url = 'http://10.2.0.70:81/api/DigitalSignatureReport/ObtenerReporteTipoOperacion?CompanyId=E8FCFE70-7121-4414-9C28-188925029393';
 
     try {
-        const response = await axios.post(url)
+        /* const response = await axios.post(url) */
         
         const newArray = await response.data.object
 
