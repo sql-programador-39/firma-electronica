@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faFilter, faCalendarDays } from "@fortawesome/free-solid-svg-icons"
+import { faFilter, faCalendarDays, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
 
 import PieChart from "../../components/PieChart/PieChart"
 import BarChart from "../../components/BarsChart/BarChart"
@@ -25,7 +25,7 @@ import '../../components/Skeletons/Skeleton.css'
 
 const ControlPanel = () => {
 
-  const { afiliaciones, actualizaciones, solicitudes, loading, getInfo } = useNovelty()
+  const { afiliaciones, actualizaciones, solicitudes, loading, getInfo, getInfoWithDate } = useNovelty()
 
   const dateNow = new Date();
 
@@ -43,7 +43,6 @@ const ControlPanel = () => {
   
   const [littleAlert, setLittleAlert] = useState({})
   const [skeleton, setSkeleton] = useState('')
-  /* const [loading, setLoading] = useState(true) */
 
   useEffect(() => {
 
@@ -62,7 +61,7 @@ const ControlPanel = () => {
     
   }, [])
 
-
+/* 
   const handleChange = e => {
 
     const { name, value } = e.target
@@ -100,6 +99,7 @@ const ControlPanel = () => {
 
           return
         }
+
         break;
 
       case 'dateF':
@@ -125,7 +125,7 @@ const ControlPanel = () => {
           
           setTimeout(() => {
             setLittleAlert({})
-          }, 5000)
+          }, 4000)
 
           return
         }
@@ -134,7 +134,54 @@ const ControlPanel = () => {
       default:
         break;
     }
+  } */
+
+  const handleClick = async () => {
+
+    if(!validateInitialFinal(dateI, dateF)) {
+      setLittleAlert({
+        msg: 'La fecha inicial no puede ser mayor a la fecha final, por favor selecciona una fecha válida.',
+      })
+      
+      setTimeout(() => {
+        setLittleAlert({})
+      }, 4000)
+
+      return
+    }
+
+    if(!validateInitialDate(dateI, dateF)) {
+      setLittleAlert({
+        msg: 'El rango de fecha no puede ser mayor a 30 días, por favor selecciona un rango válido.',
+      })
+      
+      setTimeout(() => {
+        setLittleAlert({})
+      }, 4000)
+
+      return
+    }
+
+    if(!validateFinalDate(dateF)) {
+      setLittleAlert({
+        msg: 'La fecha final no puede ser mayor a la fecha del día de hoy, por favor selecciona una fecha válida.',
+      })
+
+      setTimeout(() => {
+        setLittleAlert({})
+      }, 4000)
+
+      return
+    }
+
+    try {
+      getInfoWithDate({ dateI, dateF })
+    } catch (error) {
+      throw new Error(error)
+    }
   }
+
+  
 
   return (
     <>
@@ -151,26 +198,28 @@ const ControlPanel = () => {
                 <input 
                   type="date" 
                   className="input-control" 
-                  onChange={ handleChange }
-                  value={dateI}
+                  value={ dateI }
+                  onChange={ e => setDateI(e.target.value) }
                   name="dateI"
                 />
                 <span>-</span>
                 <input 
                   type="date" 
                   className="input-control" 
-                  onChange={ handleChange }
                   value={ dateF }
+                  onChange={ e => setDateF(e.target.value) }
                   name="dateF"  
                 />
+
+                <button className="button-search" onClick={ handleClick }><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
               </div>
 
               <div>
                 <div>
                   <FontAwesomeIcon icon={ faFilter } />
                   <select 
-                    className="input-control" 
-                    onChange={ handleChange }
+                    className="input-control"
+                    onChange={ e => setCompany(e.target.value) }
                     value={ company }
                     name="company"
                     >

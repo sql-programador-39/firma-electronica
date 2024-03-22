@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import { Navigate } from "react-router-dom"
 import useAuth from "../../hooks/useAuth"
 
@@ -12,22 +11,20 @@ const Login = () => {
 
   const { isAuthenticaded } = useAuth()
 
-
   return (
     <>
-
-      { isAuthenticaded && <Navigate to="/control-panel" />}
-
-
-      <div className="login">
-        <div className="bg-info">
-          <div className="info-login">
-            <InfoLogin />
+      {
+        isAuthenticaded ? <Navigate to="/control-panel" /> : (
+        <div className="login">
+          <div className="bg-info">
+            <div className="info-login">
+              <InfoLogin />
+            </div>
           </div>
-        </div>
-        
-        <FormLogin />
-      </div>    
+          
+          <FormLogin />
+        </div>    
+      ) }
     </>
   )
 }

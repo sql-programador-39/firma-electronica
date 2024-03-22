@@ -236,3 +236,9 @@
     font-size: 1.8rem;
   }
 }
+
+@media (min-width: 1300px) and (max-width: 1440px){
+  .total-doughnut div:last-child {
+    top: 53%;
+  }
+}

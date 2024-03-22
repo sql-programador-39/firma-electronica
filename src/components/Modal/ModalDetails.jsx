@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Modal } from 'antd';
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
+ 
 import CardAccion from '../CardAccion/CardAccion';
 import CardFirmante from '../CardFirmante/CardFirmante';
 
@@ -32,10 +34,10 @@ const ModalDetails = ({data}) => {
     setIsModalOpen(false);
   };
 
-  const openPdf = () => {
+  const openPdf = (index) => {
     if(pdfs.length > 0){
       const newWindow = window.open();
-      newWindow.document.write('<iframe src="data:application/pdf;base64,' + pdfs[0].pdf64 + '" width="100%" height="100%"></iframe>');
+      newWindow.document.write('<iframe src="data:application/pdf;base64,' + pdfs[index].pdf64 + '" width="100%" height="100%"></iframe>');
     }
   }
 
@@ -98,8 +100,20 @@ const ModalDetails = ({data}) => {
               </div>
 
               <div className='modal-info-button'>
-                <p className='p-modal'>Archivo:</p>
-                <button onClick={openPdf}>Ver documento</button>
+                <p className='p-modal'>Documentos:</p>
+
+                {pdfs.length > 0 ? 
+                  (
+                    pdfs.map((pdf, index) => (
+                      <button key={index} onClick={() => openPdf(index)}><FontAwesomeIcon icon={faFilePdf} /></button>
+                    ))
+                  ) 
+                  : 
+                  (
+                    <p>No hay documentos</p>
+                  )
+                }
+                
               </div>
             </div>
           </div>
@@ -109,9 +123,13 @@ const ModalDetails = ({data}) => {
           <div >
             <h3>Firmantes</h3>
             <div className='body-modal-info-1'>
-              {digitalSigners.map((firmante, index) => (
-                <CardFirmante key={index} data={firmante} />
-              ))}
+              {digitalSigners.length > 0 ? (
+                digitalSigners.map((firmante, index) => (
+                  <CardFirmante key={index} data={firmante} />
+                ))
+              ) : (
+                <p className='p-modal-withoutinfo'>No hay firmantes</p>
+              )}
             </div>
           </div>
 
@@ -119,9 +137,13 @@ const ModalDetails = ({data}) => {
             <h3>Seguimiento</h3>
 
             <div className='body-modal-info-2'>
-              {actionTracking.map((accion, index) => (
-                <CardAccion key={index} data={accion} />
-              ))}
+              {actionTracking.length > 0 ? (
+                actionTracking.map((accion, index) => (
+                  <CardAccion key={index} data={accion} />
+                ))
+              ) : (
+                <p className='p-modal-withoutinfo'>No hay acciones</p>
+              )}
             </div>
           </div>
         </section>
