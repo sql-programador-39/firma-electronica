@@ -1,10 +1,15 @@
 import TableInfo from '../../components/Table/TableInfo';
 import '../Afiliaciones/Afiliaciones.css';
+import { Link } from 'react-router-dom';
 
 const Actualization = () => {
   return (
     <div>
-      <h1 style={{ marginBottom: "20px" }}>Actualización de datos</h1>
+      <div className='title-table'>
+        <h1>Actulización de datos</h1>
+        { innerWidth <= 540 ? <Link to="/control-panel" className='button-card'>Volver</Link> : null }
+      </div>
+
       <TableInfo />
     </div>
   )

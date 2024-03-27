@@ -12,9 +12,6 @@ import { changeStatusName } from '../../helpers/changeNames';
 import '../../components/CardControl/CardControl.css';
 import './TableInfo.css';
 
-const paginationConfig = {
-  pageSize: 8
-};
 
 const TableInfo = () => {
 
@@ -22,23 +19,31 @@ const TableInfo = () => {
   const [searchedColumn, setSearchedColumn] = useState('');
   const [infoTable, setInfoTable] = useState([]);
   const searchInput = useRef(null);
+  const [paginationConfig, setPaginationConfig] = useState({});
 
   const { afiliaciones, actualizaciones, solicitudes } = useNovelty();
 
   const location = useLocation();
+
+  
 
   useEffect(() => {
     if (location.pathname === '/afiliaciones') {
 
       if(afiliaciones.NoveltysInfo === undefined) return
 
-      const newArray = afiliaciones.NoveltysInfo.map((item) => {
+      setPaginationConfig({
+        pageSize: afiliaciones.NoveltysInfo.pageSize,
+        total: afiliaciones.NoveltysInfo.totalPages
+      });
+
+      const newArray = afiliaciones.NoveltysInfo.object.map((item) => {
         return {
           key: item.id,
           solicitud: item.requestNumber,
           nombre: item.fullName,
           estado: changeStatusName(item.estadoSolicitud),
-          fecha: formatDate(item.requestDate),
+          fecha: formatDate(item.lastDateModification),
           detalle: <ModalDetails data={[item]} />
         }
       })
@@ -49,13 +54,18 @@ const TableInfo = () => {
       
       if(actualizaciones.NoveltysInfo === undefined) return
 
-      const newArray = actualizaciones.NoveltysInfo.map((item) => {
+      setPaginationConfig({
+        pageSize: actualizaciones.NoveltysInfo.pageSize,
+        total: actualizaciones.NoveltysInfo.totalPages
+      });
+
+      const newArray = actualizaciones.NoveltysInfo.object.map((item) => {
         return {
           key: item.id,
           solicitud: item.requestNumber,
           nombre: item.fullName,
           estado: changeStatusName(item.estadoSolicitud),
-          fecha: formatDate(item.requestDate),
+          fecha: formatDate(item.lastDateModification),
           detalle: <ModalDetails data={[item]} />
         }
       })
@@ -66,13 +76,18 @@ const TableInfo = () => {
 
       if(solicitudes.NoveltysInfo === undefined) return
 
-      const newArray = solicitudes.NoveltysInfo.map((item) => {
+      setPaginationConfig({
+        pageSize: solicitudes.NoveltysInfo.pageSize,
+        total: solicitudes.NoveltysInfo.totalPages
+      });
+
+      const newArray = solicitudes.NoveltysInfo.object.map((item) => {
         return {
           key: item.id,
           solicitud: item.requestNumber,
           nombre: item.fullName,
           estado: changeStatusName(item.estadoSolicitud),
-          fecha: formatDate(item.requestDate),
+          fecha: formatDate(item.lastDateModification),
           detalle: <ModalDetails data={[item]} />
         }
       })
@@ -230,7 +245,7 @@ const TableInfo = () => {
       ellipsis: true,
     },
     {
-      title: 'Fecha estado',
+      title: 'Última Modificación',
       dataIndex: 'fecha',
       key: 'fecha',
       ...getColumnSearchProps('fecha'),

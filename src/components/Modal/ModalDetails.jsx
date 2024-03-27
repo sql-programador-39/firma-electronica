@@ -14,7 +14,7 @@ import './ModalDetails.css';
 
 const ModalDetails = ({data}) => {
 
-  const { requestNumber, fullName, identification, requestDate, estadoSolicitud, fechaEstado, digitalSigners, actionTracking, channel, pdfs } = data[0];
+  const { requestNumber, fullName, identification, requestDate, estadoSolicitud, lastDateModification, digitalSigners, actionTracking, channel, pdfs } = data[0];
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [sizes, setSizes] = useState("");
@@ -84,8 +84,8 @@ const ModalDetails = ({data}) => {
               </div>
 
               <div>
-                <p className='p-modal'>Fecha Estado:</p>
-                <p>{ fechaEstado }</p>
+                <p className='p-modal'>Última Modificación:</p>
+                <p>{ formatDate(lastDateModification) }</p>
               </div>
             </div>
 

@@ -40,7 +40,7 @@
 
 .header-control-panel div div:last-child {
   display: grid;
-  grid-template-columns: 50% 1fr;
+  grid-template-columns: 44.5% 1fr;
   gap: 10px;
 }
 
@@ -73,6 +73,16 @@
 .button-search:hover {
   background-color: rgba(255, 94, 0, 0.8);
   scale: 1.03;
+}
+
+.div-date {
+  display: flex;
+  align-items: center;
+}
+
+.div-company {
+  display: flex;
+  align-items: center;
 }
 
 /* Media Queries */
@@ -136,11 +146,11 @@
  
 @media screen and (max-width: 500px){
 
-  /* .header-control-panel div div:last-child {
-    gap: 10px !important;
-  } */
+  .div-date svg {
+    display: none;
+  }
 
-  .header-control-panel div div svg{
+  .div-company svg {
     display: none;
   }
 
@@ -155,7 +165,7 @@
   }
 
   .header-control-panel div div:last-child {
-    gap: 18px;
+    gap: 16px;
   }
 
   .header-control-panel div div {

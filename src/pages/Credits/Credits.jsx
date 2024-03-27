@@ -1,11 +1,16 @@
 
 import TableInfo from '../../components/Table/TableInfo';
+import { Link } from 'react-router-dom';
 import '../Afiliaciones/Afiliaciones.css';
 
 const Credits = () => {
   return (
-    <div style={{ marginBottom: "20px" }}>
-      <h1>Solicitud de crédito</h1>
+    <div>
+      <div className='title-table'>
+        <h1>Solicitud de crédito</h1>
+        { innerWidth <= 540 ? <Link to="/control-panel" className='button-card'>Volver</Link> : null }
+      </div>
+
       <TableInfo />
     </div>
   )

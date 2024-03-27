@@ -18,7 +18,7 @@ const Nav = () => {
     localStorage.removeItem('token');
 
     setIsAuthenticaded(false);
-    navigate(-1);
+    navigate('/');
   }
 
   const items = [

@@ -8,10 +8,10 @@ const CardAccion = ({data}) => {
   return (
     <>
       <div className="card-accion">
-        <div>
-          <h4>Acción</h4>
-          <p>{ actionEvent }</p>
-        </div>
+        
+        <h4>Acción</h4>
+        <p>{ actionEvent }</p>
+        
 
         <div>
           <div>

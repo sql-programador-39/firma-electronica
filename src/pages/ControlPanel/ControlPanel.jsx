@@ -25,26 +25,25 @@ import '../../components/Skeletons/Skeleton.css'
 
 const ControlPanel = () => {
 
-  const { afiliaciones, actualizaciones, solicitudes, loading, getInfo, getInfoWithDate } = useNovelty()
-
-  const dateNow = new Date();
-
-  // Resta 30 días a la fecha actual para obtener la fecha inicial
-  const InitalDate = new Date(dateNow);
-  InitalDate.setDate(InitalDate.getDate() - 30);
-
-  // Formatea las fechas en formato YYYY-MM-DD
-  const FinalDateFormat = dateNow.toISOString().split('T')[0];
-  const InitalDateFormat = InitalDate.toISOString().split('T')[0];
-
-  const [company, setCompany] = useState("")
-  const [dateF, setDateF] = useState(FinalDateFormat);
-  const [dateI, setDateI] = useState(InitalDateFormat);
+  const { 
+    afiliaciones, 
+    actualizaciones, 
+    solicitudes, 
+    loading, 
+    getInfo, 
+    dateF, 
+    dateI, 
+    setDateF, 
+    setDateI, 
+    company, 
+    setCompany
+  } = useNovelty()
   
   const [littleAlert, setLittleAlert] = useState({})
   const [skeleton, setSkeleton] = useState('')
 
   useEffect(() => {
+
 
     if(window.innerWidth < 540) {
 
@@ -57,7 +56,7 @@ const ControlPanel = () => {
       setSkeleton('2')
     }
 
-    getInfo()
+    getInfo({ dateI, dateF })
     
   }, [])
 
@@ -175,7 +174,7 @@ const ControlPanel = () => {
     }
 
     try {
-      getInfoWithDate({ dateI, dateF })
+      getInfo({ dateI, dateF })
     } catch (error) {
       throw new Error(error)
     }
@@ -194,7 +193,9 @@ const ControlPanel = () => {
 
             <div>
               <div>
-                <FontAwesomeIcon icon={ faCalendarDays } />
+                <div className="div-date">
+                  <FontAwesomeIcon icon={ faCalendarDays } />
+                </div>
                 <input 
                   type="date" 
                   className="input-control" 
@@ -215,15 +216,17 @@ const ControlPanel = () => {
               </div>
 
               <div>
-                <div>
-                  <FontAwesomeIcon icon={ faFilter } />
+                <div >
+                  <div className="div-company">
+                    <FontAwesomeIcon icon={ faFilter } />
+                  </div>
                   <select 
                     className="input-control"
                     onChange={ e => setCompany(e.target.value) }
                     value={ company }
                     name="company"
                     >
-                    <option value="1">Compañias</option>
+                    <option value="1">Compañías</option>
                     <option value="2">Banco 1</option>
                     <option value="3">Banco 2</option>
                   </select>
