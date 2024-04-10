@@ -38,11 +38,11 @@ main {
 
 @media screen and (max-width: 540px) {
   .main-content {
-    padding: 25px;
+    padding: 15px;
     flex-direction: column;
   }
   .main-content2 {
-    padding: 25px;
+    padding: 15px;
   }
 
   aside{

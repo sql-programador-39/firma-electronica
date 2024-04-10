@@ -17,12 +17,12 @@ const Layout = () => {
       </header>
 
       <main>
-        {<aside>
+        <aside>
           <AsideMenu 
             collapsed={ collapsed }
             setCollapsed={ setCollapsed }
           />
-        </aside>}
+        </aside>
         
         <div className={ collapsed ? 'main-content2' : 'main-content' }>
           <Outlet />

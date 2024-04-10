@@ -23,7 +23,8 @@
   color: rgba(255, 94, 0, .6);
 }
 
-:where(.css-dev-only-do-not-override-1rqnfsa).ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {  color: rgba(255, 94, 0, .6);
+:where(.css-dev-only-do-not-override-1rqnfsa).ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {  
+  color: rgba(255, 94, 0, .6);
   border-color: rgba(255, 94, 0, .6);
   color: rgba(255, 94, 0, .6);
 }
@@ -56,4 +57,17 @@
 
 :where(.css-dev-only-do-not-override-1rqnfsa).ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-inner, :where(.css-dev-only-do-not-override-1rqnfsa).ant-checkbox:not(.ant-checkbox-disabled):hover .ant-checkbox-inner {
   border-color: rgba(255, 94, 0, 1);
+}
+
+@media (max-width: 580px) {
+  
+  .ant-table-wrapper .ant-table-tbody>tr>td {
+    padding: 5px 5px;
+    font-size: 12px;
+  }
+  
+  .ant-table-wrapper .ant-table-thead>tr>th {
+    padding: 5px 5px;
+    font-size: 12px;
+  }
 }

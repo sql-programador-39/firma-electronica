@@ -14,12 +14,12 @@ axios.defaults.timeout = 3000;
 
 const getData = async (date) => {
 
-    const url = `http://10.1.0.133:1000/api/DigitalSignatureReport/ObtenerReporteTipoOperacion?CompanyId=E8FCFE70-7121-4414-9C28-188925029393&StartDate=${date['dateI']}&EndDate=${date['dateF']}&ReportType=Affiliation`
+    /* const url = `http://10.1.0.133:1000/api/DigitalSignatureReport/ObtenerReporteTipoOperacion?CompanyId=E8FCFE70-7121-4414-9C28-188925029393&StartDate=${date['dateI']}&EndDate=${date['dateF']}&ReportType=Affiliation`
     const url2 = `http://10.1.0.133:1000/api/DigitalSignatureReport/ObtenerReporteTipoOperacion?CompanyId=E8FCFE70-7121-4414-9C28-188925029393&StartDate=${date['dateI']}&EndDate=${date['dateF']}&ReportType=DataUpdate`
-    const url3 = `http://10.1.0.133:1000/api/DigitalSignatureReport/ObtenerReporteTipoOperacion?CompanyId=E8FCFE70-7121-4414-9C28-188925029393&StartDate=${date['dateI']}&EndDate=${date['dateF']}&ReportType=CreditRequest`
-/*     const url = 'http://10.1.0.133:1000/api/DigitalSignatureReport/ObtenerReporteTipoOperacion?CompanyId=E8FCFE70-7121-4414-9C28-188925029393&ReportType=Affiliation';
+    const url3 = `http://10.1.0.133:1000/api/DigitalSignatureReport/ObtenerReporteTipoOperacion?CompanyId=E8FCFE70-7121-4414-9C28-188925029393&StartDate=${date['dateI']}&EndDate=${date['dateF']}&ReportType=CreditRequest` */
+    const url = 'http://10.1.0.133:1000/api/DigitalSignatureReport/ObtenerReporteTipoOperacion?CompanyId=E8FCFE70-7121-4414-9C28-188925029393&ReportType=Affiliation';
     const url2 = 'http://10.1.0.133:1000/api/DigitalSignatureReport/ObtenerReporteTipoOperacion?CompanyId=E8FCFE70-7121-4414-9C28-188925029393&ReportType=DataUpdate';
-    const url3 = 'http://10.1.0.133:1000/api/DigitalSignatureReport/ObtenerReporteTipoOperacion?CompanyId=E8FCFE70-7121-4414-9C28-188925029393&ReportType=CreditRequest'; */
+    const url3 = 'http://10.1.0.133:1000/api/DigitalSignatureReport/ObtenerReporteTipoOperacion?CompanyId=E8FCFE70-7121-4414-9C28-188925029393&ReportType=CreditRequest';
 
     try {
         const [response, response2, response3] = await Promise.all([ axios.post(url), axios.post(url2), axios.post(url3) ])

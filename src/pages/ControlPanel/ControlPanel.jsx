@@ -209,7 +209,7 @@ const ControlPanel = () => {
                   className="input-control" 
                   value={ dateF }
                   onChange={ e => setDateF(e.target.value) }
-                  name="dateF"  
+                  name="dateF"
                 />
 
                 <button className="button-search" onClick={ handleClick }><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
