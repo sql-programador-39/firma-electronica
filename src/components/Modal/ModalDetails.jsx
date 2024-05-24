@@ -2,22 +2,74 @@ import { useState } from 'react';
 import { Modal } from 'antd';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
+
+import { useAuth } from "react-oidc-context"
  
 import CardAccion from '../CardAccion/CardAccion';
 import CardFirmante from '../CardFirmante/CardFirmante';
 
 import { formatDate } from '../../helpers/formatDate';
-import { changeStatusName, changeChannelName } from '../../helpers/changeNames';
+import { changeStatusName } from '../../helpers/changeNames';
 
 import '../../components/CardControl/CardControl.css';
 import './ModalDetails.css';
 
-const ModalDetails = ({data}) => {
+const ModalDetails = ({dataModal}) => {
 
-  const { requestNumber, fullName, identification, requestDate, estadoSolicitud, lastDateModification, digitalSigners, actionTracking, channel, pdfs } = data[0];
+  const { 
+    requestNumber, 
+    fullName, 
+    identification, 
+    requestDate, 
+    estadoSolicitud, 
+    lastDateModification, 
+    digitalSigners, 
+    actionTracking, 
+    channel } = dataModal;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [sizes, setSizes] = useState("");
+  const [pdfs, setPdfs] = useState([]);
+  const [loadingPdfs, setLoadingPdfs] = useState(false);
+  const [errorPdfs, setErrorPdfs] = useState(false)
+
+  const auth = useAuth();
+
+  const getPdfs = async (id) => {
+
+    const url = `${import.meta.env.VITE_URL}/api/DigitalSignature/ConsultarSolicitudFirma`
+
+    if(!pdfs) return
+
+    try {
+      setLoadingPdfs(true);
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json-patch+json',
+          'Authorization': `Bearer ${auth.user.access_token}`
+        },
+        body: JSON.stringify({
+          "idSolicitud": id
+        })
+      })
+
+      const data = await response.json()
+
+      if(data.result === false) {
+        setLoadingPdfs(false);
+        return
+      } else {
+        setPdfs(data.object.pdf64);
+        setLoadingPdfs(false);
+      }
+
+    } catch (error) {
+      console.log(error);
+      setLoadingPdfs(false);
+      setErrorPdfs(true);
+    }
+  }
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -30,6 +82,7 @@ const ModalDetails = ({data}) => {
       setSizes('50%');
     }
   };
+
   const handleOk = () => {
     setIsModalOpen(false);
   };
@@ -37,13 +90,17 @@ const ModalDetails = ({data}) => {
   const openPdf = (index) => {
     if(pdfs.length > 0){
       const newWindow = window.open();
-      newWindow.document.write('<iframe src="data:application/pdf;base64,' + pdfs[index].pdf64 + '" width="100%" height="100%"></iframe>');
+      newWindow.document.write('<iframe src="data:application/pdf;base64,' + pdfs[index].pdf64Firmado + '" width="100%" height="100%"></iframe>');
     }
   }
 
   return (
     <>
-      <button className='button-card' onClick={showModal}>
+      <button className='button-card' onClick={() => {
+        showModal();  
+        getPdfs(requestNumber);  
+      }
+      }>
         {
           window.innerWidth > 820 ? (
             'Detalle'
@@ -90,30 +147,48 @@ const ModalDetails = ({data}) => {
             </div>
 
             <div>
+              
               <div>
                 <p className='p-modal'>Estado:</p>
                 <p>{ changeStatusName(estadoSolicitud) }</p>
               </div>
+
               <div>
                 <p className='p-modal'>Canal:</p>
-                <p>{ changeChannelName(channel) }</p>
+                <p>{ channel }</p>
               </div>
 
               <div className='modal-info-button'>
                 <p className='p-modal'>Documentos:</p>
 
-                {pdfs.length > 0 ? 
-                  (
-                    pdfs.map((pdf, index) => (
-                      <button key={index} onClick={() => openPdf(index)}><FontAwesomeIcon icon={faFilePdf} /></button>
-                    ))
-                  ) 
-                  : 
-                  (
-                    <p>No hay documentos</p>
+                {/* Logica para mostrar los PDFs, primero evalua si no hay algun error en el llamado de la api
+                despues evalua si hay PDFs, y si hay evalua si esta cargando, y si esta cargando muestra un mensaje
+                y si el arreglo esta vacio muestra un mensaje de que no hay documentos */}
+
+                {errorPdfs ? (
+                  <p>Error al cargar los PDFs...</p>
+                  ) : (
+                  pdfs.length > 0 ? 
+                    (
+                      loadingPdfs ? (
+                        <p className='parpadeo'>Cargando PDFs...</p>
+                      ) : (
+                        pdfs.map((pdf, index) => (
+                          <button key={index} onClick={() => openPdf(index)}><FontAwesomeIcon icon={faFilePdf} /></button>
+                        ))
+                      )
+                    ) 
+                    : 
+                    (
+                      loadingPdfs ? (
+                        <p className='parpadeo'>Cargando PDFs...</p>
+                      ) : (
+                        <p>No hay documentos</p>
+                      )
+                    )                 
                   )
                 }
-                
+                  
               </div>
             </div>
           </div>

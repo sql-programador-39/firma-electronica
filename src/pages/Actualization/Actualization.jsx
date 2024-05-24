@@ -1,6 +1,6 @@
+import { Link } from 'react-router-dom';
 import TableInfo from '../../components/Table/TableInfo';
 import '../Afiliaciones/Afiliaciones.css';
-import { Link } from 'react-router-dom';
 
 const Actualization = () => {
   return (

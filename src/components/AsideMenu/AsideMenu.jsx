@@ -25,7 +25,7 @@ const AsideMenu = ({collapsed, setCollapsed}) => {
   };
 
   const items = [
-    getItem(<Link to="/control-panel">Panel de control</Link>, '2', <PieChartOutlined />),
+    getItem(<Link to="/">Panel de control</Link>, '2', <PieChartOutlined />),
   ];
 
   return (

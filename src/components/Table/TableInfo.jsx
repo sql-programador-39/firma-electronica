@@ -1,10 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+
 import { SearchOutlined } from '@ant-design/icons';
 import { Button, Input, Space, Table, Empty } from 'antd';
 import Highlighter from 'react-highlight-words';
-import ModalDetails from '../Modal/ModalDetails';
+
 import useNovelty from '../../hooks/useNovelty';
+import { useAuth } from "react-oidc-context"
+
+import ModalDetails from '../Modal/ModalDetails';
 
 import { formatDate } from '../../helpers/formatDate';
 import { changeStatusName } from '../../helpers/changeNames';
@@ -17,86 +21,102 @@ const TableInfo = () => {
 
   const [searchText, setSearchText] = useState('');
   const [searchedColumn, setSearchedColumn] = useState('');
-  const [infoTable, setInfoTable] = useState([]);
   const searchInput = useRef(null);
-  const [paginationConfig, setPaginationConfig] = useState({});
-
-  const { afiliaciones, actualizaciones, solicitudes } = useNovelty();
+  const [data, setData] = useState();
+  const [loading, setLoading] = useState(false);
+  const [tableParams, setTableParams] = useState({
+    pagination: {
+      current: 1,
+      pageSize: 8,
+    },
+  });
 
   const location = useLocation();
-
-  
+  const {dateI, dateF} = useNovelty();
+  const auth = useAuth();
 
   useEffect(() => {
-    if (location.pathname === '/afiliaciones') {
+    setInfoTable();
+  }, []);
 
-      if(afiliaciones.NoveltysInfo === undefined) return
-
-      setPaginationConfig({
-        pageSize: afiliaciones.NoveltysInfo.pageSize,
-        total: afiliaciones.NoveltysInfo.totalPages
-      });
-
-      const newArray = afiliaciones.NoveltysInfo.object.map((item) => {
-        return {
-          key: item.id,
-          solicitud: item.requestNumber,
-          nombre: item.fullName,
-          estado: changeStatusName(item.estadoSolicitud),
-          fecha: formatDate(item.lastDateModification),
-          detalle: <ModalDetails data={[item]} />
-        }
-      })
-
-      setInfoTable(newArray);
-
-    } else if (location.pathname === '/actualizacion-datos') {
-      
-      if(actualizaciones.NoveltysInfo === undefined) return
-
-      setPaginationConfig({
-        pageSize: actualizaciones.NoveltysInfo.pageSize,
-        total: actualizaciones.NoveltysInfo.totalPages
-      });
-
-      const newArray = actualizaciones.NoveltysInfo.object.map((item) => {
-        return {
-          key: item.id,
-          solicitud: item.requestNumber,
-          nombre: item.fullName,
-          estado: changeStatusName(item.estadoSolicitud),
-          fecha: formatDate(item.lastDateModification),
-          detalle: <ModalDetails data={[item]} />
-        }
-      })
-
-      setInfoTable(newArray);
-
-    } else if (location.pathname === '/solicitudes-credito') {
-
-      if(solicitudes.NoveltysInfo === undefined) return
-
-      setPaginationConfig({
-        pageSize: solicitudes.NoveltysInfo.pageSize,
-        total: solicitudes.NoveltysInfo.totalPages
-      });
-
-      const newArray = solicitudes.NoveltysInfo.object.map((item) => {
-        return {
-          key: item.id,
-          solicitud: item.requestNumber,
-          nombre: item.fullName,
-          estado: changeStatusName(item.estadoSolicitud),
-          fecha: formatDate(item.lastDateModification),
-          detalle: <ModalDetails data={[item]} />
-        }
-      })
-
-      setInfoTable(newArray);
-
+  useEffect(() => {
+    if (tableParams.pagination?.current && tableParams.pagination?.pageSize) {
+      setInfoTable();
     }
+  }, [tableParams.pagination?.current, tableParams.pagination?.pageSize]);
 
-  }, [afiliaciones, actualizaciones, solicitudes]);
+  const setInfoTable = () => {
+    if (location.pathname === '/afiliaciones') {
+      getDataTable("Affiliation");
+    } else if (location.pathname === '/solicitudes-credito'){
+      getDataTable("CreditRequest");
+    } else if (location.pathname === '/actualizacion-datos'){
+      getDataTable("DataUpdate");
+    }
+  }
+
+  const handleTableChange = (pagination, filters, sorter) => {
+    setTableParams({
+      pagination,
+      filters,
+      ...sorter,
+    });
+
+    // `dataSource` is useless since `pageSize` changed
+    if (pagination.pageSize !== tableParams.pagination?.pageSize) {
+      setData([]);
+    }
+  };
+
+  const getDataTable = async (path) => {
+
+    const url = import.meta.env.VITE_URL + `/api/DigitalSignatureReport/ObtenerReporteTipoOperacion?CompanyId=${"1a1af3d7-c892-4e80-8225-4a1d5fa1e417"}&PageSize=${tableParams.pagination.pageSize}&PageNumber=${tableParams.pagination.current}&StartDate=${dateI}&EndDate=${dateF}&ReportType=${path}`
+    
+    try {
+      setLoading(true);
+      const response = await fetch(url,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${auth.user.access_token}`
+          }
+        }
+      )
+      const data = await response.json()
+
+      if(response.status !== 200) {
+        setLoading(false);
+        throw new Error(data.message);
+      }
+
+      const dataTable = data.object.map((item) => {
+        return {
+          key: item.id,
+          solicitud: item.requestNumber,
+          nombre: item.fullName,
+          estado: changeStatusName(item.estadoSolicitud),
+          fecha: formatDate(item.lastDateModification),
+          channel: item.channel,
+          detalle: <ModalDetails dataModal={item} />
+        }
+      })
+
+      setLoading(false);
+      setTableParams({
+        ...tableParams,
+        pagination: {
+          ...tableParams.pagination,
+          total: data.totalRecords,
+        },
+      });
+
+      setData(dataTable);
+    } catch (error) {
+      setLoading(false); 
+      throw new Error(error);
+    }
+  }
 
   const handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
@@ -207,7 +227,7 @@ const TableInfo = () => {
       title: 'N solicitud',
       dataIndex: 'solicitud',
       key: 'solicitud',
-      sorter: (a, b) => a.solicitud - b.solicitud,
+      ...getColumnSearchProps('solicitud'),
     },
     {
       title: 'Nombre',
@@ -261,7 +281,11 @@ const TableInfo = () => {
     <>
       <Table locale={{ emptyText: (<Empty image={ Empty.PRESENTED_IMAGE_DEFAULT } description={ false }>
         <p>No se encontraron registros</p>
-      </Empty>) }} dataSource={ infoTable } columns={ columns } pagination={ paginationConfig } />  
+      </Empty>) }} columns={columns}
+      dataSource={data}
+      pagination={tableParams.pagination}
+      loading={loading}
+      onChange={handleTableChange}/>  
     </>
   )
 }

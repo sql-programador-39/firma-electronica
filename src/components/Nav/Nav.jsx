@@ -1,29 +1,18 @@
-import { useNavigate  } from 'react-router-dom';
 import { Dropdown, Space } from 'antd';
-import user from '../../assets/user.png';
-import useAuth from '../../hooks/useAuth';
+import { useAuth } from 'react-oidc-context';
 
 import LogoOpa from '../../assets/Logo-opa.png';
+import user from '../../assets/user.png';
 
 import './Nav.css';
 
-
 const Nav = () => {
   
-  const navigate = useNavigate();
-
-  const { setIsAuthenticaded } = useAuth();
-  
-  const handleClick = () => {
-    localStorage.removeItem('token');
-
-    setIsAuthenticaded(false);
-    navigate('/');
-  }
+  const auth = useAuth();
 
   const items = [
     {
-      label: <div onClick={handleClick}>Cerrar sesión</div>,
+      label: <div onClick={() => void auth.signoutRedirect()}>Cerrar sesión</div>,
       key: '0',
     },
   ];

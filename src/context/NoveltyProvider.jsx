@@ -1,4 +1,7 @@
 import { createContext, useState } from 'react'
+import { useAuth } from "react-oidc-context"
+import axios from 'axios'
+
 import {  getData } from "../api/api"
 
 const NoveltyContext = createContext()
@@ -9,8 +12,11 @@ const NoveltyProvider = ({children}) => {
   const [actualizaciones, setActualizaciones] = useState([])
   const [solicitudes, setSolicitudes] = useState([])
   const [loading, setLoading] = useState(true)
-
+  const [companiesArray, setCompaniesArrays] = useState([])
+  const [companyId, setCompanyId] = useState("")
   const dateNow = new Date();
+  
+  const auth = useAuth()
 
   // Resta 30 días a la fecha actual para obtener la fecha inicial
   const InitalDate = new Date(dateNow);
@@ -20,14 +26,14 @@ const NoveltyProvider = ({children}) => {
   const FinalDateFormat = dateNow.toISOString().split('T')[0];
   const InitalDateFormat = InitalDate.toISOString().split('T')[0];
 
-  const [company, setCompany] = useState("")
   const [dateF, setDateF] = useState(FinalDateFormat);
   const [dateI, setDateI] = useState(InitalDateFormat);
 
-
-  const getInfo = async (date) => {
+  const getInfo = async (date, id, token) => {
     setLoading(true)
-    const response = await getData(date)
+
+    const response = await getData(date, id, token)
+
     setAfiliaciones(response[0])
     setActualizaciones(response[1])
     setSolicitudes(response[2])
@@ -35,15 +41,26 @@ const NoveltyProvider = ({children}) => {
     setLoading(false)
   }
 
-  /* const getInfoWithDate = async (date) => {
-    setLoading(true)
-    const response = await getDataWithDate(date)
-    setAfiliaciones(response[0])
-    setActualizaciones(response[1])
-    setSolicitudes(response[2])
+  const getCompanies = async () => {
+    const url = import.meta.env.VITE_URL + "/api/DsCompany/ObtenerCompanias"
 
-    setLoading(false)
-  } */
+    try {
+
+      const response = await axios(url, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${auth.user.access_token}`
+        }
+      })
+      setCompaniesArrays(response.data.object)
+    } catch (error) {
+      if(error.response.status === 401){
+        auth.signoutSilent()
+        window.location.href = '/login'
+      }
+      throw new Error(error)
+    }
+  }
 
   return (
     <NoveltyContext.Provider value={{
@@ -51,14 +68,15 @@ const NoveltyProvider = ({children}) => {
       actualizaciones,
       solicitudes,
       getInfo,
-      /* getInfoWithDate, */
       loading,
       setDateF,
       dateF,
       setDateI,
       dateI,
-      company,
-      setCompany
+      companyId,
+      setCompanyId,
+      getCompanies,
+      companiesArray,
     }}>
       {children}
     </NoveltyContext.Provider>

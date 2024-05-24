@@ -1,21 +1,21 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import ControlPanel from './pages/ControlPanel/ControlPanel'
 import Login from './pages/Login/Login'
 import ProtectedRoute from './pages/ControlPanel/ProtectedRoute'
-import { AuthProvider } from './auth/AuthProvider.jsx'
+import { AuthProvider } from "react-oidc-context";
 import { NoveltyProvider } from './context/NoveltyProvider.jsx'
 import Afiliaciones from './pages/Afiliaciones/Afiliaciones.jsx'
 import Actualization from './pages/Actualization/Actualization.jsx'
 import Credits from './pages/Credits/Credits.jsx'
 import Layout from './Layout/Layout'
-import Pruebas from './pages/Pruebas.jsx'
+
+import './index.css'
 
 const router = createBrowserRouter([
     { 
-      path: '/', 
+      path: '/login', 
       element: <Login />,
     },
     {
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
           element: <Layout />,
           children: [
             {
-              path: '/control-panel',
+              path: '/',
               element: <ControlPanel />,
             },
             {
@@ -45,17 +45,20 @@ const router = createBrowserRouter([
           ],
         }
       ],
-    },
-    {
-      path: '/api-pruebas',
-      element: <Pruebas />,
     }
-    
   ])
+
+  const oidcConfig = {
+    authority: "https://creditosdigitales.opa.com.co/auth",
+    client_id: "opa-digitalsignature-demo-dashboard",
+    redirect_uri: window.location.origin + '/',
+    scope: "openid profile email opa-digitalsignature-api",
+    post_logout_redirect_uri: window.location.origin + '/login',
+  };  
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AuthProvider>
+    <AuthProvider {...oidcConfig}>
       <NoveltyProvider>
         <RouterProvider router={router} />
       </NoveltyProvider>

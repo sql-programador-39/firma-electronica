@@ -11,7 +11,16 @@ import { faCircleCheck,
         } from '@fortawesome/free-solid-svg-icons'
 import './CardControl.css'
 
-const CardControl = ({ title, completed, requested, expired, notCompleted, submit, confirmed, total, link }) => {
+const CardControl = ({ 
+  title, 
+  completed, 
+  requested, 
+  expired, 
+  notCompleted, 
+  submit, 
+  confirmed, 
+  total, 
+  link }) => {
 
   return (
     <>
@@ -23,7 +32,6 @@ const CardControl = ({ title, completed, requested, expired, notCompleted, submi
       </div>
 
       <div className="grid-card">
-        
         <div className="total-doughnut" >
           <Doughnut 
             completed={completed}
@@ -33,6 +41,7 @@ const CardControl = ({ title, completed, requested, expired, notCompleted, submi
             submit={submit}
             confirmed={confirmed}
           />
+          
           <div>
             <p>Total</p>
             <p>{total}</p>

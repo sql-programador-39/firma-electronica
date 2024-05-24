@@ -1,60 +1,72 @@
 import axios from 'axios';
 
 const dictionary = {
-    Completed: 'Completed',
-    Submit: 'Submit',
-    Requested: 'Requested',
-    NotCompleted: 'NotCompleted',
-    Confirmed: 'Confirmed'
+    Completed: 'Completada',
+    Submit: 'Radicada',
+    Requested: 'Solicitada',
+    NotCompleted: 'No Completada',
+    Confirmed: 'Confirmada',
+    Expired: 'Vencida'
 }
 
-axios.defaults.timeout = 3000;
 // Consultamos toda la informacion con respecto a las afiliaciones del servicio de firmas
 
+const getData = async (date, id, token) => {
 
-const getData = async (date) => {
-
-    /* const url = `http://10.1.0.133:1000/api/DigitalSignatureReport/ObtenerReporteTipoOperacion?CompanyId=E8FCFE70-7121-4414-9C28-188925029393&StartDate=${date['dateI']}&EndDate=${date['dateF']}&ReportType=Affiliation`
-    const url2 = `http://10.1.0.133:1000/api/DigitalSignatureReport/ObtenerReporteTipoOperacion?CompanyId=E8FCFE70-7121-4414-9C28-188925029393&StartDate=${date['dateI']}&EndDate=${date['dateF']}&ReportType=DataUpdate`
-    const url3 = `http://10.1.0.133:1000/api/DigitalSignatureReport/ObtenerReporteTipoOperacion?CompanyId=E8FCFE70-7121-4414-9C28-188925029393&StartDate=${date['dateI']}&EndDate=${date['dateF']}&ReportType=CreditRequest` */
-    const url = 'http://10.1.0.133:1000/api/DigitalSignatureReport/ObtenerReporteTipoOperacion?CompanyId=E8FCFE70-7121-4414-9C28-188925029393&ReportType=Affiliation';
-    const url2 = 'http://10.1.0.133:1000/api/DigitalSignatureReport/ObtenerReporteTipoOperacion?CompanyId=E8FCFE70-7121-4414-9C28-188925029393&ReportType=DataUpdate';
-    const url3 = 'http://10.1.0.133:1000/api/DigitalSignatureReport/ObtenerReporteTipoOperacion?CompanyId=E8FCFE70-7121-4414-9C28-188925029393&ReportType=CreditRequest';
+   const url = import.meta.env.VITE_URL + "/api/DigitalSignatureReport/ObtenerReporteConsolidado"
 
     try {
-        const [response, response2, response3] = await Promise.all([ axios.post(url), axios.post(url2), axios.post(url3) ])
         
-        const [data, data2, data3] = await Promise.all([response.data, response2.data, response3.data])
-    
-        const [arrayNovelty, arrayNovelty2, arrayNovelty3] = await Promise.all([sumNovelty(data), sumNovelty(data2), sumNovelty(data3)])
-    
-        return [arrayNovelty, arrayNovelty2, arrayNovelty3]
+        const response = await axios.post(url, {
+            "companyId": id,
+            "startDate": date['dateI'],
+            "endDate": date['dateF'],
+        }, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            }
+        })
+
+        const data = response.data
+
+        const array2 = noveltysCounter(data)
+        const arrayAfiliations = sumNovelty(array2.afiliations)
+        const arrayDataUpdates = sumNovelty(array2.dataUpdates)
+        const arrayCreditRequests = sumNovelty(array2.creditRequests)
+
+        return [arrayAfiliations, arrayDataUpdates, arrayCreditRequests]
     
     } catch (error) {
         throw new Error(error)
     }
 }
 
-/* const getDataWithDate = async (date) => {
+const noveltysCounter = (noveltys) => {
+    
+    if(noveltys === undefined) return
+    let afiliations = []
+    let dataUpdates = []
+    let creditRequests = []
 
-    console.log(date['dateI'], date['dateF']);
+    noveltys.object.forEach(novelty => {
+        if (novelty.TipoSolicitud === 'Afiliación') {
+            afiliations.push(novelty)
+        } else if (novelty.TipoSolicitud === 'Actualización de datos') {
+            dataUpdates.push(novelty)
+        } else if (novelty.TipoSolicitud === 'SolicitudCreditos') {
+            creditRequests.push(novelty)
+        }
+    })
 
-    const url = `http://10.1.0.133:1000/api/DigitalSignatureReport/ObtenerReporteTipoOperacion?CompanyId=E8FCFE70-7121-4414-9C28-188925029393&StartDate=${date['dateI']}&EndDate=${date['dateF']}&ReportType=Affiliation`
-    const url2 = `http://10.1.0.133:1000/api/DigitalSignatureReport/ObtenerReporteTipoOperacion?CompanyId=E8FCFE70-7121-4414-9C28-188925029393&StartDate=${date['dateI']}&EndDate=${date['dateF']}&ReportType=DataUpdate`
-    const url3 = `http://10.1.0.133:1000/api/DigitalSignatureReport/ObtenerReporteTipoOperacion?CompanyId=E8FCFE70-7121-4414-9C28-188925029393&StartDate=${date['dateI']}&EndDate=${date['dateF']}&ReportType=CreditRequest`
-
-    try {
-        const [response, response2, response3] = await Promise.all([ axios.post(url), axios.post(url2), axios.post(url3) ])
-
-        const [data, data2, data3] = await Promise.all([response.data, response2.data, response3.data])
-
-        const [arrayNovelty, arrayNovelty2, arrayNovelty3] = await Promise.all([sumNovelty(data), sumNovelty(data2), sumNovelty(data3)])
-        
-        return [arrayNovelty, arrayNovelty2, arrayNovelty3]
-    } catch (error) {
-        throw new Error(error)
+    const totalNoveltys = {
+        afiliations: afiliations,
+        dataUpdates: dataUpdates,
+        creditRequests: creditRequests
     }
-} */
+
+    return totalNoveltys
+}
 
 //Sumamos la cantidad de solicitudes por estado para poder obtener el total y mostrarlo en el panel de control
 
@@ -70,41 +82,35 @@ const sumNovelty = (noveltys) => {
     let expired = 0
 
 
-    noveltys.object.forEach(element => {
-        if (element.estadoSolicitud === dictionary.Completed) {
+    noveltys.forEach(element => {
+        if (element.Estado === dictionary.Completed) {
             completed++
-        } else if (element.estadoSolicitud === dictionary.Submit) {
+        } else if (element.Estado === dictionary.Submit) {
             submit++
-        } else if (element.estadoSolicitud === dictionary.NotCompleted) {
+        } else if (element.Estado === dictionary.NotCompleted) {
             notCompleted++
-        } else if (element.estadoSolicitud === dictionary.Confirmed) {
+        } else if (element.Estado === dictionary.Confirmed) {
             confirmed++
-        } else if (element.estadoSolicitud === dictionary.Expired) {
+        } else if (element.Estado === dictionary.Expired) {
             expired = 0
-        } else if (element.estadoSolicitud === dictionary.Requested){
+        } else if (element.Estado === dictionary.Requested){
             requested++
         }       
     })
 
-    /* completed = completada
-    submit = radicada
-    requested = solicitada
-    notcompleted = rechazada
-    confirmed = confirmadas */
-
-    return {
-        NoveltysInfo: noveltys,
+    const totalStatus = {
         completed,
-        requested,
         submit,
+        requested,
         notCompleted,
-        expired,
         confirmed,
-        total: noveltys.object.length
+        expired,
+        total: noveltys.length
     }
+
+    return totalStatus
 }
 
 export {
     getData,
-    /* getDataWithDate */
 }

@@ -16,6 +16,8 @@ import CardSkelenton540 from "../../components/Skeletons/CardSkeleton540"
 
 import useNovelty from "../../hooks/useNovelty"
 
+import { useAuth } from "react-oidc-context"
+
 import { validateInitialFinal, validateInitialDate, validateFinalDate } from "../../helpers/datesValidations"
 
 import './ControlPanel.css'
@@ -30,110 +32,34 @@ const ControlPanel = () => {
     actualizaciones, 
     solicitudes, 
     loading, 
-    getInfo, 
-    dateF, 
-    dateI, 
-    setDateF, 
-    setDateI, 
-    company, 
-    setCompany
+    setDateF, dateF,
+    setDateI, dateI,
+    setCompanyId, companyId,
+    companiesArray,
+    getCompanies,
+    getInfo
   } = useNovelty()
+
+  const auth = useAuth()
   
   const [littleAlert, setLittleAlert] = useState({})
   const [skeleton, setSkeleton] = useState('')
 
   useEffect(() => {
 
-
     if(window.innerWidth < 540) {
-
       setSkeleton('0')
     } else if(window.innerWidth > 540 && window.innerWidth < 920) {
-
       setSkeleton('1')
     } else {
-
       setSkeleton('2')
     }
-
-    getInfo({ dateI, dateF })
+    
+    getCompanies()
+    getInfo({ dateI, dateF }, "1a1af3d7-c892-4e80-8225-4a1d5fa1e417", auth.user.access_token)
     
   }, [])
-
-/* 
-  const handleChange = e => {
-
-    const { name, value } = e.target
-
-    switch (name) {
-      case 'company':
-        setCompany(value)
-        break;
-
-      case 'dateI':
-
-        if(!validateInitialFinal(value, dateF)) {
-          setLittleAlert({
-            msg: 'La fecha inicial no puede ser mayor a la fecha final, por favor selecciona una fecha válida.',
-          })
-          
-          setTimeout(() => {
-            setLittleAlert({})
-          }, 4000)
-
-          return
-        }
-
-        if(validateInitialDate(value, dateF)) {
-          setDateI(value)
-          setLittleAlert({})
-        } else {
-          setLittleAlert({
-            msg: 'El rango de fecha no puede ser mayor a 30 días, por favor selecciona un rango válido.',
-          })
-          
-          setTimeout(() => {
-            setLittleAlert({})
-          }, 4000)
-
-          return
-        }
-
-        break;
-
-      case 'dateF':
-        if(!validateInitialFinal(dateI, value)) {
-          setLittleAlert({
-            msg: 'La fecha final no puede ser menor a la fecha inicial, por favor selecciona una fecha válida.',
-          })
-          
-          setTimeout(() => {
-            setLittleAlert({})
-          }, 4000)
-
-          return
-        }
-
-        if(validateFinalDate(value)) {
-          setDateF(value)
-          setLittleAlert({})
-        } else {
-          setLittleAlert({
-            msg: 'La fecha final no puede ser mayor a la fecha del día de hoy, por favor selecciona una fecha válida.',
-          })
-          
-          setTimeout(() => {
-            setLittleAlert({})
-          }, 4000)
-
-          return
-        }
-        break;
-
-      default:
-        break;
-    }
-  } */
+  
 
   const handleClick = async () => {
 
@@ -180,65 +106,65 @@ const ControlPanel = () => {
     }
   }
 
-  
-
   return (
     <>
-
       { littleAlert.msg && <ErrorAlert msg={ littleAlert.msg } /> }
 
-        <div className="header-control-panel">
-            
-            <h1>Panel de control</h1>
+      <div className="header-control-panel"> 
+        <h1>Panel de control</h1>
 
-            <div>
-              <div>
-                <div className="div-date">
-                  <FontAwesomeIcon icon={ faCalendarDays } />
-                </div>
-                <input 
-                  type="date" 
-                  className="input-control" 
-                  value={ dateI }
-                  onChange={ e => setDateI(e.target.value) }
-                  name="dateI"
-                />
-                <span>-</span>
-                <input 
-                  type="date" 
-                  className="input-control" 
-                  value={ dateF }
-                  onChange={ e => setDateF(e.target.value) }
-                  name="dateF"
-                />
-
-                <button className="button-search" onClick={ handleClick }><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
-              </div>
-
-              <div>
-                <div >
-                  <div className="div-company">
-                    <FontAwesomeIcon icon={ faFilter } />
-                  </div>
-                  <select 
-                    className="input-control"
-                    onChange={ e => setCompany(e.target.value) }
-                    value={ company }
-                    name="company"
-                    >
-                    <option value="1">Compañías</option>
-                    <option value="2">Banco 1</option>
-                    <option value="3">Banco 2</option>
-                  </select>
-                </div>
-
-
-                <button className="button-card">
-                  Exportar
-                </button>
-              </div>
+        <div>
+          <div>
+            <div className="div-date">
+              <FontAwesomeIcon icon={ faCalendarDays } />
             </div>
+            <input 
+              type="date" 
+              className="input-control" 
+              value={ dateI }
+              onChange={ e => setDateI(e.target.value) }
+              name="dateI"
+            />
+            <span>-</span>
+            <input 
+              type="date" 
+              className="input-control" 
+              value={ dateF }
+              onChange={ e => setDateF(e.target.value) }
+              name="dateF"
+            />
+
+            <button className="button-search" onClick={ handleClick }><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
+          </div>
+
+          <div>
+            <div >
+              <div className="div-company">
+                <FontAwesomeIcon icon={ faFilter } />
+              </div>
+              <select 
+                className="input-control"
+                onChange={ e => setCompanyId(e.target.value) }
+                value={ companyId }
+                name="company"
+                >
+                <option value=""> --Selecciona-- </option>
+                {
+                  companiesArray.length > 0 && companiesArray.map(item => (
+                    <option key={ item.companyCode } value={ item.companyCode }>{ item.companyName }</option>
+                  ))
+                }
+              </select>
+            </div>
+
+
+            <button className="button-card">
+              Exportar
+            </button>
+          </div>
         </div>
+      </div>
+
       { loading ? (
         <>  
           <section className="charts-section">
@@ -277,7 +203,8 @@ const ControlPanel = () => {
             </div>
             
             <div style={{ margin: '25px 0 30px 0' }}>
-            <h2 style={{ marginBottom: '15px' }}>Actualización de datos</h2>
+              <h2 style={{ marginBottom: '15px' }}>Actualización de datos</h2>
+
               <div className="card-skeleton">
                 <div className="body-card-skeleton">
 
@@ -297,7 +224,8 @@ const ControlPanel = () => {
             </div>
 
             <div style={{ margin: '25px 0 30px 0' }}>
-            <h2 style={{ marginBottom: '15px' }}>Solicitud de crédito</h2>
+              <h2 style={{ marginBottom: '15px' }}>Solicitud de crédito</h2>
+
               <div className="card-skeleton">
                 <div className="body-card-skeleton">
 
@@ -332,9 +260,9 @@ const ControlPanel = () => {
             <div>
               <h2>Solicitudes de firma enviadas</h2>
               <BarChartSends 
-                afiliaciones={ afiliaciones.submit }
-                actualizacion={ actualizaciones?.submit }
-                creditos={ solicitudes?.submit }
+                afiliaciones={ afiliaciones.requested }
+                actualizacion={ actualizaciones?.requested }
+                creditos={ solicitudes?.requested }
               /> 
             </div>
 
@@ -378,6 +306,7 @@ const ControlPanel = () => {
               />
             </div>
             <div style={{ margin: '25px 0 30px 0' }}>
+
               <CardControl 
                 title="Solicitud de crédito"
                 completed={ solicitudes.completed }
@@ -396,11 +325,5 @@ const ControlPanel = () => {
     </>
   )
 }
-
-/* completed = completada
-    submit = radicada
-    requested = solicitada
-    notcompleted = rechazada
-    confirmed = confirmadas */
 
 export default ControlPanel

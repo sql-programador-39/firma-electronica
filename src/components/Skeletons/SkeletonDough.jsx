@@ -1,11 +1,6 @@
-
 import ContentLoader from 'react-content-loader'
 
 const SkeletonDough = ({radius, viewBox, props}) => {
-
-  /* console.log('SkeletonDough props:', props);
-  console.log('SkeletonDough radius:', radius); */
-  
   return (
     <ContentLoader 
       viewBox={viewBox}

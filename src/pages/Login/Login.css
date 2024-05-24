@@ -1,8 +1,8 @@
 .login{
   display: grid;
-  place-items: center;
   height: 100vh;
   grid-template-columns: 1fr 1fr;
+  overflow: hidden;
 }
 
 .info-login {
@@ -15,6 +15,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.loading-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card-loading {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  border-radius: 10px;
+}
+
+.card-loading h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 @media screen and (max-width: 768px){

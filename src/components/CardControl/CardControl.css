@@ -129,6 +129,11 @@
   scale: 1.03;
 }
 
+.button-flex-load {
+  display: flex;
+  justify-content: end;
+}
+
 @media screen and (min-width: 920px) {
   .grid-card{
     display: grid;
@@ -239,6 +244,6 @@
 
 @media (min-width: 1300px) and (max-width: 1440px){
   .total-doughnut div:last-child {
-    top: 53%;
+    top: 48%;
   }
 }

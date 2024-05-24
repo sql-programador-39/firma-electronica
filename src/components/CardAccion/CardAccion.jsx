@@ -3,19 +3,19 @@ import './CardAccion.css'
 
 const CardAccion = ({data}) => {
 
-  const {actionEvent, actionStatus, actionDate} = data;
+  const { actionEventMessage, actionStatusMessage, actionDate} = data;
 
   return (
     <>
       <div className="card-accion">
         
         <h4>Acción</h4>
-        <p>{ actionEvent }</p>
+        <p>{  actionEventMessage }</p>
         
 
         <div>
           <div>
-            <p>{ actionStatus }</p>
+            <p>{ actionStatusMessage }</p>
           </div>
 
           <div>

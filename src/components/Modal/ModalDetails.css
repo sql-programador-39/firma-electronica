@@ -90,6 +90,16 @@
   margin: auto 0;
 }
 
+@keyframes parpadeo {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.parpadeo {
+  animation: parpadeo 1s infinite ease-in-out;
+}
+
 @media screen and (max-width: 820px){
   .modal-info {
     display: flex;
