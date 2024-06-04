@@ -100,7 +100,7 @@ const ControlPanel = () => {
     }
 
     try {
-      getInfo({ dateI, dateF })
+      getInfo({ dateI, dateF }, "1a1af3d7-c892-4e80-8225-4a1d5fa1e417", auth.user.access_token)
     } catch (error) {
       throw new Error(error)
     }

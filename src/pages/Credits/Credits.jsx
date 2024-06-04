@@ -8,7 +8,7 @@ const Credits = () => {
     <div>
       <div className='title-table'>
         <h1>Solicitud de crédito</h1>
-        { innerWidth <= 540 ? <Link to="/control-panel" className='button-card'>Volver</Link> : null }
+        { innerWidth <= 540 ? <Link to="/" className='button-card'>Volver</Link> : null }
       </div>
 
       <TableInfo />

@@ -7,7 +7,7 @@ const Actualization = () => {
     <div>
       <div className='title-table'>
         <h1>Actulización de datos</h1>
-        { innerWidth <= 540 ? <Link to="/control-panel" className='button-card'>Volver</Link> : null }
+        { innerWidth <= 540 ? <Link to="/" className='button-card'>Volver</Link> : null }
       </div>
 
       <TableInfo />
