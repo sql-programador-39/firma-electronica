@@ -7,7 +7,7 @@ import '../../components/CardControl/CardControl.css'
 const LoadingLogin = ({ text, error }) => {
 
   const handleClick = () => {
-    window.location.href = '/login'
+    window.location.href = '/Web/'
   }
 
   return (

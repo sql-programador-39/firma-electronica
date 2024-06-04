@@ -1,6 +1,6 @@
 import './InfoLogin.css'
 
-import img7 from '../../assets/7.webp'
+import FotoLogin from '../../assets/fotoLogin.jpg'
 
 const InfoLogin = () => {
   return (
@@ -10,7 +10,7 @@ const InfoLogin = () => {
       <p className='p-info'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos eum fuga ut delectus saepe suscipit ad placeat maiores minima! Deleniti quod unde beatae minus, corporis praesentium? Laboriosam ipsa officiis alias.</p>
     
       <div className='div-img-info'>
-        <img src={img7} alt='company-logo' className='img-info'/>
+        <img src={ FotoLogin } alt='company-logo' className='img-info'/>
       </div>
     </>
   )

@@ -2,7 +2,7 @@ import { createContext, useState } from 'react'
 import { useAuth } from "react-oidc-context"
 import axios from 'axios'
 
-import {  getData } from "../api/api"
+import { getData } from "../api/api"
 
 const NoveltyContext = createContext()
 
@@ -56,7 +56,7 @@ const NoveltyProvider = ({children}) => {
     } catch (error) {
       if(error.response.status === 401){
         auth.signoutSilent()
-        window.location.href = '/login'
+        window.location.href = '/Web/'
       }
       throw new Error(error)
     }

@@ -34,16 +34,16 @@ const Login = () => {
 
   return (
     <> 
-      {auth.isAuthenticated ? <Navigate to="/" /> : (
+      { auth.isAuthenticated ? <Navigate to="/" /> : (
         <div className="login">
-        <div className="bg-info">
-          <div className="info-login">
-            <InfoLogin />
+          <div className="bg-info">
+            <div className="info-login">
+              <InfoLogin />
+            </div>
           </div>
-        </div>
-        
-        <FormLogin handleClick={handleClick} />
-      </div>   
+          
+          <FormLogin handleClick={handleClick} />
+        </div>   
       )} 
     </>
   )
