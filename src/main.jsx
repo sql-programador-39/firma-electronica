@@ -48,14 +48,16 @@ const routes = ([
   }
   ]);
 
-  export const router = createBrowserRouter( routes );
+  export const router = createBrowserRouter( routes, {
+    basename: '/Web'
+  } );
 
   const oidcConfig = {
     authority: "https://creditosdigitales.opa.com.co/auth",
     client_id: "opa-digitalsignature-demo-dashboard",
-    redirect_uri: window.location.origin + '/',
+    redirect_uri: window.location.origin + '/Web',
     scope: "openid profile email opa-digitalsignature-api",
-    post_logout_redirect_uri: window.location.origin + '/',
+    post_logout_redirect_uri: window.location.origin + '/Web',
   };  
 
 ReactDOM.createRoot(document.getElementById('root')).render(
